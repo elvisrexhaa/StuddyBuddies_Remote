@@ -21,6 +21,7 @@
 		884D13792912AE7300461D11 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 884D13782912AE7300461D11 /* FirebaseFirestore */; };
 		884D137B2912AE7300461D11 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 884D137A2912AE7300461D11 /* FirebaseStorage */; };
 		884D137D2912AEA300461D11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 884D137C2912AEA300461D11 /* GoogleService-Info.plist */; };
+		884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D137E2912BC8600461D11 /* ResetPasswordUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		884D136E2912ABA300461D11 /* SignUpUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUIView.swift; sourceTree = "<group>"; };
 		884D13712912AD4F00461D11 /* AuthLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLog.swift; sourceTree = "<group>"; };
 		884D137C2912AEA300461D11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		884D137E2912BC8600461D11 /* ResetPasswordUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				884D136B2912A6D800461D11 /* LoginUIView.swift */,
 				884D136E2912ABA300461D11 /* SignUpUIView.swift */,
+				884D137E2912BC8600461D11 /* ResetPasswordUI.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
+				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
 				884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */,
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,

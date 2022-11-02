@@ -55,7 +55,7 @@ struct LoginUIView: View {
                     }
                 
                 NavigationLink(destination: {
-//                ResetPasswordUI() // destination for when the user clicks the link.
+               ResetPasswordUI() // destination for when the user clicks the link.
                 }, label: {
                     Spacer()
                     HStack {
