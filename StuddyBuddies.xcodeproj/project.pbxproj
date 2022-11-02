@@ -14,6 +14,7 @@
 		884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13672912A5A600461D11 /* CustomInputEmail.swift */; };
 		884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13692912A5CD00461D11 /* CustomInputPassword.swift */; };
 		884D136C2912A6D800461D11 /* LoginUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D136B2912A6D800461D11 /* LoginUIView.swift */; };
+		884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D136E2912ABA300461D11 /* SignUpUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		884D13672912A5A600461D11 /* CustomInputEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputEmail.swift; sourceTree = "<group>"; };
 		884D13692912A5CD00461D11 /* CustomInputPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputPassword.swift; sourceTree = "<group>"; };
 		884D136B2912A6D800461D11 /* LoginUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIView.swift; sourceTree = "<group>"; };
+		884D136E2912ABA300461D11 /* SignUpUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +59,12 @@
 		884D13572912A3B200461D11 /* StuddyBuddies */ = {
 			isa = PBXGroup;
 			children = (
+				884D136D2912AB8300461D11 /* Views */,
 				884D13662912A59000461D11 /* CustomComponents */,
 				884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */,
 				884D135A2912A3B200461D11 /* ContentView.swift */,
 				884D135C2912A3B300461D11 /* Assets.xcassets */,
 				884D135E2912A3B300461D11 /* Preview Content */,
-				884D136B2912A6D800461D11 /* LoginUIView.swift */,
 			);
 			path = StuddyBuddies;
 			sourceTree = "<group>";
@@ -82,6 +84,15 @@
 				884D13692912A5CD00461D11 /* CustomInputPassword.swift */,
 			);
 			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		884D136D2912AB8300461D11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				884D136B2912A6D800461D11 /* LoginUIView.swift */,
+				884D136E2912ABA300461D11 /* SignUpUIView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
+				884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */,
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
