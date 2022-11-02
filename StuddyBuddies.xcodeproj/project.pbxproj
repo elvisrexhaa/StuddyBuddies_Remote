@@ -11,6 +11,9 @@
 		884D135B2912A3B200461D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D135A2912A3B200461D11 /* ContentView.swift */; };
 		884D135D2912A3B300461D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884D135C2912A3B300461D11 /* Assets.xcassets */; };
 		884D13602912A3B300461D11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884D135F2912A3B300461D11 /* Preview Assets.xcassets */; };
+		884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13672912A5A600461D11 /* CustomInputEmail.swift */; };
+		884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13692912A5CD00461D11 /* CustomInputPassword.swift */; };
+		884D136C2912A6D800461D11 /* LoginUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D136B2912A6D800461D11 /* LoginUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		884D135A2912A3B200461D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		884D135C2912A3B300461D11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		884D135F2912A3B300461D11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		884D13672912A5A600461D11 /* CustomInputEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputEmail.swift; sourceTree = "<group>"; };
+		884D13692912A5CD00461D11 /* CustomInputPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputPassword.swift; sourceTree = "<group>"; };
+		884D136B2912A6D800461D11 /* LoginUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +57,12 @@
 		884D13572912A3B200461D11 /* StuddyBuddies */ = {
 			isa = PBXGroup;
 			children = (
+				884D13662912A59000461D11 /* CustomComponents */,
 				884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */,
 				884D135A2912A3B200461D11 /* ContentView.swift */,
 				884D135C2912A3B300461D11 /* Assets.xcassets */,
 				884D135E2912A3B300461D11 /* Preview Content */,
+				884D136B2912A6D800461D11 /* LoginUIView.swift */,
 			);
 			path = StuddyBuddies;
 			sourceTree = "<group>";
@@ -65,6 +73,15 @@
 				884D135F2912A3B300461D11 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		884D13662912A59000461D11 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				884D13672912A5A600461D11 /* CustomInputEmail.swift */,
+				884D13692912A5CD00461D11 /* CustomInputPassword.swift */,
+			);
+			path = CustomComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884D136C2912A6D800461D11 /* LoginUIView.swift in Sources */,
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
+				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
+				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
