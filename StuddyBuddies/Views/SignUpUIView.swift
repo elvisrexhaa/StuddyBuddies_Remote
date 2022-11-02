@@ -1,7 +1,7 @@
 
 
 import SwiftUI
-// import Firebase
+import Firebase
 
 struct SignUpView: View {
     
@@ -21,7 +21,7 @@ struct SignUpView: View {
     @State var username : String = ""
     @State var password : String = ""
     
-//    @EnvironmentObject var viewModel: AuthLog
+    @EnvironmentObject var viewModel: AuthLog
     
     var body: some View {
         
@@ -75,7 +75,7 @@ struct SignUpView: View {
                     
                     Spacer()
                     Button {
-//                        viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
+                       viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
                     } label: {
                         Text ("Sign Up")
                     }

@@ -1,9 +1,11 @@
 
 
 import SwiftUI
-
+import Firebase
 
 struct LoginUIView: View {
+    
+    @EnvironmentObject var viewModel: AuthLog
     
     @State var email: String = "" // state property of the variable email and assigned an empty string to it
     @State var firstname : String = ""
@@ -53,7 +55,7 @@ struct LoginUIView: View {
                     }
                 
                 NavigationLink(destination: {
-//                    ResetPasswordUI() // destination for when the user clicks the link.
+//                ResetPasswordUI() // destination for when the user clicks the link.
                 }, label: {
                     Spacer()
                     HStack {
@@ -70,7 +72,7 @@ struct LoginUIView: View {
                 
                 
                 Button {
-//                    viewModel.login(withEmail: email, password: password)
+                viewModel.login(withEmail: email, password: password)
                     
                 } label: {
                     Text ("Login")
@@ -86,7 +88,7 @@ struct LoginUIView: View {
                 .offset(y:130)
                 
                 Button {
-//                    viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
+                    viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
                     
                 } label: {
                     Text ("Sign Up")
@@ -102,8 +104,8 @@ struct LoginUIView: View {
                 
                 
                 NavigationLink(destination: {
-//                    SignUpView() // destination for when the user clicks the link.
-//                        .navigationBarHidden(true) // hide the back bar when this destination is accessed
+                   SignUpView() // destination for when the user clicks the link.
+                      .navigationBarHidden(true) // hide the back bar when this destination is accessed
                 }, label: {
                     Text("Dont have an account? Sign up here!")
                 })
