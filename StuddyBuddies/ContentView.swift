@@ -1,28 +1,31 @@
 
-
 import SwiftUI
-
+import Firebase
 
 struct ContentView: View {
+    
+    @EnvironmentObject var viewModel: AuthLog
+    
     var body: some View {
         
-        LoginUIView()
+        if viewModel.userLogged == nil {
+            LoginUIView()
+            
+        } else {
+            MainView()
+        }
         
+
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-        
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+                .environmentObject(AuthLog())
+        }
     }
     
-}
-
-
-
-
-
-
 
