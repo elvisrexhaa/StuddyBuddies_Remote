@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88471E852953523200DE5B02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88471E842953523200DE5B02 /* GoogleService-Info.plist */; };
 		884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */; };
 		884D135B2912A3B200461D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D135A2912A3B200461D11 /* ContentView.swift */; };
 		884D135D2912A3B300461D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884D135C2912A3B300461D11 /* Assets.xcassets */; };
@@ -20,13 +21,15 @@
 		884D13772912AE7300461D11 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 884D13762912AE7300461D11 /* FirebaseDatabase */; };
 		884D13792912AE7300461D11 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 884D13782912AE7300461D11 /* FirebaseFirestore */; };
 		884D137B2912AE7300461D11 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 884D137A2912AE7300461D11 /* FirebaseStorage */; };
-		884D137D2912AEA300461D11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 884D137C2912AEA300461D11 /* GoogleService-Info.plist */; };
 		884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D137E2912BC8600461D11 /* ResetPasswordUI.swift */; };
 		884D13812912BD7100461D11 /* MainViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13802912BD7100461D11 /* MainViewUI.swift */; };
 		884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13822912BDB100461D11 /* TabBarCustom.swift */; };
+		887958F52916D44E006A6B19 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F42916D44E006A6B19 /* ProfileView.swift */; };
+		887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F62919817F006A6B19 /* FavouritesUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88471E842953523200DE5B02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		884D13552912A3B200461D11 /* StuddyBuddies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StuddyBuddies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuddyBuddiesApp.swift; sourceTree = "<group>"; };
 		884D135A2912A3B200461D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,10 +40,11 @@
 		884D136B2912A6D800461D11 /* LoginUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIView.swift; sourceTree = "<group>"; };
 		884D136E2912ABA300461D11 /* SignUpUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUIView.swift; sourceTree = "<group>"; };
 		884D13712912AD4F00461D11 /* AuthLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLog.swift; sourceTree = "<group>"; };
-		884D137C2912AEA300461D11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		884D137E2912BC8600461D11 /* ResetPasswordUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUI.swift; sourceTree = "<group>"; };
 		884D13802912BD7100461D11 /* MainViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewUI.swift; sourceTree = "<group>"; };
 		884D13822912BDB100461D11 /* TabBarCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCustom.swift; sourceTree = "<group>"; };
+		887958F42916D44E006A6B19 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		887958F62919817F006A6B19 /* FavouritesUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +87,7 @@
 				884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */,
 				884D135A2912A3B200461D11 /* ContentView.swift */,
 				884D135C2912A3B300461D11 /* Assets.xcassets */,
-				884D137C2912AEA300461D11 /* GoogleService-Info.plist */,
+				88471E842953523200DE5B02 /* GoogleService-Info.plist */,
 				884D135E2912A3B300461D11 /* Preview Content */,
 			);
 			path = StuddyBuddies;
@@ -114,6 +118,8 @@
 				884D136E2912ABA300461D11 /* SignUpUIView.swift */,
 				884D137E2912BC8600461D11 /* ResetPasswordUI.swift */,
 				884D13802912BD7100461D11 /* MainViewUI.swift */,
+				887958F42916D44E006A6B19 /* ProfileView.swift */,
+				887958F62919817F006A6B19 /* FavouritesUI.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,8 +200,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				884D13602912A3B300461D11 /* Preview Assets.xcassets in Resources */,
+				88471E852953523200DE5B02 /* GoogleService-Info.plist in Resources */,
 				884D135D2912A3B300461D11 /* Assets.xcassets in Resources */,
-				884D137D2912AEA300461D11 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,12 +215,14 @@
 				884D136C2912A6D800461D11 /* LoginUIView.swift in Sources */,
 				884D13812912BD7100461D11 /* MainViewUI.swift in Sources */,
 				884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */,
+				887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */,
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
 				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
 				884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */,
+				887958F52916D44E006A6B19 /* ProfileView.swift in Sources */,
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,11 +355,12 @@
 				DEVELOPMENT_TEAM = DMGRYYH4JQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = StudyBuddies;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,6 +368,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = StudyBuddiess.StuddyBuddies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -376,11 +388,12 @@
 				DEVELOPMENT_TEAM = DMGRYYH4JQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = StudyBuddies;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,6 +401,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = StudyBuddiess.StuddyBuddies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -30,5 +30,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:330811776677:ios:90cc96717634496739374c</string>
+	<key>DATABASE_URL</key>
+	<string>https://studybuddies-22b00-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>

@@ -2,6 +2,7 @@
 import SwiftUI
 import Firebase
 
+
 class AuthLog: ObservableObject {
     
     @Published var userLogged: FirebaseAuth.User?
@@ -14,30 +15,29 @@ class AuthLog: ObservableObject {
     
     func logOut() {
         
-        let auth = Auth.auth()
+        self.userLogged = nil
         
-        try? auth.signOut() // logout user from backend which in this case is firebase
-
-        self.userLogged == nil
-    
+        let auth = Auth.auth()
+        try? auth.signOut() // logout user from backend which in this case is firebase (Optional)
+        
+        
         
     }
     
     
-    func login(withEmail email: String, password: String) {
+    func login(withEmail email: String, password: String) { //parameters required for this function to be used
         
         
-        Auth.auth().signIn(withEmail: email, password: password) { Result, error in
-            if error != nil {
+        Auth.auth().signIn(withEmail: email, password: password) { Result, error in // sign in will either produce a result or an error and perform right activity depending on what occurs
+            if error != nil { // checks to see if there is an error - if so, print this statement below
                 print("Could not login, \(error!.localizedDescription)")
                 return
             }
-            guard let user = Result?.user else {return}
+            guard let user = Result?.user else {return} // fast exist, if result is succesful then return user
             
             self.userLogged = user
         }
-        
-        
+
     }
     
     func signup(withEmail email: String, firstname: String, lastname: String, username: String, password: String)
@@ -52,6 +52,15 @@ class AuthLog: ObservableObject {
             self.userLogged = user
             
             
+            
+            // assigns constant " data" to the following info so then the data can get retrieved
+            let data = ["uid": user.uid, "username": username.lowercased(), "email": email, "firstname":firstname, "lastname": lastname]
+            
+            Firestore.firestore().collection("users")
+                .document(user.uid)
+                .setData (data) { _ in
+                    print("Uploaded users data...")
+                }
         }
         
     }
@@ -63,9 +72,11 @@ class AuthLog: ObservableObject {
                 return
             }
             else {
-                print ("Successfully reset password. Check your inbox")
+                print ("Check your inbox to reset password")
             }
         }
     }
+       
+    }
     
-}
+
