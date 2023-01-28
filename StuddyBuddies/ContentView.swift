@@ -12,20 +12,20 @@ struct ContentView: View {
             LoginUIView()
             
         } else {
-            MainView()
+            MainViewUI()
         }
         
-
+        
     }
 }
 
-    
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-                .environmentObject(AuthLog())
-        }
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .environmentObject(AuthLog())
     }
-    
+}
+
 

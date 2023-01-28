@@ -11,9 +11,7 @@ struct SignUpView: View {
         navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
               }
     
-    
-    
-    
+
     //declared state properties which will be used below for the sign up page
     @State var email : String = ""
     @State var firstname: String = ""

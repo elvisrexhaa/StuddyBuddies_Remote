@@ -10,9 +10,9 @@ struct ResetPasswordUI: View {
         navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         navBarColor.titleTextAttributes = [.foregroundColor: UIColor.white]
-              }
+    }
     
-        
+    
     @State private var email: String = ""
     
     @Environment (\.presentationMode) var presentationMode
@@ -29,7 +29,7 @@ struct ResetPasswordUI: View {
                 
                 
                 
-                VStack {
+                VStack (spacing: 20) {
                     CustomInputEmail(placeHolder: "Email", text: $email, imageName: "envelope.circle")
                         .foregroundColor(.white)
                     
@@ -46,7 +46,12 @@ struct ResetPasswordUI: View {
                     .padding(.all)
                     .shadow(color: .gray.opacity(0.3), radius: 10, x: 0, y: 0)
                     
-
+                    
+                    Text("We'll email you a link to reset your password")
+                        .foregroundColor(.white)
+                        .font(.system(size: 15))
+                    
+                    
                 }
                 
                 VStack {
@@ -57,9 +62,11 @@ struct ResetPasswordUI: View {
                         HStack {
                             Text("Return to login")
                                 .foregroundColor(.white)
+                                .bold()
+                            
                         }
                     }
-
+                    
                 }
                 
                 

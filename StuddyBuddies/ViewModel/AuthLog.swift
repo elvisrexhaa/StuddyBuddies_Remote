@@ -1,7 +1,6 @@
-
 import SwiftUI
 import Firebase
-
+import FirebaseAuth
 
 class AuthLog: ObservableObject {
     
@@ -20,10 +19,7 @@ class AuthLog: ObservableObject {
         let auth = Auth.auth()
         try? auth.signOut() // logout user from backend which in this case is firebase (Optional)
         
-        
-        
     }
-    
     
     func login(withEmail email: String, password: String) { //parameters required for this function to be used
         
@@ -52,18 +48,15 @@ class AuthLog: ObservableObject {
             self.userLogged = user
             
             
-            
             // assigns constant " data" to the following info so then the data can get retrieved
-            let data = ["uid": user.uid, "username": username.lowercased(), "email": email, "firstname":firstname, "lastname": lastname]
+            let data = ["userid": user.uid, "Username": username.lowercased(), "Email": email, "Firstname":firstname, "Lastname": lastname]
             
-            Firestore.firestore().collection("users")
+            Firestore.firestore().collection("userData")
                 .document(user.uid)
-                .setData (data) { _ in
+                .setData(data)
                     print("Uploaded users data...")
                 }
         }
-        
-    }
     
     func resetPassword(withEmail email: String) {
         Auth.auth().sendPasswordReset(withEmail: email ) { (error) in
@@ -76,7 +69,13 @@ class AuthLog: ObservableObject {
             }
         }
     }
-       
+        
     }
+    
+    
+
+
+       
+    
     
 

@@ -5,11 +5,14 @@ import SwiftUI
 enum tabComponets: String, CaseIterable {
     
     case house // main page UI
-    case heart // likes page UI
+    case star // likes page UI
     case message // chat page UI
     case gearshape // settings page UI
     
 }
+
+
+
 
 
 struct TabBarCustom: View {
@@ -26,8 +29,8 @@ struct TabBarCustom: View {
         switch tabSelected {
         case .house:
             return Color.blue
-        case .heart:
-            return Color.red
+        case .star:
+            return Color.yellow
         case .message:
             return Color.green
         case .gearshape:
@@ -41,11 +44,12 @@ struct TabBarCustom: View {
         
         
             
-            
             VStack {
+                
                 
             
                 HStack (spacing: 80) {
+                    
                     
                     ForEach (tabComponets.allCases, id: \.rawValue) { tabView in
                         
@@ -57,11 +61,14 @@ struct TabBarCustom: View {
                                     tabSelected = tabView
                                 }
                             }
-                        
+                           
                     
                         
                         
                     }
+                    
+                    
+                   
                           
             }
             .frame(width: 400, height: 70)

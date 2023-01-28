@@ -17,23 +17,23 @@ struct LoginUIView: View {
         
         ZStack {
             
-            LinearGradient(colors: [.indigo, .black.opacity(0.6)], startPoint: .topLeading, endPoint: .bottomTrailing)
-                
-                
+            LinearGradient(colors: [.red, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+            
+            
             
             VStack (spacing: 16)  {
-                Image ("main")
+                Image ("studybuddies")
                     .resizable()
                     .scaledToFit()
                     .offset(y: -270)
                     .padding(.all)
                 
                 Text ("Welcome to StudyBuddies. Please sign in or sign up to get started!")
-                    .font(.system(size: 24, weight: .medium, design: .default))
+                    .font(.system(size: 20, weight: .medium, design: .default))
                     .foregroundColor(.white)
                     .padding(.all)
                     .multilineTextAlignment(.center)
-                    .offset(y: -330)
+                    .offset(y: -370)
             }
             
             
@@ -42,6 +42,7 @@ struct LoginUIView: View {
                     .foregroundColor(.white)
                     .offset(y: 100)
                     .placeholder(when: email.isEmpty) {
+                        
                         
                         
                     }
@@ -55,12 +56,12 @@ struct LoginUIView: View {
                     }
                 
                 NavigationLink(destination: {
-               ResetPasswordUI() // destination for when the user clicks the link.
+                    ResetPasswordUI() // destination for when the user clicks the link.
                 }, label: {
                     Spacer()
                     HStack {
                         Text("Forgotten your password?")
-                            
+                        
                             .padding(.trailing)
                     }
                 })
@@ -72,7 +73,7 @@ struct LoginUIView: View {
                 
                 
                 Button {
-                viewModel.login(withEmail: email, password: password)
+                    viewModel.login(withEmail: email, password: password)
                     
                 } label: {
                     Text ("Login")
@@ -104,15 +105,19 @@ struct LoginUIView: View {
                 
                 
                 NavigationLink(destination: {
-                   SignUpView() // destination for when the user clicks the link.
-                      .navigationBarHidden(true) // hide the back bar when this destination is accessed
+                    SignUpView() // destination for when the user clicks the link.
+                        .navigationBarHidden(true) // hide the back bar when this destination is accessed
                 }, label: {
-                    Text("Dont have an account? Sign up here!")
+                    HStack (spacing: 2) {
+                        Text("Dont have an account?")
+                        Text("Sign up here!")
+                            .bold()
+                    }
                 })
                 .offset(y: 200)
                 .foregroundColor(.white)
-                .bold()
-            
+                
+                
             }
             
         }

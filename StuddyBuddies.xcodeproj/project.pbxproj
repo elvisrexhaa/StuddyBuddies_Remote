@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */; };
+		883E00A32985979B005241C2 /* CardViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00A22985979B005241C2 /* CardViewUI.swift */; };
 		88471E852953523200DE5B02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88471E842953523200DE5B02 /* GoogleService-Info.plist */; };
 		884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */; };
 		884D135B2912A3B200461D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D135A2912A3B200461D11 /* ContentView.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorUI.swift; sourceTree = "<group>"; };
+		883E00A22985979B005241C2 /* CardViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewUI.swift; sourceTree = "<group>"; };
 		88471E842953523200DE5B02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		884D13552912A3B200461D11 /* StuddyBuddies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StuddyBuddies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuddyBuddiesApp.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				884D13802912BD7100461D11 /* MainViewUI.swift */,
 				887958F42916D44E006A6B19 /* ProfileView.swift */,
 				887958F62919817F006A6B19 /* FavouritesUI.swift */,
+				881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */,
+				883E00A22985979B005241C2 /* CardViewUI.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,11 +224,13 @@
 				887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */,
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
+				881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */,
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
 				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
 				884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */,
 				887958F52916D44E006A6B19 /* ProfileView.swift in Sources */,
+				883E00A32985979B005241C2 /* CardViewUI.swift in Sources */,
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
