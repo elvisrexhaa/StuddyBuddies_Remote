@@ -10,16 +10,20 @@ import SwiftUI
 struct CardViewUI: View {
     var body: some View {
         
+        
+        
         ZStack {
             
-            LinearGradient(colors: [.red, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
+                LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+            
+           
             
             Image("wave")
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(20)
                 .padding(.all)
+                
             
             
             HStack {
@@ -42,6 +46,7 @@ struct CardViewUI: View {
             
 
         }
+        .edgesIgnoringSafeArea(.all)
         
        
     

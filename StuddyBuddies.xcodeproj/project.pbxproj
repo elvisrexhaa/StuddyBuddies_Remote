@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */; };
 		883E00A32985979B005241C2 /* CardViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00A22985979B005241C2 /* CardViewUI.swift */; };
+		883E00A62987E206005241C2 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00A52987E206005241C2 /* AppData.swift */; };
+		883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00AB298AA0A7005241C2 /* CustomTabBar.swift */; };
 		88471E852953523200DE5B02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88471E842953523200DE5B02 /* GoogleService-Info.plist */; };
 		884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */; };
 		884D135B2912A3B200461D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D135A2912A3B200461D11 /* ContentView.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorUI.swift; sourceTree = "<group>"; };
 		883E00A22985979B005241C2 /* CardViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewUI.swift; sourceTree = "<group>"; };
+		883E00A52987E206005241C2 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		883E00AB298AA0A7005241C2 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		88471E842953523200DE5B02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		884D13552912A3B200461D11 /* StuddyBuddies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StuddyBuddies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuddyBuddiesApp.swift; sourceTree = "<group>"; };
@@ -66,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		883E00A42987E1EA005241C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				883E00A52987E206005241C2 /* AppData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		884D134C2912A3B200461D11 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +97,7 @@
 		884D13572912A3B200461D11 /* StuddyBuddies */ = {
 			isa = PBXGroup;
 			children = (
+				883E00A42987E1EA005241C2 /* Model */,
 				884D13702912AD3A00461D11 /* ViewModel */,
 				884D136D2912AB8300461D11 /* Views */,
 				884D13662912A59000461D11 /* CustomComponents */,
@@ -111,6 +124,7 @@
 				884D13672912A5A600461D11 /* CustomInputEmail.swift */,
 				884D13692912A5CD00461D11 /* CustomInputPassword.swift */,
 				884D13822912BDB100461D11 /* TabBarCustom.swift */,
+				883E00AB298AA0A7005241C2 /* CustomTabBar.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -222,6 +236,7 @@
 				884D13812912BD7100461D11 /* MainViewUI.swift in Sources */,
 				884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */,
 				887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */,
+				883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */,
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
 				881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */,
@@ -232,6 +247,7 @@
 				887958F52916D44E006A6B19 /* ProfileView.swift in Sources */,
 				883E00A32985979B005241C2 /* CardViewUI.swift in Sources */,
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,
+				883E00A62987E206005241C2 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

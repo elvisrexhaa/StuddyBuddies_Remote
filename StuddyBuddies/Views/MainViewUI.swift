@@ -13,65 +13,33 @@ struct MainViewUI: View {
         
         ZStack {
             
-            LinearGradient(colors: [.red, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
             
            
             VStack {
-                HStack (alignment: .top) {
-                    NavigationLink(destination: ProfilePhotoSelectorUI()) {
-                        Image(systemName: "person")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
-                    }
-                    Spacer()
-                    NavigationLink(destination: MainViewUI()) {
-                        Text ("Studdy Buddies")
-                            .font(.system(size: 20))
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    Spacer()
-                    NavigationLink(destination: ProfilePhotoSelectorUI()) {
-                        Image(systemName: "message")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
-                    }
+                
+                Text ("Hello")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+                   
                     
-                }
-                .foregroundColor(.white)
-                .bold()
-                .padding(.all)
-                .padding(.top, 100)
-                
-                
-                Button {
-                    viewModel.logOut()
-                } label: {
-                    Text ("Log Out Here")
-                        .foregroundColor(.black)
-                        .bold()
-                        .frame(width: 350, height: 50)
-                        .background(.white)
-                        .cornerRadius(20)
-                        
-                        
-                }
-                .offset(y:700)
 
                 
+                Divider()
                 
                 
+                CustomTabBar(currentSelection: 1)
                 
-                
+
+                    
             }
-            .padding(.bottom, 800)
             
             
             
             
             
+          
         }
         
         

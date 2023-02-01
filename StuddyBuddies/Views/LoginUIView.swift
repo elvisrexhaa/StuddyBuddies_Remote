@@ -17,7 +17,7 @@ struct LoginUIView: View {
         
         ZStack {
             
-            LinearGradient(colors: [.red, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
             
             
             

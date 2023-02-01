@@ -7,6 +7,8 @@ struct StuddyBuddiesApp: App {
     
     @StateObject var viewModel = AuthLog() // initialise the object within the main swift file so it doesnt have to be initialised elsewhere.
     
+   
+    
     
     init() {
         FirebaseApp.configure()
@@ -33,6 +35,9 @@ struct StuddyBuddiesApp: App {
         }
     }
 }
+
+
+
 
 
 

@@ -21,12 +21,14 @@ struct SignUpView: View {
     
     @EnvironmentObject var viewModel: AuthLog
     
+    
+    
     var body: some View {
         
         NavigationView {
             ZStack {
                 
-                LinearGradient(colors: [.red, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
                 
                 
