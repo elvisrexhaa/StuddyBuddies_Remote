@@ -4,43 +4,66 @@ import SwiftUI
 
 struct MainViewUI: View {
     
+    let tab = TabBarView()
+    
     @EnvironmentObject var viewModel: AuthLog
-    
-    
-    @State private var tabSelected : tabComponets = .house
     
     var body: some View {
         
-        ZStack {
+        
+        
+        
+        VStack (spacing: -60)  {
             
-            LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
-            
-           
-            VStack {
-                
-                Text ("Hello")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                   
+            //top stack for the main view
+            HStack {
+                NavigationLink(destination: ProfileView()) {
+                    Image("user")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 55, height: 55)
+                        .shadow(color: .blue, radius: 1)
                     
-
+                }
                 
-                Divider()
+                Spacer()
                 
-                
-                CustomTabBar(currentSelection: 1)
-                
-
+                NavigationLink(destination: MainViewUI()) {
+                    Image("mainViewTitle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 225)
                     
+                    
+                    
+                }
+                .navigationBarBackButtonHidden(true)
+                
+                Spacer()
+                
+                NavigationLink(destination: settingsView()) {
+                    Image("settings")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 55, height: 55)
+                        .shadow(color: .blue, radius: 1)
+                    
+                }
+                
             }
+            .padding(.horizontal)
             
             
             
+            CardUI()
             
             
-          
+
+            
+            
+            
         }
+        
         
         
     }
@@ -48,6 +71,7 @@ struct MainViewUI: View {
     struct MainView_Previews: PreviewProvider {
         static var previews: some View {
             MainViewUI()
+            
         }
     }
     

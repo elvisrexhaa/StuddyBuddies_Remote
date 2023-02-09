@@ -11,10 +11,10 @@ struct FavouritesUI: View {
 
     
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+        VStack {
+            Text("Star page")
         }
-        .edgesIgnoringSafeArea(.all)
+       
         
     }
 }

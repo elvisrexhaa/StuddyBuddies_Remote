@@ -22,7 +22,7 @@ struct StuddyBuddiesApp: App {
                 //TabBarCustom(tabSelected: .constant(.gearshape))
                 
                 //SignUpView()
-//                MainViewUI()
+//          MainViewUI()
                 
                 
             }

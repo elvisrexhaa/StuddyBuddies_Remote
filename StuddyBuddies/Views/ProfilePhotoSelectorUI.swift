@@ -50,7 +50,7 @@ struct ProfilePhotoSelectorUI: View {
     init() { // initialiser method used to make the navigation title colour white. When executed the code will run through init method first.
         
         let navBarColor = UINavigationBar.appearance()
-        navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
               }
     
     var body: some View {
@@ -59,9 +59,7 @@ struct ProfilePhotoSelectorUI: View {
 
         NavigationView() {
             ZStack {
-                LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .edgesIgnoringSafeArea(.all)
-                
+
                 if selectedImage != nil {
                     Image(uiImage: selectedImage!)
                         .resizable()
@@ -91,7 +89,7 @@ struct ProfilePhotoSelectorUI: View {
     
                         }
                         .padding(.bottom, 400)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
 
                     }
                     

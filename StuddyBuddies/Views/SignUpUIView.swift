@@ -1,5 +1,4 @@
 
-
 import SwiftUI
 import Firebase
 
@@ -100,19 +99,18 @@ struct SignUpView: View {
                     } label: {
                         HStack (spacing: 2 ) {
                             Text("Already have an account?")
-                            Text("Login")
+                            Text("Login Here")
                                 .bold()
                         }
                     }
                     
                 }
-                
-                
+  
             }
-            .navigationTitle("Sign Up Here")
+            .navigationTitle("Sign Up")
             .navigationBarBackButtonHidden(true)
             .foregroundColor(.white)
-         
+            
         }
         
         

@@ -12,7 +12,7 @@ struct ContentView: View {
             LoginUIView()
             
         } else {
-            MainViewUI()
+            CustomTabBar()
         }
         
         

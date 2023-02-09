@@ -22,11 +22,16 @@ struct LoginUIView: View {
             
             
             VStack (spacing: 16)  {
-                Image ("studybuddies")
+                Image ("studybuddies1")
                     .resizable()
                     .scaledToFit()
-                    .offset(y: -270)
+                    .offset(y: -300)
                     .padding(.all)
+                    .frame(width: 300, height: 300)
+                
+                
+                
+                
                 
                 Text ("Welcome to StudyBuddies. Please sign in or sign up to get started!")
                     .font(.system(size: 20, weight: .medium, design: .default))

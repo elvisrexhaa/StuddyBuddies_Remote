@@ -77,10 +77,9 @@ struct CustomTabBar: View {
                         }
     
                     }
-                    .frame(width: 400, height: 65)
+                    .frame(width: 400, height: 70)
                     .background(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .cornerRadius(30)
-                    .shadow(color: .gray, radius: 2)
                     
 
                 
