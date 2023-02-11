@@ -14,32 +14,50 @@ struct CardUI: View {
     var body: some View {
         
         
-        VStack {
+        VStack (spacing: -150) {
             
             Spacer()
             
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                Image("wave")
-                    .resizable()
-                    .cornerRadius(20)
-            }
-            .padding(.all)
+
+            HStack {
+                ZStack (alignment: .leading) {
+                    Image("wave")
+                        .resizable()
+                        .cornerRadius(20)
+                        
+                    
+                    VStack (alignment: .leading) {
+                        Spacer()
+                        HStack {
+                            Text ("Elvis")
+                                .font(.system(.largeTitle, design: .rounded))
+                                .bold()
+                            
+                            
+                            Text("22")
+                            
+                            
+                            Spacer()
+                        }
+                        .foregroundColor(.white)
+                        
+                        Text("Studying: Computer Science")
+                            .foregroundColor(.white)
+                        Text("Bio: I like to play football")
+                            .foregroundColor(.white)
+                    }
+                    .font(.system(size: 20, design: .rounded))
+                    .padding()
+                }
+                .padding(8)
             .frame(height: 570)
-            
-            Spacer()
-            
-            Button {
-                viewModel.logOut()
-            } label: {
-                Text("logOut")
             }
             
             Spacer()
+
             
             
-            
-            
+
         }
         
  

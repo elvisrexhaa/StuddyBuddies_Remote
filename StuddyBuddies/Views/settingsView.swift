@@ -3,9 +3,28 @@
 import SwiftUI
 
 struct settingsView: View {
+    
+    @EnvironmentObject private var viewModel: AuthLog
     var body: some View {
-        Text("Settings View")
-            .font(.system(size: 40))
+        
+        NavigationView {
+    
+        Button {
+            viewModel.logOut()
+        } label: {
+            Text("Logout")
+                .font(.system(size: 30, weight: .medium, design: .monospaced))
+        }
+        .font(.system(size: 40))
+        .frame(width: 150, height: 60)
+        .background(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
+        .cornerRadius(30)
+        .foregroundColor(.white)
+        
+    }
+        .navigationTitle("Settings")
+        
+        
     }
 }
 

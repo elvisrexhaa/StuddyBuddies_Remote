@@ -11,9 +11,7 @@
 		883E00A62987E206005241C2 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00A52987E206005241C2 /* AppData.swift */; };
 		883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00AB298AA0A7005241C2 /* CustomTabBar.swift */; };
 		883E00AE29913BD9005241C2 /* ChatIntegrationUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00AD29913BD9005241C2 /* ChatIntegrationUI.swift */; };
-		883E00B22992CE5E005241C2 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00B12992CE5E005241C2 /* TabBarView.swift */; };
 		883E00B42992CE92005241C2 /* CardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00B32992CE92005241C2 /* CardUI.swift */; };
-		883E00B6299528FE005241C2 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00B5299528FE005241C2 /* TabBar.swift */; };
 		883E00B829952B2F005241C2 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00B729952B2F005241C2 /* settingsView.swift */; };
 		88471E852953523200DE5B02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88471E842953523200DE5B02 /* GoogleService-Info.plist */; };
 		884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */; };
@@ -41,9 +39,7 @@
 		883E00A52987E206005241C2 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		883E00AB298AA0A7005241C2 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		883E00AD29913BD9005241C2 /* ChatIntegrationUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatIntegrationUI.swift; sourceTree = "<group>"; };
-		883E00B12992CE5E005241C2 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		883E00B32992CE92005241C2 /* CardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUI.swift; sourceTree = "<group>"; };
-		883E00B5299528FE005241C2 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		883E00B729952B2F005241C2 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		88471E842953523200DE5B02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		884D13552912A3B200461D11 /* StuddyBuddies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StuddyBuddies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,8 +129,6 @@
 				884D13692912A5CD00461D11 /* CustomInputPassword.swift */,
 				884D13822912BDB100461D11 /* TabBarCustom.swift */,
 				883E00AB298AA0A7005241C2 /* CustomTabBar.swift */,
-				883E00B12992CE5E005241C2 /* TabBarView.swift */,
-				883E00B5299528FE005241C2 /* TabBar.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -246,7 +240,6 @@
 			files = (
 				884D136C2912A6D800461D11 /* LoginUIView.swift in Sources */,
 				884D13812912BD7100461D11 /* MainViewUI.swift in Sources */,
-				883E00B6299528FE005241C2 /* TabBar.swift in Sources */,
 				884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */,
 				887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */,
 				883E00B829952B2F005241C2 /* settingsView.swift in Sources */,
@@ -257,7 +250,6 @@
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
 				883E00B42992CE92005241C2 /* CardUI.swift in Sources */,
 				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
-				883E00B22992CE5E005241C2 /* TabBarView.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
 				884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */,
 				883E00AE29913BD9005241C2 /* ChatIntegrationUI.swift in Sources */,
@@ -401,6 +393,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,6 +427,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
