@@ -19,13 +19,13 @@ struct CustomInputPassword: View {
                     .padding(.leading)
                     
                 SecureField(placeHolder, text: $text)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .bold()
                 
                     
             }
             Divider() // creates a divider between the email and password - also added a frame to display it
-                .frame(width: 400, height: 3)
+                .frame(width: 400, height: 1)
                 .background(.white)
             
             

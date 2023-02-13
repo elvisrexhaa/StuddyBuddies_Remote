@@ -18,7 +18,7 @@ struct SignUpView: View {
     @State var username : String = ""
     @State var password : String = ""
     
-    @EnvironmentObject var viewModel: AuthLog
+    @EnvironmentObject var viewModel: DatabaseManager
     
     
     

@@ -17,7 +17,7 @@ struct ResetPasswordUI: View {
     
     @Environment (\.presentationMode) var presentationMode
     
-    @EnvironmentObject var viewModel: AuthLog
+    @EnvironmentObject var viewModel: DatabaseManager
     
     var body: some View {
    

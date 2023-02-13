@@ -5,7 +5,7 @@ import Firebase
 @main
 struct StuddyBuddiesApp: App {
     
-    @StateObject var viewModel = AuthLog() // initialise the object within the main swift file so it doesnt have to be initialised elsewhere.
+    @StateObject var viewModel = DatabaseManager() // initialise the object within the main swift file so it doesnt have to be initialised elsewhere.
     
    
     

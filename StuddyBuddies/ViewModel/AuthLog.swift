@@ -2,7 +2,8 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 
-class AuthLog: ObservableObject {
+
+class DatabaseManager: ObservableObject {
     
     @Published var userLogged: FirebaseAuth.User?
     
@@ -69,7 +70,11 @@ class AuthLog: ObservableObject {
             }
         }
     }
-        
+    
+    func fetchUser () {
+       
+    }
+    
     }
     
     

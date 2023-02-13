@@ -5,7 +5,7 @@ import Firebase
 
 struct LoginUIView: View {
     
-    @EnvironmentObject var viewModel: AuthLog
+    @EnvironmentObject var viewModel: DatabaseManager
     
     @State var email: String = "" // state property of the variable email and assigned an empty string to it
     @State var firstname : String = ""
@@ -18,11 +18,12 @@ struct LoginUIView: View {
         ZStack {
             
             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                
             
             
             
             VStack (spacing: 16)  {
-                Image ("studybuddies1")
+                Image ("titlewhite")
                     .resizable()
                     .scaledToFit()
                     .offset(y: -300)
@@ -34,11 +35,12 @@ struct LoginUIView: View {
                 
                 
                 Text ("Welcome to StudyBuddies. Please sign in or sign up to get started!")
-                    .font(.system(size: 20, weight: .medium, design: .default))
+                    .font(.system(size: 20, weight: .bold, design: .default))
                     .foregroundColor(.white)
                     .padding(.all)
                     .multilineTextAlignment(.center)
                     .offset(y: -370)
+                    
             }
             
             
@@ -79,6 +81,7 @@ struct LoginUIView: View {
                 
                 Button {
                     viewModel.login(withEmail: email, password: password)
+                        
                     
                 } label: {
                     Text ("Login")
@@ -90,7 +93,7 @@ struct LoginUIView: View {
                 .background(Color.white)
                 .cornerRadius(20)
                 .padding(.all)
-                .shadow(color: .white.opacity(0.3), radius: 10, x: 0, y: 0)
+                .shadow(color: .purple.opacity(0.5), radius: 10, x: 0, y: 0)
                 .offset(y:130)
                 
                 Button {
@@ -105,7 +108,7 @@ struct LoginUIView: View {
                 .background(.white)
                 .cornerRadius(20)
                 .padding(.all)
-                .shadow(color: .white.opacity(0.3), radius: 10, x: 0, y: 0)
+                .shadow(color: .purple.opacity(0.5), radius: 10, x: 0, y: 0)
                 .offset(y: 230)
                 
                 

@@ -4,7 +4,7 @@ import SwiftUI
 
 struct MainViewUI: View {
     
-    @EnvironmentObject var viewModel: AuthLog
+    @EnvironmentObject var viewModel: DatabaseManager
     
     var body: some View {
         
@@ -15,22 +15,13 @@ struct MainViewUI: View {
             
             //top stack for the main view
             HStack {
-                NavigationLink(destination: ProfileView()) {
-                    Image("user")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
-                        .shadow(color: .blue, radius: 1)
-                    
-                }
-                
-                Spacer()
                 
                 NavigationLink(destination: CustomTabBar()) {
-                    Image("mainViewTitle")
+                    Image("titleblack")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 225)
+                        
 
                 }
                 .navigationBarBackButtonHidden(true)
@@ -38,25 +29,33 @@ struct MainViewUI: View {
                 Spacer()
                 
                 NavigationLink(destination: settingsView()) {
-                    Image("settings")
+                    Image("settings1")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40, height: 40)
+                        .frame(width: 60, height: 60)
                         .shadow(color: .blue, radius: 1)
                     
                 }
                 
             }
+            
             .padding(.horizontal)
             
             
             
-            CardUI()
+            ZStack {
+                CardUI(userData: User.data[0], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
+                
+                CardUI(userData: User.data[1], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
+                
+                CardUI(userData: User.data[2], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
+                
+                CardUI(userData: User.data[3], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
+                
+            }
             
             
-
-            
-            
+    
             
         }
         

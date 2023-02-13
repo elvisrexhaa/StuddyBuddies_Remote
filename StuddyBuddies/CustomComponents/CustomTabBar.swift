@@ -44,9 +44,9 @@ struct CustomTabBar: View {
                 case 1:
                     FavouritesUI()
                 case 2:
-                    ProfileView()
+                    ChatUI(chatUser: ChatUser(name: "Elvis Rexha", imageURL: "", isOnline: true))
                 case 3:
-                    ChatIntegrationUI()
+                    ProfileView()
 
                 default:
                     Text ("")
@@ -63,7 +63,7 @@ struct CustomTabBar: View {
                             } label: {
                                 Image(systemName: tabIcons[item])
                                     .scaleEffect(currentSelection == item ? 1.3: 1.0)
-                                    .foregroundColor(currentSelection == item ? symbolColor: .black)
+                                    .foregroundColor(currentSelection == item ? symbolColor: .white)
                                     .onTapGesture {
                                         withAnimation(.linear(duration: 0.1)) {
                                             currentSelection = item

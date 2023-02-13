@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */; };
-		883E00A62987E206005241C2 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00A52987E206005241C2 /* AppData.swift */; };
 		883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00AB298AA0A7005241C2 /* CustomTabBar.swift */; };
-		883E00AE29913BD9005241C2 /* ChatIntegrationUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00AD29913BD9005241C2 /* ChatIntegrationUI.swift */; };
 		883E00B42992CE92005241C2 /* CardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00B32992CE92005241C2 /* CardUI.swift */; };
 		883E00B829952B2F005241C2 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00B729952B2F005241C2 /* settingsView.swift */; };
 		88471E852953523200DE5B02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88471E842953523200DE5B02 /* GoogleService-Info.plist */; };
@@ -32,13 +30,19 @@
 		884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13822912BDB100461D11 /* TabBarCustom.swift */; };
 		887958F52916D44E006A6B19 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F42916D44E006A6B19 /* ProfileView.swift */; };
 		887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F62919817F006A6B19 /* FavouritesUI.swift */; };
+		88EE45C2299A66880092EE13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C1299A66880092EE13 /* User.swift */; };
+		88EE45C4299A67030092EE13 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C3299A67030092EE13 /* Gesture.swift */; };
+		88EE45C8299A6DAB0092EE13 /* ChatUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C7299A6DAB0092EE13 /* ChatUI.swift */; };
+		88EE45CA299A7A0F0092EE13 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C9299A7A0F0092EE13 /* ChatUser.swift */; };
+		88EE45CC299A7C4C0092EE13 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45CB299A7C4C0092EE13 /* Message.swift */; };
+		88EE45CE299A7CA70092EE13 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45CD299A7CA70092EE13 /* MessageBubble.swift */; };
+		88EE45F8299A96970092EE13 /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = 88EE45F6299A96970092EE13 /* shapes.riv */; };
+		88EE45F9299A96970092EE13 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 88EE45F7299A96970092EE13 /* Contents.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorUI.swift; sourceTree = "<group>"; };
-		883E00A52987E206005241C2 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		883E00AB298AA0A7005241C2 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		883E00AD29913BD9005241C2 /* ChatIntegrationUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatIntegrationUI.swift; sourceTree = "<group>"; };
 		883E00B32992CE92005241C2 /* CardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUI.swift; sourceTree = "<group>"; };
 		883E00B729952B2F005241C2 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		88471E842953523200DE5B02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -57,6 +61,14 @@
 		884D13822912BDB100461D11 /* TabBarCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCustom.swift; sourceTree = "<group>"; };
 		887958F42916D44E006A6B19 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		887958F62919817F006A6B19 /* FavouritesUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesUI.swift; sourceTree = "<group>"; };
+		88EE45C1299A66880092EE13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		88EE45C3299A67030092EE13 /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
+		88EE45C7299A6DAB0092EE13 /* ChatUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUI.swift; sourceTree = "<group>"; };
+		88EE45C9299A7A0F0092EE13 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
+		88EE45CB299A7C4C0092EE13 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		88EE45CD299A7CA70092EE13 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		88EE45F6299A96970092EE13 /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
+		88EE45F7299A96970092EE13 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +89,10 @@
 		883E00A42987E1EA005241C2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				883E00A52987E206005241C2 /* AppData.swift */,
+				88EE45C1299A66880092EE13 /* User.swift */,
+				88EE45C3299A67030092EE13 /* Gesture.swift */,
+				88EE45C9299A7A0F0092EE13 /* ChatUser.swift */,
+				88EE45CB299A7C4C0092EE13 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +102,7 @@
 			children = (
 				884D13572912A3B200461D11 /* StuddyBuddies */,
 				884D13562912A3B200461D11 /* Products */,
+				88B983082998355A0051C63A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +124,7 @@
 				884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */,
 				884D135A2912A3B200461D11 /* ContentView.swift */,
 				884D135C2912A3B300461D11 /* Assets.xcassets */,
+				88EE45F5299A96970092EE13 /* shapes.dataset */,
 				88471E842953523200DE5B02 /* GoogleService-Info.plist */,
 				884D135E2912A3B300461D11 /* Preview Content */,
 			);
@@ -129,6 +146,7 @@
 				884D13692912A5CD00461D11 /* CustomInputPassword.swift */,
 				884D13822912BDB100461D11 /* TabBarCustom.swift */,
 				883E00AB298AA0A7005241C2 /* CustomTabBar.swift */,
+				88EE45CD299A7CA70092EE13 /* MessageBubble.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -143,9 +161,9 @@
 				887958F42916D44E006A6B19 /* ProfileView.swift */,
 				887958F62919817F006A6B19 /* FavouritesUI.swift */,
 				881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */,
-				883E00AD29913BD9005241C2 /* ChatIntegrationUI.swift */,
 				883E00B32992CE92005241C2 /* CardUI.swift */,
 				883E00B729952B2F005241C2 /* settingsView.swift */,
+				88EE45C7299A6DAB0092EE13 /* ChatUI.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,6 +174,22 @@
 				884D13712912AD4F00461D11 /* AuthLog.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		88B983082998355A0051C63A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88EE45F5299A96970092EE13 /* shapes.dataset */ = {
+			isa = PBXGroup;
+			children = (
+				88EE45F6299A96970092EE13 /* shapes.riv */,
+				88EE45F7299A96970092EE13 /* Contents.json */,
+			);
+			path = shapes.dataset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +244,7 @@
 			mainGroup = 884D134C2912A3B200461D11;
 			packageReferences = (
 				884D13732912AE7300461D11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8867611929982C0F006AD816 /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			productRefGroup = 884D13562912A3B200461D11 /* Products */;
 			projectDirPath = "";
@@ -225,7 +260,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88EE45F9299A96970092EE13 /* Contents.json in Resources */,
 				884D13602912A3B300461D11 /* Preview Assets.xcassets in Resources */,
+				88EE45F8299A96970092EE13 /* shapes.riv in Resources */,
 				88471E852953523200DE5B02 /* GoogleService-Info.plist in Resources */,
 				884D135D2912A3B300461D11 /* Assets.xcassets in Resources */,
 			);
@@ -240,11 +277,15 @@
 			files = (
 				884D136C2912A6D800461D11 /* LoginUIView.swift in Sources */,
 				884D13812912BD7100461D11 /* MainViewUI.swift in Sources */,
+				88EE45C8299A6DAB0092EE13 /* ChatUI.swift in Sources */,
 				884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */,
+				88EE45CA299A7A0F0092EE13 /* ChatUser.swift in Sources */,
 				887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */,
+				88EE45CC299A7C4C0092EE13 /* Message.swift in Sources */,
 				883E00B829952B2F005241C2 /* settingsView.swift in Sources */,
 				883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */,
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
+				88EE45C4299A67030092EE13 /* Gesture.swift in Sources */,
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
 				881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */,
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
@@ -252,10 +293,10 @@
 				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
 				884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */,
-				883E00AE29913BD9005241C2 /* ChatIntegrationUI.swift in Sources */,
 				887958F52916D44E006A6B19 /* ProfileView.swift in Sources */,
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,
-				883E00A62987E206005241C2 /* AppData.swift in Sources */,
+				88EE45C2299A66880092EE13 /* User.swift in Sources */,
+				88EE45CE299A7CA70092EE13 /* MessageBubble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +515,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 9.0.0;
+			};
+		};
+		8867611929982C0F006AD816 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

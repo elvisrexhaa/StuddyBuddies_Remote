@@ -4,7 +4,7 @@ import SwiftUI
 
 struct settingsView: View {
     
-    @EnvironmentObject private var viewModel: AuthLog
+    @EnvironmentObject private var viewModel: DatabaseManager
     var body: some View {
         
         NavigationView {

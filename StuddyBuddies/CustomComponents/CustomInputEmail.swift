@@ -20,13 +20,13 @@ struct CustomInputEmail: View {
                     .padding(.leading)
                     
                 TextField(placeHolder, text: $text)
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                     .bold()
                 
                     
             }
             Divider() // creates a divider between the email and password - also added a frame to display it
-                .frame(width: 400, height: 1)
+                .frame(width: 400, height: 3)
                 .foregroundColor(.black)
                 .background(.white)
             
