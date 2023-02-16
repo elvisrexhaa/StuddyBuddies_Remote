@@ -1,11 +1,13 @@
 
 import SwiftUI
 import Firebase
+import FirebaseCore
+import FirebaseFirestore
 
 @main
 struct StuddyBuddiesApp: App {
     
-    @StateObject var viewModel = DatabaseManager() // initialise the object within the main swift file so it doesnt have to be initialised elsewhere.
+    @StateObject var viewModel = AuthManager() // initialise the object within the main swift file so it doesnt have to be initialised elsewhere.
     
    
     

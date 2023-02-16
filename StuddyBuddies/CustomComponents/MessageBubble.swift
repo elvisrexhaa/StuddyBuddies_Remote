@@ -23,13 +23,13 @@ struct MessageBubble: View {
                     .frame(width: 30, height: 30)
                 Text(message.textMessage)
                     .padding(.all)
-                    .background(message.receivedText ? Color.gray : Color.black)
-                    .foregroundColor(message.receivedText ? Color.black: Color.white)// if message is received then make background colour gray else keep it purple
+                    .background(message.receivedText ? Color.green : Color.blue)
+                    .foregroundColor(message.receivedText ? Color.white: Color.white)// if message is received then make background colour gray else keep it purple
                     .cornerRadius(30)
                     
                     
             }
-            .frame(maxWidth: 310, alignment: message.receivedText ? .leading : .trailing)
+            .frame(maxWidth: 330, alignment: message.receivedText ? .leading : .trailing)
             .padding(.horizontal, 7)
             
         }

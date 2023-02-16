@@ -4,7 +4,7 @@ import Firebase
 
 struct ContentView: View {
     
-    @EnvironmentObject var viewModel: DatabaseManager
+    @EnvironmentObject var viewModel: AuthManager
     
     var body: some View {
         
@@ -23,7 +23,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(DatabaseManager())
+            .environmentObject(AuthManager())
     }
 }
 

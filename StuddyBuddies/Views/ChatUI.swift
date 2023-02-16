@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import RiveRuntime
+
+
 
 struct ChatUI: View {
     
@@ -14,12 +15,14 @@ struct ChatUI: View {
     
     @State var sendMessage = ""
     
+    @ObservedObject  var chatManager = ChatManager()
+    
     var messageTest = ["Hello, how are you?", "I am good thank you, how is your day going?", "Not too bad i am just about to leave and go play some football, wanna come?", "Sure!"]
     
     
     var body: some View {
         
-       
+        
         
         
         ZStack {
@@ -28,12 +31,9 @@ struct ChatUI: View {
                 .edgesIgnoringSafeArea(.all)
                 .offset(y: -365)
             
-            RiveViewModel(fileName: "shapes").view()
-                .ignoresSafeArea()
-                .blur(radius: 20)
-            
-            
-            
+            //            RiveViewModel(fileName: "shapes").view()
+            //                .ignoresSafeArea()
+            //                .blur(radius: 20)
             
             VStack {
                 HStack (spacing: 10) {
@@ -74,8 +74,8 @@ struct ChatUI: View {
             }
             
             ScrollView {
-                ForEach(messageTest, id: \.self) { message in
-                    MessageBubble(message: Message(id: "", textMessage: message, receivedText: false))
+                ForEach(chatManager.messages, id: \.id) { message in
+                    MessageBubble(message: message)
                 }
             }
             .padding(.top, 150)
@@ -84,42 +84,35 @@ struct ChatUI: View {
             VStack {
                 Spacer()
                 HStack  {
-                    CustomInputEmail(placeHolder: "Enter a message", text: $sendMessage, imageName: "")
-                        .frame(width: 200)
-                        .offset(y: -70)
+                    TextEditor(text: $sendMessage)
+                    CustomInputMessage(placeHolder: "Enter a message", text: $sendMessage, imageName: "")
+                        .offset(y: 320)
+                        .padding(.leading)
                     
                     Spacer()
                     Button {
-                        //send text
+                        chatManager.sendMessage(text: self.sendMessage)
+                        
                     } label: {
-                        Text("Send")
-                            .frame(width: 100, height: 50)
-                            .background(.black)
-                            .cornerRadius(30)
-                            .foregroundColor(.white)
-                            .padding(.trailing)
-                            .offset(y: -70)
-                        
-                        
-                        
+                        Image(systemName: "paperplane.fill")
                     }
+                    .foregroundColor(.white)
+                    .bold()
+                    .frame(width: 50, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(30)
+                    .offset(x: -3, y: 320)
+
                 }
             }
-            
             
             
         }
         
         
         
-        
-        
-        
-        
-        
-        
-        
     }
+    
 }
 
 struct ChatUI_Previews: PreviewProvider {

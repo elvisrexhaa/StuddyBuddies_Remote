@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CardUI: View {
     
-    @EnvironmentObject var authModel: DatabaseManager
+    @EnvironmentObject var authModel: AuthManager
     
     @State var userData : User
     

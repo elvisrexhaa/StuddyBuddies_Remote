@@ -3,7 +3,7 @@ import Firebase
 import FirebaseAuth
 
 
-class DatabaseManager: ObservableObject {
+class AuthManager: ObservableObject { // the functions below will be required to be used in multiple views - Observable object used
     
     @Published var userLogged: FirebaseAuth.User?
     

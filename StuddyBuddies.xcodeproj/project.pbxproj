@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		881BDD0D299D300B007E6D93 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 881BDD0C299D300B007E6D93 /* FirebaseFirestoreSwift */; };
 		881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */; };
 		883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00AB298AA0A7005241C2 /* CustomTabBar.swift */; };
 		883E00B42992CE92005241C2 /* CardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00B32992CE92005241C2 /* CardUI.swift */; };
@@ -38,6 +39,8 @@
 		88EE45CE299A7CA70092EE13 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45CD299A7CA70092EE13 /* MessageBubble.swift */; };
 		88EE45F8299A96970092EE13 /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = 88EE45F6299A96970092EE13 /* shapes.riv */; };
 		88EE45F9299A96970092EE13 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 88EE45F7299A96970092EE13 /* Contents.json */; };
+		88EE45FB299BB2230092EE13 /* CustomInputMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45FA299BB2230092EE13 /* CustomInputMessage.swift */; };
+		88EE461D299D07070092EE13 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE461C299D07070092EE13 /* ChatManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +72,8 @@
 		88EE45CD299A7CA70092EE13 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
 		88EE45F6299A96970092EE13 /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
 		88EE45F7299A96970092EE13 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		88EE45FA299BB2230092EE13 /* CustomInputMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputMessage.swift; sourceTree = "<group>"; };
+		88EE461C299D07070092EE13 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +85,7 @@
 				884D137B2912AE7300461D11 /* FirebaseStorage in Frameworks */,
 				884D13752912AE7300461D11 /* FirebaseAuth in Frameworks */,
 				884D13792912AE7300461D11 /* FirebaseFirestore in Frameworks */,
+				881BDD0D299D300B007E6D93 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +153,7 @@
 				884D13822912BDB100461D11 /* TabBarCustom.swift */,
 				883E00AB298AA0A7005241C2 /* CustomTabBar.swift */,
 				88EE45CD299A7CA70092EE13 /* MessageBubble.swift */,
+				88EE45FA299BB2230092EE13 /* CustomInputMessage.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				884D13712912AD4F00461D11 /* AuthLog.swift */,
+				88EE461C299D07070092EE13 /* ChatManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				884D13762912AE7300461D11 /* FirebaseDatabase */,
 				884D13782912AE7300461D11 /* FirebaseFirestore */,
 				884D137A2912AE7300461D11 /* FirebaseStorage */,
+				881BDD0C299D300B007E6D93 /* FirebaseFirestoreSwift */,
 			);
 			productName = StuddyBuddies;
 			productReference = 884D13552912A3B200461D11 /* StuddyBuddies.app */;
@@ -275,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88EE45FB299BB2230092EE13 /* CustomInputMessage.swift in Sources */,
 				884D136C2912A6D800461D11 /* LoginUIView.swift in Sources */,
 				884D13812912BD7100461D11 /* MainViewUI.swift in Sources */,
 				88EE45C8299A6DAB0092EE13 /* ChatUI.swift in Sources */,
@@ -289,6 +299,7 @@
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
 				881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */,
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
+				88EE461D299D07070092EE13 /* ChatManager.swift in Sources */,
 				883E00B42992CE92005241C2 /* CardUI.swift in Sources */,
 				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
@@ -528,6 +539,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		881BDD0C299D300B007E6D93 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 884D13732912AE7300461D11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		884D13742912AE7300461D11 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 884D13732912AE7300461D11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

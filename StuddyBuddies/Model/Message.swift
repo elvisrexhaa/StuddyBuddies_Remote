@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct Message : Identifiable, Codable {
+struct Message : Identifiable {
     
     var id : String
     var textMessage : String

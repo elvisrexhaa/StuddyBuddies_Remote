@@ -5,7 +5,7 @@ import Firebase
 
 struct LoginUIView: View {
     
-    @EnvironmentObject var viewModel: DatabaseManager
+    @EnvironmentObject var viewModel: AuthManager
     
     @State var email: String = "" // state property of the variable email and assigned an empty string to it
     @State var firstname : String = ""

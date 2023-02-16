@@ -27,15 +27,15 @@ struct CustomTabBar: View {
         }
     }
     
- 
+    
     let tabIcons = ["house", "star", "message", "person"]
     
     var body: some View {
         
         
-   
+        
         VStack {
-           
+            
             ZStack {
                 
                 switch currentSelection{
@@ -47,12 +47,12 @@ struct CustomTabBar: View {
                     ChatUI(chatUser: ChatUser(name: "Elvis Rexha", imageURL: "", isOnline: true))
                 case 3:
                     ProfileView()
-
+                    
                 default:
                     Text ("")
                 }
-            
-              
+                
+                
                 VStack {
                     Spacer()
                     HStack {
@@ -69,31 +69,31 @@ struct CustomTabBar: View {
                                             currentSelection = item
                                         }
                                     }
-   
+                                
                             }
                             
                             Spacer()
-
+                            
                         }
-    
+                        
                     }
                     .frame(width: 400, height: 65)
                     .background(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .cornerRadius(30)
                     .shadow(color: .gray, radius: 2)
                     
-
-                
+                    
+                    
                 }
             }
         }
     }
 }
-    
-    struct CustomTabBar_Previews: PreviewProvider {
-        static var previews: some View {
-            CustomTabBar()
-        }
+
+struct CustomTabBar_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomTabBar()
     }
-    
+}
+
 
