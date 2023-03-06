@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		881BDD0D299D300B007E6D93 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 881BDD0C299D300B007E6D93 /* FirebaseFirestoreSwift */; };
 		881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */; };
+		8831CEF0299FF72D00A370C9 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8831CEEF299FF72D00A370C9 /* FirebaseManager.swift */; };
 		883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00AB298AA0A7005241C2 /* CustomTabBar.swift */; };
 		883E00B42992CE92005241C2 /* CardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00B32992CE92005241C2 /* CardUI.swift */; };
 		883E00B829952B2F005241C2 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E00B729952B2F005241C2 /* settingsView.swift */; };
@@ -29,6 +30,9 @@
 		884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D137E2912BC8600461D11 /* ResetPasswordUI.swift */; };
 		884D13812912BD7100461D11 /* MainViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13802912BD7100461D11 /* MainViewUI.swift */; };
 		884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13822912BDB100461D11 /* TabBarCustom.swift */; };
+		8874743829A3B6A500BA125C /* profileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874743729A3B6A500BA125C /* profileTest.swift */; };
+		8874743A29A3C93900BA125C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874743929A3C93800BA125C /* UserProfile.swift */; };
+		8874743C29A3C9C600BA125C /* profileTest1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874743B29A3C9C600BA125C /* profileTest1.swift */; };
 		887958F52916D44E006A6B19 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F42916D44E006A6B19 /* ProfileView.swift */; };
 		887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F62919817F006A6B19 /* FavouritesUI.swift */; };
 		88EE45C2299A66880092EE13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C1299A66880092EE13 /* User.swift */; };
@@ -45,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorUI.swift; sourceTree = "<group>"; };
+		8831CEEF299FF72D00A370C9 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		883E00AB298AA0A7005241C2 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		883E00B32992CE92005241C2 /* CardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUI.swift; sourceTree = "<group>"; };
 		883E00B729952B2F005241C2 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
@@ -62,6 +67,9 @@
 		884D137E2912BC8600461D11 /* ResetPasswordUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUI.swift; sourceTree = "<group>"; };
 		884D13802912BD7100461D11 /* MainViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewUI.swift; sourceTree = "<group>"; };
 		884D13822912BDB100461D11 /* TabBarCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCustom.swift; sourceTree = "<group>"; };
+		8874743729A3B6A500BA125C /* profileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileTest.swift; sourceTree = "<group>"; };
+		8874743929A3C93800BA125C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		8874743B29A3C9C600BA125C /* profileTest1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileTest1.swift; sourceTree = "<group>"; };
 		887958F42916D44E006A6B19 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		887958F62919817F006A6B19 /* FavouritesUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesUI.swift; sourceTree = "<group>"; };
 		88EE45C1299A66880092EE13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -99,6 +107,7 @@
 				88EE45C3299A67030092EE13 /* Gesture.swift */,
 				88EE45C9299A7A0F0092EE13 /* ChatUser.swift */,
 				88EE45CB299A7C4C0092EE13 /* Message.swift */,
+				8874743929A3C93800BA125C /* UserProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +180,8 @@
 				883E00B32992CE92005241C2 /* CardUI.swift */,
 				883E00B729952B2F005241C2 /* settingsView.swift */,
 				88EE45C7299A6DAB0092EE13 /* ChatUI.swift */,
+				8874743729A3B6A500BA125C /* profileTest.swift */,
+				8874743B29A3C9C600BA125C /* profileTest1.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +191,7 @@
 			children = (
 				884D13712912AD4F00461D11 /* AuthLog.swift */,
 				88EE461C299D07070092EE13 /* ChatManager.swift */,
+				8831CEEF299FF72D00A370C9 /* FirebaseManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -291,16 +303,20 @@
 				884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */,
 				88EE45CA299A7A0F0092EE13 /* ChatUser.swift in Sources */,
 				887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */,
+				8874743C29A3C9C600BA125C /* profileTest1.swift in Sources */,
 				88EE45CC299A7C4C0092EE13 /* Message.swift in Sources */,
 				883E00B829952B2F005241C2 /* settingsView.swift in Sources */,
 				883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */,
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
+				8874743829A3B6A500BA125C /* profileTest.swift in Sources */,
 				88EE45C4299A67030092EE13 /* Gesture.swift in Sources */,
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
 				881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */,
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
 				88EE461D299D07070092EE13 /* ChatManager.swift in Sources */,
+				8874743A29A3C93900BA125C /* UserProfile.swift in Sources */,
 				883E00B42992CE92005241C2 /* CardUI.swift in Sources */,
+				8831CEF0299FF72D00A370C9 /* FirebaseManager.swift in Sources */,
 				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
 				884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */,
