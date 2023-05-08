@@ -7,6 +7,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
     
     @Published var userLogged: FirebaseAuth.User?
     
+    @Published var isActive = false
+    
     init() {
         
         self.userLogged = Auth.auth().currentUser // store user curerently logged in, into the variable "userinfo"
@@ -46,7 +48,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
             }
             guard let user = Result?.user else {return}
             
-            self.userLogged = user
+//            self.userLogged = user
             
             
             // assigns constant " data" to the following info so then the data can get retrieved
@@ -55,7 +57,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
             Firestore.firestore().collection("userData")
                 .document(user.uid)
                 .setData(data)
-                    print("Uploaded users data...")
+            
+                self.isActive = true
                 }
         }
     
@@ -74,6 +77,17 @@ class AuthManager: ObservableObject { // the functions below will be required to
     func fetchUser () {
        
     }
+    
+    func userStatus (isOnline: Bool) -> String {
+        if isOnline {
+            return "Online"
+        } else {
+            return "Offline"
+        }
+    }
+    
+
+    
     
     }
     

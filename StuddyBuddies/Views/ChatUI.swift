@@ -1,13 +1,7 @@
-//
-//  ChatUI.swift
-//  StuddyBuddies
-//
-//  Created by Elvis Rexha on 13/02/2023.
-//
+
 
 import SwiftUI
-
-
+ 
 
 struct ChatUI: View {
     
@@ -17,13 +11,15 @@ struct ChatUI: View {
     
     @ObservedObject  var chatManager = ChatManager()
     
-    var messageTest = ["Hello, how are you?", "I am good thank you, how is your day going?", "Not too bad i am just about to leave and go play some football, wanna come?", "Sure!"]
+    @ObservedObject var firebaseManager = FirebaseManger()
+    
+    @ObservedObject var authLog = AuthManager()
+    
+    @State var isOnline : Bool = true
+    
     
     
     var body: some View {
-        
-        
-        
         
         ZStack {
             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -31,9 +27,9 @@ struct ChatUI: View {
                 .edgesIgnoringSafeArea(.all)
                 .offset(y: -365)
             
-            //            RiveViewModel(fileName: "shapes").view()
-            //                .ignoresSafeArea()
-            //                .blur(radius: 20)
+//            RiveViewModel(fileName: "shapes").view()
+//                .ignoresSafeArea()
+//                .blur(radius: 20)
             
             VStack {
                 HStack (spacing: 10) {
@@ -49,17 +45,25 @@ struct ChatUI: View {
                             .bold()
                         
                         HStack {
-                            Text ("Online")
                             
-                                .font(.caption2)
-                                .foregroundColor(.white)
-                                .font(.system(size: 50))
+                            let userStatus = authLog.userStatus(isOnline: isOnline)
                             
+                            if isOnline {
+                                Circle()
+                                    .frame(width: 8, height: 8)
+                                    .clipShape(Circle())
+                                    .foregroundColor(.green)
+                            }
+                            else {
+                                Circle()
+                                    .frame(width: 8, height: 8)
+                                    .clipShape(Circle())
+                                    .foregroundColor(.red)
+                                
+                            }
                             
-                            Circle()
-                                .frame(width: 8, height: 8)
-                                .clipShape(Circle())
-                                .foregroundColor(.green)
+                            Text("\(userStatus)")
+                            
                         }
                     }
                     
@@ -73,46 +77,46 @@ struct ChatUI: View {
                 Spacer()
             }
             
-            ScrollView {
-                ForEach(chatManager.messages, id: \.id) { message in
-                    MessageBubble(message: message)
+            ScrollViewReader { proxy in
+                ScrollView {
+                    ForEach(chatManager.messages, id: \.id) { message in
+                        MessageBubble(message: message)
+                    }
+                }
+                .padding(.top, 150)
+                .onChange(of: chatManager.finalMessageId) { lastId in
+                    withAnimation {
+                        proxy.scrollTo(lastId, anchor: .bottom)
+                        
+                           
+                    }
                 }
             }
-            .padding(.top, 150)
             
             
             VStack {
                 Spacer()
                 HStack  {
-                    TextEditor(text: $sendMessage)
-                    CustomInputMessage(placeHolder: "Enter a message", text: $sendMessage, imageName: "")
-                        .offset(y: 320)
-                        .padding(.leading)
                     
-                    Spacer()
+                    CustomInputMessage(placeHolder: "Enter a message", text: $sendMessage, imageName: "")
+                        .offset(y: -60)
+                    
                     Button {
-                        chatManager.sendMessage(text: self.sendMessage)
-                        
+                        chatManager.sendMessage(text: self.sendMessage, receivedText: false)
+                        sendMessage = ""
                     } label: {
                         Image(systemName: "paperplane.fill")
+                            .frame(width: 50, height: 50)
                     }
                     .foregroundColor(.white)
-                    .bold()
-                    .frame(width: 50, height: 50)
-                    .background(Color.blue)
+                    .background(LinearGradient(colors: [.blue,.purple], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .cornerRadius(30)
-                    .offset(x: -3, y: 320)
-
+                    .padding(15)
+                    .offset(y: -60)
                 }
             }
-            
-            
         }
-        
-        
-        
     }
-    
 }
 
 struct ChatUI_Previews: PreviewProvider {

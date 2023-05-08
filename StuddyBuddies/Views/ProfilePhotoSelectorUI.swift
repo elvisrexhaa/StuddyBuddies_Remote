@@ -4,9 +4,7 @@ import UIKit
 struct ProfileSelector: UIViewControllerRepresentable {
     
     @Binding var selectedImage: UIImage?
-    
-    
-    
+
     func makeUIViewController(context: Context) -> some UIViewController {
         
         let photoSelector = UIImagePickerController()
@@ -46,20 +44,17 @@ struct ProfilePhotoSelectorUI: View {
     @State var isPhotoSelectorShowing = false
     @State var selectedImage : UIImage?
     
+    @State var text : String = ""
 
-    init() { // initialiser method used to make the navigation title colour white. When executed the code will run through init method first.
-        
-        let navBarColor = UINavigationBar.appearance()
-        navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-              }
+    
     
     var body: some View {
         
-        
-
-        NavigationView() {
             ZStack {
-
+                
+                LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea(.all)
+                
                 if selectedImage != nil {
                     Image(uiImage: selectedImage!)
                         .resizable()
@@ -70,38 +65,67 @@ struct ProfilePhotoSelectorUI: View {
                 
                 
                 VStack {
-                    
-                    Button {
-                        isPhotoSelectorShowing = true
+                    VStack  {
                         
-                    } label: {
+                        Text ("Select a user profile image below: ")
+                            .foregroundColor(.white)
+                            .font(.system(size: 25, weight: .medium, design: .rounded))
+                            .padding(.top, 15)
+                            .lineLimit(1)
                         
-                        VStack {
-                            Image(systemName: "plus.circle")
-                                .resizable()
-                                .renderingMode(.template)
-                                .scaledToFill()
-                                .frame(width: 130, height: 130)
-                            Text("Add Photo")
-                                .multilineTextAlignment(.center)
-                                .font(.system(size: 30))
-                                .bold()
-    
+                        Button {
+                            isPhotoSelectorShowing = true
+                            
+                        } label: {
+                            
+                            VStack (spacing: 30) {
+                                Spacer()
+                                Image(systemName: "plus.circle")
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .scaledToFill()
+                                    .frame(width: 100, height: 100)
+                                Text("Add Photo")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 30))
+                                    .bold()
+                                
+                                
+                                Spacer()
+                     
+                            }
+                            
+                            .foregroundColor(.white)
+                            
+                            
+                            
                         }
-                        .padding(.bottom, 400)
-                        .foregroundColor(.black)
-
+                        
                     }
+                    .sheet(isPresented: $isPhotoSelectorShowing, onDismiss: nil) {
+                        ProfileSelector(selectedImage: $selectedImage) // makes the state variable true and so loads the func "ProfileSelector" as a sheet.
+                        
+                        
+                }
                     
+                    Text("Please briefly explain what you study")
+                        .foregroundColor(.white)
+                        .offset(y: -200)
+                    
+                    CustomInputMessage(placeHolder: "Description", text: $text , imageName: "" )
+                        .frame(width: 200)
+                        .lineLimit(10)
+                        .offset(y: -200)
+                    
+                    
+                        
                 }
-                .sheet(isPresented: $isPhotoSelectorShowing, onDismiss: nil) {
-                    ProfileSelector(selectedImage: $selectedImage) // makes the state variable true and so loads the func "ProfileSelector" as a sheet.
-                }
+                
+                
             }
-            .navigationTitle("Add a profile photo")
-            .navigationBarBackButtonHidden(true)
+            
  
-        }
+        
         
     }
 }

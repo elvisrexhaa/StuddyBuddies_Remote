@@ -23,17 +23,17 @@ struct CustomInputMessage: View {
                     .foregroundColor(.black)
                     .bold()
                     .padding(.leading, 20)
-                    
+                
                 
                 
             }
-                
+            
             
             
         }
         
         
-    
+        
         
         
     }

@@ -8,6 +8,7 @@ struct ContentView: View {
     
     var body: some View {
         
+        
         if viewModel.userLogged == nil {
             LoginUIView()
                 
@@ -15,8 +16,7 @@ struct ContentView: View {
         } else {
             CustomTabBar()
         }
-        
-        
+
     }
 }
 

@@ -12,9 +12,6 @@ enum tabComponets: String, CaseIterable {
 }
 
 
-
-
-
 struct TabBarCustom: View {
     
     @Binding var tabSelected : tabComponets // use bidning to see which tab item is currently selected
@@ -38,13 +35,13 @@ struct TabBarCustom: View {
         }
     }
     
-    
-    
+
     var body: some View {
         
         
             
             VStack {
+                Spacer()
                 
                 
             
@@ -54,22 +51,16 @@ struct TabBarCustom: View {
                     ForEach (tabComponets.allCases, id: \.rawValue) { tabView in
                         
                         Image(systemName: tabSelected == tabView ? imageFill : tabView.rawValue)
-                            .scaleEffect(tabSelected == tabView ? 1.5 : 1.0) // this will scale the image when the tab view is clicked,. so it checks if tab selected is equal to tabView and if so scale by 1.5 if not leave it at 1.0
+                            .scaleEffect(tabSelected == tabView ? 1.5 : 1.0) // this will scale the image when the tab is clicked,. so it checks if tab selected is equal to tabView and if so scale by 1.5 if not leave it at 1.0
                             .foregroundColor(tabSelected == tabView ? symbolColorFill : .black) // this line of code will check if the tab selected and if so itll chnage the foreground colour to blue if not itll stay black
                             .onTapGesture {
                                 withAnimation(.linear(duration: 0.1)) {
                                     tabSelected = tabView
                                 }
                             }
-                           
-                    
-                        
-                        
+
                     }
-                    
-                    
-                   
-                          
+        
             }
             .frame(width: 400, height: 70)
             .background(.white)

@@ -32,6 +32,7 @@ struct SignUpView: View {
                 
                 
                 VStack (spacing: 50) {
+                    
                     CustomInputEmail(placeHolder: "Email", text: $email, imageName: "envelope.circle")
                         .foregroundColor(.white)
                         .offset(y: 100)
@@ -73,6 +74,13 @@ struct SignUpView: View {
                         }
                     
                     Spacer()
+                    
+                    
+                    NavigationLink(destination: ProfilePhotoSelectorUI(), isActive: $viewModel.isActive
+                                    , label: { }) // once the user presses "sign up" they will be taken to the specified location stated above
+
+                    
+                    
                     Button {
                        viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
                     } label: {

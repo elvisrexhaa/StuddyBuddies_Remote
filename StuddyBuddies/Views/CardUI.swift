@@ -17,7 +17,7 @@ struct CardUI: View {
     @State var swipeGesture : cardAnimation
     
     @State var color : Color = .black.opacity(0.2)
-
+    
     var body: some View {
         
         
@@ -38,7 +38,7 @@ struct CardUI: View {
                     VStack (alignment: .leading) {
                         Spacer()
                         HStack {
-                            Text (userData.firstName)
+                            Text (userData.name)
                                 .font(.system(.largeTitle, design: .rounded))
                                 .bold()
                             
@@ -73,7 +73,7 @@ struct CardUI: View {
                                 swipeGesture.y = swipe.translation.height
                                 swipeGesture.degree = 7 * (swipe.translation.width > 0 ? 1: -1)
                             }
-
+                            
                         }
                     
                         .onEnded { (swipe) in
@@ -91,9 +91,7 @@ struct CardUI: View {
             Spacer()
             
         }
-        
-        
-        
+
     }
     
     func swipeCard (_: cardAnimation) {
@@ -108,10 +106,10 @@ struct CardUI: View {
         default:
             swipeGesture.x = 0; swipeGesture.y = 0 ; swipeGesture.degree = 0
         }
-  
+        
     }
     
-
+    
 }
 
 struct CardUI_Previews: PreviewProvider {

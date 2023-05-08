@@ -7,25 +7,88 @@ struct settingsView: View {
     @EnvironmentObject private var viewModel: AuthManager
     var body: some View {
         
+        
         NavigationView {
-    
-        Button {
-            viewModel.logOut()
-        } label: {
-            Text("Logout")
-                .font(.system(size: 30, weight: .medium, design: .monospaced))
+            List {
+                Section(header: Text("Account")) {
+                    NavigationLink(destination: LoginUIView()) {
+                        Text("Update Profile")
+                    }
+                    
+                    
+                    NavigationLink(destination: SignUpView()) {
+                        Text("Change Password")
+                        
+                        
+                    }
+                    
+                    
+                }
+                
+                Section(header: Text("Legal")) {
+                    NavigationLink(destination: LoginUIView()) {
+                        HStack {
+                            Image("privacypolicy")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                            Text("Privacy Policy")
+                        }
+                        
+                    }
+                    NavigationLink(destination: LoginUIView()) {
+                        Text("Terms of Service")
+                        
+                    }
+                    NavigationLink(destination: LoginUIView()) {
+                        Text("About Studdy Buddies")
+                        
+                        
+                    }
+                }
+                
+                Section(header: Text("Session")) {
+                    VStack  {
+                        Button(action: {
+                            viewModel.logOut()
+                        }) {
+                            Text("Logout")
+                                .foregroundColor(.red)
+                                .frame(maxWidth: .infinity, alignment: .center) // set the width to infinity & align items in center.
+                                .font(.system(size: 20, weight: .medium, design: .rounded))
+                                .bold()
+                            
+                            
+                        }
+                    }
+                }
+            }
+            
+            
+            
+            
+            .navigationBarTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
-        .font(.system(size: 40))
-        .frame(width: 150, height: 60)
-        .background(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
-        .cornerRadius(30)
-        .foregroundColor(.white)
-        
+        .navigationViewStyle(StackNavigationViewStyle())
     }
-        .navigationTitle("Settings")
-        
-        
-    }
+    
+    //        Button {
+    //            viewModel.logOut()
+    //        } label: {
+    //            Text("Logout")
+    //                .font(.system(size: 30, weight: .medium, design: .monospaced))
+    //        }
+    //        .font(.system(size: 40))
+    //        .frame(width: 150, height: 60)
+    //        .background(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
+    //        .cornerRadius(30)
+    //        .foregroundColor(.white)
+    //
+    //    }
+    //        .navigationTitle("Settings")
+    
 }
 
 struct settingsView_Previews: PreviewProvider {

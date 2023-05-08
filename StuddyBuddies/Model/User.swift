@@ -1,26 +1,28 @@
 
 import Foundation
 
+
 struct User {
     
 //    var id : String
-    let firstName : String
+    let name : String
 //    let lastName : String
-//    let username : String
+    let username : String
     let imageName : String
     let age : Int
     let bio : String
-//    let imageURl : String
+//    let imageURL : String
 
+    
     static var data: [User] {
             [
-                User(firstName: "Elvis", imageName: "wave", age: 22, bio: "I like to play football"),
-                User(firstName: "Mary", imageName: "canada", age: 19, bio: "I study Computer Science"),
-                User(firstName: "Elvis", imageName: "wave", age: 22, bio: "I like to play football"),
-                User(firstName: "Mary", imageName: "canada", age: 19, bio: "I study Computer Science"),
-                User(firstName: "Elvis", imageName: "wave", age: 22, bio: "I like to play football"),
-                User(firstName: "Mary", imageName: "canada", age: 19, bio: "I study Computer Science")
-                
+                User(name: "Elvis", username: "@elvisrexha", imageName: "wave", age: 22, bio: "I like to play football"),
+                User(name: "Mary", username: "@elvisrexha", imageName: "canada", age: 19, bio: "I study Computer Science"),
+                User(name: "Elvis", username: "@elvisrexha", imageName: "wave", age: 22, bio: "I like to play football"),
+                User(name: "Mary", username: "@elvisrexha", imageName: "canada", age: 19, bio: "I study Computer Science"),
+                User(name: "Elvis", username: "@elvisrexha", imageName: "wave", age: 22, bio: "I like to play football"),
+                User(name: "Mary", username: "@hicutie", imageName: "canada", age: 19, bio: "I study Computer Science")
+
             ]
         }
 

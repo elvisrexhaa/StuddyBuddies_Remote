@@ -45,7 +45,7 @@ struct LoginUIView: View {
             
             
             VStack (spacing : 30) {
-                CustomInputEmail(placeHolder: "Email", text: $email, imageName: "envelope.circle")
+                CustomInputEmail(placeHolder: "Enter University Email", text: $email, imageName: "envelope.circle")
                     .foregroundColor(.white)
                     .offset(y: 100)
                     .placeholder(when: email.isEmpty) {
