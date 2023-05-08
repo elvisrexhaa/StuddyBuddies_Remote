@@ -30,7 +30,7 @@ struct ProfileView: View {
             HStack {
                 profileImage
                     .matchedGeometryEffect(id: profileImageAnimate, in: profileAnimate)
-                    .frame(width: 60, height: 60)
+                    .frame(width: 70, height: 70)
                 
                 VStack(alignment: .leading) {
                     Text("Elvis Rexha")
