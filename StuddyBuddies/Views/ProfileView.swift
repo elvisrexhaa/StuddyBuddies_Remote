@@ -8,6 +8,12 @@
 import SwiftUI
 struct ProfileView: View {
     @State private var isProfileExpanded = false
+    @Namespace private var profileAnimate
+    @Namespace private var profileImageAnimate
+    @Namespace private var profileNameAnimate
+    @Namespace private var profileUsernameAnimate
+    @Namespace private var profileBioAnimate
+    
     
     var body: some View {
         VStack {
@@ -23,17 +29,20 @@ struct ProfileView: View {
         VStack {
             HStack {
                 profileImage
+                    .matchedGeometryEffect(id: profileImageAnimate, in: profileAnimate)
                     .frame(width: 60, height: 60)
-                    .clipShape(Circle())
                 
                 VStack(alignment: .leading) {
                     Text("Elvis Rexha")
                         .font(.title)
                         .bold()
+                        .matchedGeometryEffect(id: profileNameAnimate, in: profileAnimate)
+                    
                     
                     Text("@elvisrexha")
                         .font(.caption)
                         .foregroundColor(.pink)
+                        .matchedGeometryEffect(id: profileUsernameAnimate, in: profileAnimate)
                 }
                 
                 Spacer()
@@ -49,19 +58,24 @@ struct ProfileView: View {
     var expandableProfileView: some View {
         VStack {
             profileImage
+                .matchedGeometryEffect(id: profileImageAnimate, in: profileAnimate)
                 .frame(width: 130, height: 130)
             
             VStack {
                 Text("Elvis Rexha")
                     .font(.title)
                     .bold()
+                    .matchedGeometryEffect(id: profileNameAnimate, in: profileAnimate)
                 
                 Text("@elvisrexha")
                     .font(.caption)
                     .foregroundColor(.pink)
+                    .matchedGeometryEffect(id: profileUsernameAnimate, in: profileAnimate)
                 
                 Text("My Name is Elvis and I am currently studying computer science in LSBU")
                     .padding()
+                    .matchedGeometryEffect(id: profileBioAnimate, in: profileAnimate)
+                
             }
             
             Spacer()
@@ -74,7 +88,10 @@ struct ProfileView: View {
             .resizable()
             .clipShape(Circle())
             .onTapGesture {
-                isProfileExpanded.toggle()
+                withAnimation(.spring(response: 0.8, dampingFraction: 0.9, blendDuration: 0.8)) {
+                    isProfileExpanded.toggle()
+                }
+                
             }
     }
 }
