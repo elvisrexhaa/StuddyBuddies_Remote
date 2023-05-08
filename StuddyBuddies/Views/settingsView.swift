@@ -18,11 +18,9 @@ struct settingsView: View {
                     
                     NavigationLink(destination: SignUpView()) {
                         Text("Change Password")
-                        
-                        
+ 
                     }
-                    
-                    
+
                 }
                 
                 Section(header: Text("Legal")) {
@@ -63,10 +61,7 @@ struct settingsView: View {
                     }
                 }
             }
-            
-            
-            
-            
+
             .navigationBarTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             

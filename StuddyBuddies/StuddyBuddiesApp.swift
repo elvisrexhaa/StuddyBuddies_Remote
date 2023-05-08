@@ -22,6 +22,7 @@ struct StuddyBuddiesApp: App {
             NavigationView {
 //                ProfilePhotoSelectorUI()
                 ContentView()
+                
                 //TabBarCustom(tabSelected: .constant(.gearshape))
                 
                 //SignUpView()
