@@ -108,17 +108,17 @@ class AuthManager: ObservableObject { // the functions below will be required to
             self.currentUser = user
             
         }
-        
-        
-        
-        
+
     }
     
-    
-    
-    
-    
-    
-    
-    
+    func updateBio(bio: String) {
+        guard let uid = tempUserLogged?.uid else {return}
+        
+        let db = Firestore.firestore()
+        db.collection("userData").document(uid)
+            .updateData(["Bio": bio]) { _ in
+                self.userLogged = self.tempUserLogged
+            }
+    }
+
 }

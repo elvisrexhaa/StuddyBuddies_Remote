@@ -69,7 +69,7 @@ struct ProfileView: View {
                     .foregroundColor(.pink)
                     .matchedGeometryEffect(id: profileUsernameAnimate, in: profileAnimate)
                 
-                Text("My Name is \(user.Firstname) and I am currently studying computer science in LSBU")
+                Text(user.Bio)
                     .padding()
                     .matchedGeometryEffect(id: profileBioAnimate, in: profileAnimate)
             }
