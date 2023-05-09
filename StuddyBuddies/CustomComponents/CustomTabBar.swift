@@ -11,6 +11,7 @@ struct CustomTabBar: View {
     
     @State var currentSelection = 0
     
+    
     private var symbolColor : Color {
         
         switch currentSelection {
@@ -44,7 +45,7 @@ struct CustomTabBar: View {
                 case 1:
                     FavouritesUI()
                 case 2:
-                    ChatUI(chatUser: ChatUser(name: "Elvis Rexha", imageURL: "", isOnline: true))
+                    MessagesListViewUI()
                 case 3:
                     ProfileView()
                     
@@ -81,6 +82,7 @@ struct CustomTabBar: View {
                     .background(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .cornerRadius(30)
                     .shadow(color: .gray, radius: 2)
+                    
                     
                     
                     
