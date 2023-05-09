@@ -9,6 +9,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
     
     @Published var isActive = false
     
+    private var tempUserLogged: FirebaseAuth.User?
+    
     init() {
         
         self.userLogged = Auth.auth().currentUser // store user curerently logged in, into the variable "userinfo"
@@ -48,6 +50,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
             }
             guard let user = Result?.user else {return}
             
+            self.tempUserLogged = user
+            
 //            self.userLogged = user
             
             
@@ -83,6 +87,17 @@ class AuthManager: ObservableObject { // the functions below will be required to
             return "Online"
         } else {
             return "Offline"
+        }
+    }
+    
+    func uploadImage(_ image: UIImage) {
+        guard let uid = tempUserLogged?.uid else {return}
+        
+        UploadProfileImage.uploadImage(image: image) { profileImageUrl in
+            Firestore.firestore().collection("userData").document(uid)
+                .updateData(["profileImageUrl": profileImageUrl]) { _ in
+                    self.userLogged = self.tempUserLogged
+                }// find the correct user id for each profile pic
         }
     }
     

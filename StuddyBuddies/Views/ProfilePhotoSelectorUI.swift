@@ -4,10 +4,14 @@ import UIKit
 struct ProfilePhotoSelectorUI: View {
     
     @State var isImagePickerShowing = false
-    @State var image : UIImage?
+    @State var selectedImage : UIImage?
+    @State var profileImage: Image?
     @State var text : String = ""
     
+    @EnvironmentObject var profile: AuthManager
+
     
+
     
     var body: some View {
         
@@ -16,8 +20,7 @@ struct ProfilePhotoSelectorUI: View {
             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea(.all)
             
-            VStack {
-                VStack (spacing: 120)  {
+                VStack  {
                     
                     Text ("Select a user profile image below: ")
                         .foregroundColor(.white)
@@ -25,25 +28,19 @@ struct ProfilePhotoSelectorUI: View {
                         .padding(.top, 15)
                         .lineLimit(1)
                     
-                    Spacer()
-                    
                     Button {
                         isImagePickerShowing = true
                     } label: {
                         VStack  {
-                            
-                            
-                            
-                            
-                            
-                            
-                            if image != nil {
-                                Image(uiImage: image!)
+                            Spacer()
+
+                            if selectedImage != nil {
+                                Image(uiImage: selectedImage!)
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 150, height: 150)
                                     .clipShape(Circle())
-                                    .offset(y: -200)
+                                    
                                 
                             } else {
                                 
@@ -56,58 +53,67 @@ struct ProfilePhotoSelectorUI: View {
                                     .multilineTextAlignment(.center)
                                     .font(.system(size: 30))
                                     .bold()
-                                
-                                
-                                
-                                
+  
                             }
                             
                             Spacer()
                             
                             
-                            
+
                         }
                         
                         .foregroundColor(.white)
-                        
-                        
-                        
+ 
+                    }
+ 
+                }
+                .sheet(isPresented: $isImagePickerShowing, onDismiss: nil) {
+                    ImagePicker(selectedImage: $selectedImage)
+                    
+                    
+                }
+            
+                
+            VStack {
+                
+                Spacer()
+                CustomInputMessage(placeHolder: "Description about yourself", text: $text , imageName: "pencil" )
+                        .lineLimit(nil)
+                        .lineSpacing(2)
+                        .keyboardType(.default)
+                        .padding(.horizontal, 40)
+                        .offset(y: -100)
+                
+                
+                if let selectedImage = selectedImage {
+                    Button {
+                        profile.uploadImage(selectedImage)
+                    } label: {
+                        Text("Next")
+                            .frame(width: 100, height: 50)
+                            .background(Color.white)
+                            .cornerRadius(30)
+                            .foregroundColor(.black)
+                            .font(.title)
                     }
                     
                 }
-                .sheet(isPresented: $isImagePickerShowing, onDismiss: nil) {
-                    ImagePicker(image: $image)
-                    
-                    
-                }
                 
                 
                 
-                Text("Please briefly explain what you study")
-                    .foregroundColor(.white)
-                    .offset(y: -200)
-                
-                CustomInputMessage(placeHolder: "Description about yourself", text: $text , imageName: "" )
-                    .frame(width: 200)
-                    .lineLimit(nil)
-                    .lineSpacing(2)
-                    .keyboardType(.default)
-                    .offset(y: -200)
                 
                 
-                Button {
-                    //take user to next screen
-                } label: {
-                    Text("Next")
-                        .frame(width: 100, height: 50)
-                        .background(Color.pink)
-                        .cornerRadius(30)
-                        .foregroundColor(.white)
-                        .font(.title)
-                }
+               
                 
                 
             }
+                    
+                
+                
+
+                
+                
+            
             
         }
         

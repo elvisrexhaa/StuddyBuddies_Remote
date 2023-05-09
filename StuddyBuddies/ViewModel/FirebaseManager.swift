@@ -2,11 +2,14 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import FirebaseStorage
+import SwiftUI
 
 
 class FirebaseManger : ObservableObject {
     
     @Published private var headerInfo : [ChatUser] = []
+    
     
     func getHeaderInfo () {
         
@@ -28,11 +31,9 @@ class FirebaseManger : ObservableObject {
                 
             } //compact map used to return ONLY non nil values in the array. In this the messages.
             
+            
+            
         }
     }
-    
-    //Save profile image of user to firebase...
-    
-    
-    
+  
 }

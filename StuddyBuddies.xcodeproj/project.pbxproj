@@ -49,6 +49,8 @@
 		88EE45FB299BB2230092EE13 /* CustomInputMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45FA299BB2230092EE13 /* CustomInputMessage.swift */; };
 		88EE461D299D07070092EE13 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE461C299D07070092EE13 /* ChatManager.swift */; };
 		88FC73AF2A0A5C73008FD5F8 /* ProfileSelectorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC73AE2A0A5C73008FD5F8 /* ProfileSelectorManager.swift */; };
+		88FC73B12A0A67B8008FD5F8 /* MessagesListViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC73B02A0A67B8008FD5F8 /* MessagesListViewUI.swift */; };
+		88FC73B32A0A77AE008FD5F8 /* UploadProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC73B22A0A77AE008FD5F8 /* UploadProfileImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		88EE45FA299BB2230092EE13 /* CustomInputMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputMessage.swift; sourceTree = "<group>"; };
 		88EE461C299D07070092EE13 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		88FC73AE2A0A5C73008FD5F8 /* ProfileSelectorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectorManager.swift; sourceTree = "<group>"; };
+		88FC73B02A0A67B8008FD5F8 /* MessagesListViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListViewUI.swift; sourceTree = "<group>"; };
+		88FC73B22A0A77AE008FD5F8 /* UploadProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadProfileImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +197,7 @@
 				8802B8962A098EAA00674C0B /* onBoarding_1.swift */,
 				8802B8982A09A09200674C0B /* onBoarding_2.swift */,
 				8802B89A2A09A7C700674C0B /* onBoarding_3.swift */,
+				88FC73B02A0A67B8008FD5F8 /* MessagesListViewUI.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 				88EE461C299D07070092EE13 /* ChatManager.swift */,
 				8831CEEF299FF72D00A370C9 /* FirebaseManager.swift */,
 				88FC73AE2A0A5C73008FD5F8 /* ProfileSelectorManager.swift */,
+				88FC73B22A0A77AE008FD5F8 /* UploadProfileImage.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -319,6 +325,7 @@
 				8874743C29A3C9C600BA125C /* profileTest1.swift in Sources */,
 				88EE45CC299A7C4C0092EE13 /* Message.swift in Sources */,
 				883E00B829952B2F005241C2 /* settingsView.swift in Sources */,
+				88FC73B12A0A67B8008FD5F8 /* MessagesListViewUI.swift in Sources */,
 				8802B89B2A09A7C700674C0B /* onBoarding_3.swift in Sources */,
 				883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */,
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
@@ -333,6 +340,7 @@
 				883E00B42992CE92005241C2 /* CardUI.swift in Sources */,
 				8831CEF0299FF72D00A370C9 /* FirebaseManager.swift in Sources */,
 				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
+				88FC73B32A0A77AE008FD5F8 /* UploadProfileImage.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
 				884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */,
 				887958F52916D44E006A6B19 /* ProfileView.swift in Sources */,

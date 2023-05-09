@@ -19,12 +19,18 @@ struct CustomInputMessage: View {
                     .foregroundColor(.white)
                     .frame(width: 350, height: 100)
                 
-                TextField(placeHolder, text: $text)
-                    .foregroundColor(.black)
-                    .bold()
-                    .padding(.leading, 20)
-                    .padding(.bottom, 40)
-                    .multilineTextAlignment(.leading)
+                HStack {
+                    Image (systemName: imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .padding(.leading)
+                    TextField(placeHolder, text: $text)
+                        .foregroundColor(.black)
+                        .bold()
+                    
+                }
+                .padding(.bottom, 40)
                     
                 
                 
@@ -45,7 +51,7 @@ struct CustomInputMessage: View {
 
 struct CustomInputMessage_Previews: PreviewProvider {
     static var previews: some View {
-        CustomInputMessage(placeHolder: "Email", text: .constant(""), imageName: "envelope.circle")
+        CustomInputMessage(placeHolder: "Email", text: .constant(""), imageName: "pencil")
         
     }
 }

@@ -5,7 +5,7 @@ import Firebase
 
 struct LoginUIView: View {
     
-    @EnvironmentObject var viewModel: AuthManager
+    @EnvironmentObject var auth: AuthManager
     
     @State var email: String = "" // state property of the variable email and assigned an empty string to it
     @State var firstname : String = ""
@@ -80,7 +80,7 @@ struct LoginUIView: View {
                 
                 
                 Button {
-                    viewModel.login(withEmail: email, password: password)
+                    auth.login(withEmail: email, password: password)
                         
                     
                 } label: {
@@ -97,7 +97,7 @@ struct LoginUIView: View {
                 .offset(y:130)
                 
                 Button {
-                    viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
+                   auth.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
                     
                 } label: {
                     Text ("Sign Up")

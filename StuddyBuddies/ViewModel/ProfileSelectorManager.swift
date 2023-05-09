@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
     
-    @Binding var image: UIImage?
+    @Binding var selectedImage: UIImage?
     
     private let controller = UIImagePickerController()
     
@@ -19,7 +19,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            parent.image = info[.originalImage] as? UIImage
+            parent.selectedImage = info[.originalImage] as? UIImage
             picker.dismiss(animated: true)
         }
         

@@ -20,8 +20,8 @@ struct StuddyBuddiesApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ProfilePhotoSelectorUI()
-//                ContentView()
+//                ProfilePhotoSelectorUI()
+                ContentView()
 //                onBoarding_1()
                 //TabBarCustom(tabSelected: .constant(.gearshape))
                 
