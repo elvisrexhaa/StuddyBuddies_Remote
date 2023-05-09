@@ -16,13 +16,16 @@ struct CustomInputMessage: View {
             
             ZStack (alignment: .leading) {
                 RoundedRectangle(cornerRadius: 20, style: .circular)
-                    .foregroundColor(.secondary.opacity(0.2))
-                    .frame(width: 350, height: 50)
+                    .foregroundColor(.white)
+                    .frame(width: 350, height: 100)
                 
                 TextField(placeHolder, text: $text)
                     .foregroundColor(.black)
                     .bold()
                     .padding(.leading, 20)
+                    .padding(.bottom, 40)
+                    .multilineTextAlignment(.leading)
+                    
                 
                 
                 

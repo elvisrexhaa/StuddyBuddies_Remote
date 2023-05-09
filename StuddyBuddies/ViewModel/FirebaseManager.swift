@@ -31,5 +31,8 @@ class FirebaseManger : ObservableObject {
         }
     }
     
+    //Save profile image of user to firebase...
+    
+    
     
 }

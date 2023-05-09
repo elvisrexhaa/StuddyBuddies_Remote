@@ -6,7 +6,6 @@ import SwiftUI
 struct ChatUI: View {
     
     @State var chatUser : ChatUser
-    
     @State var sendMessage = ""
     
     @ObservedObject  var chatManager = ChatManager()

@@ -17,6 +17,7 @@ struct onBoarding_2: View {
                         .fontWeight(.semibold)
                         .kerning(1.4)
                         .font(.system(size: 40, weight: .semibold, design: .rounded))
+                        .foregroundColor(.blue)
                     
                     Spacer()
                     

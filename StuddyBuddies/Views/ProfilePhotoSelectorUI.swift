@@ -1,62 +1,10 @@
 import SwiftUI
 import UIKit
 
-struct ProfileSelector: UIViewControllerRepresentable {
-    
-    @Binding var selectedImage: UIImage?
-    @Binding var isProfileSelectorShowing: Bool
-    
-    func makeUIViewController(context: Context) -> some UIViewController {
-        
-        let photoSelector = UIImagePickerController()
-        photoSelector.sourceType = .photoLibrary // images are to be selected from the photo library
-        photoSelector.delegate = context.coordinator
-        
-        return photoSelector
-    }
-    
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
-    }
-    
-    class Coordinator : NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        
-        var parent: ProfileSelector
-        
-        init(_ selector: ProfileSelector) {
-            self.parent = selector
-        }
-        
-        private func profileSelectorController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            print("Image has been selected")
-            
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                
-                DispatchQueue.main.async {
-                    self.parent.selectedImage = image
-                }
-                
-            }
-            
-            parent.isProfileSelectorShowing = false
-        }
-        
-        func profileSelectorControllerDidCancel(_ picker: UIImagePickerController) {
-            parent.isProfileSelectorShowing = false //Dismiss the profile selector
-        }
-    }
-}
-
 struct ProfilePhotoSelectorUI: View {
     
-    @State var isPhotoSelectorShowing = false
-    @State var selectedImage : UIImage?
-    
+    @State var isImagePickerShowing = false
+    @State var image : UIImage?
     @State var text : String = ""
     
     
@@ -68,17 +16,8 @@ struct ProfilePhotoSelectorUI: View {
             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea(.all)
             
-            if selectedImage != nil {
-                Image(uiImage: selectedImage!)
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                    .clipped()
-                
-            }
-            
-            
             VStack {
-                VStack  {
+                VStack (spacing: 120)  {
                     
                     Text ("Select a user profile image below: ")
                         .foregroundColor(.white)
@@ -86,25 +25,46 @@ struct ProfilePhotoSelectorUI: View {
                         .padding(.top, 15)
                         .lineLimit(1)
                     
+                    Spacer()
+                    
                     Button {
-                        isPhotoSelectorShowing = true
-                        
+                        isImagePickerShowing = true
                     } label: {
-                        
-                        VStack (spacing: 30) {
-                            Spacer()
-                            Image(systemName: "plus.circle")
-                                .resizable()
-                                .renderingMode(.template)
-                                .scaledToFill()
-                                .frame(width: 100, height: 100)
-                            Text("Add Photo")
-                                .multilineTextAlignment(.center)
-                                .font(.system(size: 30))
-                                .bold()
+                        VStack  {
                             
                             
+                            
+                            
+                            
+                            
+                            if image != nil {
+                                Image(uiImage: image!)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 150, height: 150)
+                                    .clipShape(Circle())
+                                    .offset(y: -200)
+                                
+                            } else {
+                                
+                                Image(systemName: "plus.circle")
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .scaledToFill()
+                                    .frame(width: 100, height: 100)
+                                Text("Add Photo")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 30))
+                                    .bold()
+                                
+                                
+                                
+                                
+                            }
+                            
                             Spacer()
+                            
+                            
                             
                         }
                         
@@ -115,25 +75,42 @@ struct ProfilePhotoSelectorUI: View {
                     }
                     
                 }
-                .sheet(isPresented: $isPhotoSelectorShowing, onDismiss: nil) {
-                    ProfileSelector(selectedImage: $selectedImage, isProfileSelectorShowing: $isPhotoSelectorShowing ) // makes the state variable true and so loads the func "ProfileSelector" as a sheet.
+                .sheet(isPresented: $isImagePickerShowing, onDismiss: nil) {
+                    ImagePicker(image: $image)
                     
                     
                 }
+                
+                
                 
                 Text("Please briefly explain what you study")
                     .foregroundColor(.white)
                     .offset(y: -200)
                 
-                CustomInputMessage(placeHolder: "Description", text: $text , imageName: "" )
+                CustomInputMessage(placeHolder: "Description about yourself", text: $text , imageName: "" )
                     .frame(width: 200)
-                    .lineLimit(10)
+                    .lineLimit(nil)
+                    .lineSpacing(2)
+                    .keyboardType(.default)
                     .offset(y: -200)
-
+                
+                
+                Button {
+                    //take user to next screen
+                } label: {
+                    Text("Next")
+                        .frame(width: 100, height: 50)
+                        .background(Color.pink)
+                        .cornerRadius(30)
+                        .foregroundColor(.white)
+                        .font(.title)
+                }
+                
+                
             }
- 
+            
         }
-
+        
     }
 }
 
