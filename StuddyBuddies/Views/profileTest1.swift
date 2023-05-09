@@ -26,7 +26,7 @@ struct profileTest1: View {
                     .foregroundColor(.gray)
                     .padding(.bottom)
 
-                Text(user.bio)
+                Text("")
                     .padding()
             } else {
                 // Show loading indicator while data is being retrieved

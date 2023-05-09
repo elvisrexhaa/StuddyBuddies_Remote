@@ -13,6 +13,7 @@ struct LoginUIView: View {
     @State var username : String = ""
     @State var password: String = "" // state property of the variable password and assigned an empty string to it
     
+    
     var body: some View {
         
         ZStack {
@@ -97,7 +98,7 @@ struct LoginUIView: View {
                 .offset(y:130)
                 
                 Button {
-                   auth.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
+                    auth.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
                     
                 } label: {
                     Text ("Sign Up")

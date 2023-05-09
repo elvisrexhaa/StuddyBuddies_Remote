@@ -6,15 +6,18 @@ import FirebaseAuth
 class AuthManager: ObservableObject { // the functions below will be required to be used in multiple views - Observable object used
     
     @Published var userLogged: FirebaseAuth.User?
-    
     @Published var isActive = false
+    @Published var currentUser: User? //this value will always be nil so its optional as app loads quicker than data is fetched
     
     private var tempUserLogged: FirebaseAuth.User?
+    private let service = UserService()
     
     init() {
         
         self.userLogged = Auth.auth().currentUser // store user curerently logged in, into the variable "userinfo"
         print ("current user is \(String(describing: self.userLogged))")
+        
+        self.fetchUserInfo()
     }
     
     func logOut() {
@@ -38,7 +41,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
             
             self.userLogged = user
         }
-
+        
     }
     
     func signup(withEmail email: String, firstname: String, lastname: String, username: String, password: String)
@@ -52,7 +55,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
             
             self.tempUserLogged = user
             
-//            self.userLogged = user
+            //            self.userLogged = user
             
             
             // assigns constant " data" to the following info so then the data can get retrieved
@@ -62,9 +65,9 @@ class AuthManager: ObservableObject { // the functions below will be required to
                 .document(user.uid)
                 .setData(data)
             
-                self.isActive = true
-                }
+            self.isActive = true
         }
+    }
     
     func resetPassword(withEmail email: String) {
         Auth.auth().sendPasswordReset(withEmail: email ) { (error) in
@@ -76,10 +79,6 @@ class AuthManager: ObservableObject { // the functions below will be required to
                 print ("Check your inbox to reset password")
             }
         }
-    }
-    
-    func fetchUser () {
-       
     }
     
     func userStatus (isOnline: Bool) -> String {
@@ -101,15 +100,25 @@ class AuthManager: ObservableObject { // the functions below will be required to
         }
     }
     
-
-    
-    
+    func fetchUserInfo() {
+        guard let uid = self.userLogged?.uid else {return}
+        
+        service.fetchUserData(withUid: uid) { user in
+            
+            self.currentUser = user
+            
+        }
+        
+        
+        
+        
     }
     
     
-
-
-       
     
     
-
+    
+    
+    
+    
+}

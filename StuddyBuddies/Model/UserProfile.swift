@@ -6,6 +6,6 @@ struct UserProfile : Identifiable {
     let name : String
     let username :  String
     let imageURL : String
-    let bio : String
+    let biogrpahy : String
 }
 

@@ -33,9 +33,7 @@
 		884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D137E2912BC8600461D11 /* ResetPasswordUI.swift */; };
 		884D13812912BD7100461D11 /* MainViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13802912BD7100461D11 /* MainViewUI.swift */; };
 		884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13822912BDB100461D11 /* TabBarCustom.swift */; };
-		8874743829A3B6A500BA125C /* profileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874743729A3B6A500BA125C /* profileTest.swift */; };
 		8874743A29A3C93900BA125C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874743929A3C93800BA125C /* UserProfile.swift */; };
-		8874743C29A3C9C600BA125C /* profileTest1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874743B29A3C9C600BA125C /* profileTest1.swift */; };
 		887958F52916D44E006A6B19 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F42916D44E006A6B19 /* ProfileView.swift */; };
 		887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F62919817F006A6B19 /* FavouritesUI.swift */; };
 		88EE45C2299A66880092EE13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C1299A66880092EE13 /* User.swift */; };
@@ -51,6 +49,8 @@
 		88FC73AF2A0A5C73008FD5F8 /* ProfileSelectorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC73AE2A0A5C73008FD5F8 /* ProfileSelectorManager.swift */; };
 		88FC73B12A0A67B8008FD5F8 /* MessagesListViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC73B02A0A67B8008FD5F8 /* MessagesListViewUI.swift */; };
 		88FC73B32A0A77AE008FD5F8 /* UploadProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC73B22A0A77AE008FD5F8 /* UploadProfileImage.swift */; };
+		88FC73B52A0ABC80008FD5F8 /* fetchUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC73B42A0ABC80008FD5F8 /* fetchUserData.swift */; };
+		88FC73B82A0AE9C3008FD5F8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 88FC73B72A0AE9C3008FD5F8 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,9 +76,7 @@
 		884D137E2912BC8600461D11 /* ResetPasswordUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUI.swift; sourceTree = "<group>"; };
 		884D13802912BD7100461D11 /* MainViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewUI.swift; sourceTree = "<group>"; };
 		884D13822912BDB100461D11 /* TabBarCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCustom.swift; sourceTree = "<group>"; };
-		8874743729A3B6A500BA125C /* profileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileTest.swift; sourceTree = "<group>"; };
 		8874743929A3C93800BA125C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		8874743B29A3C9C600BA125C /* profileTest1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileTest1.swift; sourceTree = "<group>"; };
 		887958F42916D44E006A6B19 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		887958F62919817F006A6B19 /* FavouritesUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesUI.swift; sourceTree = "<group>"; };
 		88EE45C1299A66880092EE13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -94,6 +92,7 @@
 		88FC73AE2A0A5C73008FD5F8 /* ProfileSelectorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSelectorManager.swift; sourceTree = "<group>"; };
 		88FC73B02A0A67B8008FD5F8 /* MessagesListViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListViewUI.swift; sourceTree = "<group>"; };
 		88FC73B22A0A77AE008FD5F8 /* UploadProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadProfileImage.swift; sourceTree = "<group>"; };
+		88FC73B42A0ABC80008FD5F8 /* fetchUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchUserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FC73B82A0AE9C3008FD5F8 /* Kingfisher in Frameworks */,
 				884D13772912AE7300461D11 /* FirebaseDatabase in Frameworks */,
 				884D137B2912AE7300461D11 /* FirebaseStorage in Frameworks */,
 				884D13752912AE7300461D11 /* FirebaseAuth in Frameworks */,
@@ -192,8 +192,6 @@
 				883E00B32992CE92005241C2 /* CardUI.swift */,
 				883E00B729952B2F005241C2 /* settingsView.swift */,
 				88EE45C7299A6DAB0092EE13 /* ChatUI.swift */,
-				8874743729A3B6A500BA125C /* profileTest.swift */,
-				8874743B29A3C9C600BA125C /* profileTest1.swift */,
 				8802B8962A098EAA00674C0B /* onBoarding_1.swift */,
 				8802B8982A09A09200674C0B /* onBoarding_2.swift */,
 				8802B89A2A09A7C700674C0B /* onBoarding_3.swift */,
@@ -210,6 +208,7 @@
 				8831CEEF299FF72D00A370C9 /* FirebaseManager.swift */,
 				88FC73AE2A0A5C73008FD5F8 /* ProfileSelectorManager.swift */,
 				88FC73B22A0A77AE008FD5F8 /* UploadProfileImage.swift */,
+				88FC73B42A0ABC80008FD5F8 /* fetchUserData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -252,6 +251,7 @@
 				884D13782912AE7300461D11 /* FirebaseFirestore */,
 				884D137A2912AE7300461D11 /* FirebaseStorage */,
 				881BDD0C299D300B007E6D93 /* FirebaseFirestoreSwift */,
+				88FC73B72A0AE9C3008FD5F8 /* Kingfisher */,
 			);
 			productName = StuddyBuddies;
 			productReference = 884D13552912A3B200461D11 /* StuddyBuddies.app */;
@@ -284,6 +284,7 @@
 			packageReferences = (
 				884D13732912AE7300461D11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				8867611929982C0F006AD816 /* XCRemoteSwiftPackageReference "rive-ios" */,
+				88FC73B62A0AE9C3008FD5F8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 884D13562912A3B200461D11 /* Products */;
 			projectDirPath = "";
@@ -322,14 +323,13 @@
 				884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */,
 				88EE45CA299A7A0F0092EE13 /* ChatUser.swift in Sources */,
 				887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */,
-				8874743C29A3C9C600BA125C /* profileTest1.swift in Sources */,
+				88FC73B52A0ABC80008FD5F8 /* fetchUserData.swift in Sources */,
 				88EE45CC299A7C4C0092EE13 /* Message.swift in Sources */,
 				883E00B829952B2F005241C2 /* settingsView.swift in Sources */,
 				88FC73B12A0A67B8008FD5F8 /* MessagesListViewUI.swift in Sources */,
 				8802B89B2A09A7C700674C0B /* onBoarding_3.swift in Sources */,
 				883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */,
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
-				8874743829A3B6A500BA125C /* profileTest.swift in Sources */,
 				88EE45C4299A67030092EE13 /* Gesture.swift in Sources */,
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
 				881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */,
@@ -491,7 +491,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = StudyBuddiess.StuddyBuddies;
+				PRODUCT_BUNDLE_IDENTIFIER = main.StuddyBuddies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -525,7 +525,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = StudyBuddiess.StuddyBuddies;
+				PRODUCT_BUNDLE_IDENTIFIER = main.StuddyBuddies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -576,6 +576,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		88FC73B62A0AE9C3008FD5F8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -603,6 +611,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 884D13732912AE7300461D11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		88FC73B72A0AE9C3008FD5F8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88FC73B62A0AE9C3008FD5F8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

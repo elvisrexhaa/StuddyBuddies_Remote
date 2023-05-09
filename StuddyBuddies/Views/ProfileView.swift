@@ -1,11 +1,6 @@
-//
-//  ProfileView.swift
-//  StuddyBuddies
-//
-//  Created by Elvis Rexha on 05/11/2022.
-//
-
 import SwiftUI
+import Kingfisher
+
 struct ProfileView: View {
     @State private var isProfileExpanded = false
     @Namespace private var profileAnimate
@@ -14,32 +9,35 @@ struct ProfileView: View {
     @Namespace private var profileUsernameAnimate
     @Namespace private var profileBioAnimate
     
+    @ObservedObject var fetch = AuthManager()
     
     var body: some View {
         VStack {
-            if isProfileExpanded {
-                expandableProfileView
-            } else {
-                collapsedProfileView
+            if let user = fetch.currentUser {
+                if isProfileExpanded {
+                    expandableProfileView(user: user)
+                } else {
+                    collapsedProfileView(user: user)
+                }
             }
         }
+        .padding(.all)
     }
     
-    var collapsedProfileView: some View {
+    func collapsedProfileView(user: User) -> some View {
         VStack {
             HStack {
-                profileImage
+                profileImage(user: user)
                     .matchedGeometryEffect(id: profileImageAnimate, in: profileAnimate)
                     .frame(width: 70, height: 70)
                 
                 VStack(alignment: .leading) {
-                    Text("Elvis Rexha")
+                    Text(user.Firstname)
                         .font(.title)
                         .bold()
                         .matchedGeometryEffect(id: profileNameAnimate, in: profileAnimate)
                     
-                    
-                    Text("@elvisrexha")
+                    Text("@\(user.Username)")
                         .font(.caption)
                         .foregroundColor(.pink)
                         .matchedGeometryEffect(id: profileUsernameAnimate, in: profileAnimate)
@@ -51,31 +49,29 @@ struct ProfileView: View {
             Spacer()
         }
         .padding(.all)
-        
     }
     
     
-    var expandableProfileView: some View {
+    func expandableProfileView(user: User) -> some View {
         VStack {
-            profileImage
+            profileImage(user: user)
                 .matchedGeometryEffect(id: profileImageAnimate, in: profileAnimate)
                 .frame(width: 130, height: 130)
             
             VStack {
-                Text("Elvis Rexha")
+                Text(user.Firstname)
                     .font(.title)
                     .bold()
                     .matchedGeometryEffect(id: profileNameAnimate, in: profileAnimate)
                 
-                Text("@elvisrexha")
+                Text("@\(user.Username)")
                     .font(.caption)
                     .foregroundColor(.pink)
                     .matchedGeometryEffect(id: profileUsernameAnimate, in: profileAnimate)
                 
-                Text("My Name is Elvis and I am currently studying computer science in LSBU")
+                Text("My Name is \(user.Firstname) and I am currently studying computer science in LSBU")
                     .padding()
                     .matchedGeometryEffect(id: profileBioAnimate, in: profileAnimate)
-                
             }
             
             Spacer()
@@ -83,15 +79,14 @@ struct ProfileView: View {
         .padding()
     }
     
-    var profileImage: some View {
-        Image("canada")
+    func profileImage(user: User) -> some View {
+        KFImage(URL(string: user.profileImageUrl))
             .resizable()
             .clipShape(Circle())
             .onTapGesture {
                 withAnimation(.spring(response: 0.8, dampingFraction: 0.9, blendDuration: 0.8)) {
                     isProfileExpanded.toggle()
                 }
-                
             }
     }
 }

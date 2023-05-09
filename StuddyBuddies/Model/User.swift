@@ -1,27 +1,28 @@
 
 import Foundation
+import FirebaseFirestoreSwift
 
 
-struct User {
+struct User: Identifiable, Decodable {
     
-//    var id : String
-    let name : String
-//    let lastName : String
-    let username : String
-    let imageName : String
-    let age : Int
-    let bio : String
-//    let imageURL : String
+    @DocumentID var id: String? //reads documents ID and stores in id property
+    let Firstname : String
+    let Lastname : String
+    let Username : String
+    let profileImageUrl: String
+    let Email: String
+
 
     
     static var data: [User] {
             [
-                User(name: "Elvis", username: "@elvisrexha", imageName: "wave", age: 22, bio: "I like to play football"),
-                User(name: "Mary", username: "@elvisrexha", imageName: "canada", age: 19, bio: "I study Computer Science"),
-                User(name: "Elvis", username: "@elvisrexha", imageName: "wave", age: 22, bio: "I like to play football"),
-                User(name: "Mary", username: "@elvisrexha", imageName: "canada", age: 19, bio: "I study Computer Science"),
-                User(name: "Elvis", username: "@elvisrexha", imageName: "wave", age: 22, bio: "I like to play football"),
-                User(name: "Mary", username: "@hicutie", imageName: "canada", age: 19, bio: "I study Computer Science")
+                
+                User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: ""),
+                User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: ""),
+                User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: ""),
+                User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: ""),
+                User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: ""),
+                User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: ""),
 
             ]
         }

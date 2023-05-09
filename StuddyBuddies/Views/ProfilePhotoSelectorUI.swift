@@ -104,6 +104,7 @@ struct ProfilePhotoSelectorUI: View {
                 
                 
                            NavigationLink(destination: MainViewUI(), isActive: $navigateToMainView) {
+                               
                            }
                 
                 

@@ -31,19 +31,19 @@ struct CardUI: View {
                     
                     
                     
-                    Image(userData.imageName)
+                    Image("")
                         .resizable()
                         .cornerRadius(20)
                     
                     VStack (alignment: .leading) {
                         Spacer()
                         HStack {
-                            Text (userData.name)
+                            Text (userData.Firstname)
                                 .font(.system(.largeTitle, design: .rounded))
                                 .bold()
                             
                             
-                            Text(String(userData.age))
+                            Text(String(""))
                             
                             
                             Spacer()

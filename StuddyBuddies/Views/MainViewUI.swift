@@ -50,7 +50,6 @@ struct MainViewUI: View {
                 
                 CardUI(userData: User.data[2], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
                 
-                CardUI(userData: User.data[3], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
                 
             }
             
