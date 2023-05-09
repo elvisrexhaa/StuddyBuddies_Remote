@@ -8,6 +8,8 @@ struct ProfilePhotoSelectorUI: View {
     @State var profileImage: Image?
     @State var text : String = ""
     
+    @State var navigateToMainView: Bool
+    
     @EnvironmentObject var profile: AuthManager
 
     
@@ -88,6 +90,7 @@ struct ProfilePhotoSelectorUI: View {
                 if let selectedImage = selectedImage {
                     Button {
                         profile.uploadImage(selectedImage)
+                        navigateToMainView.toggle()
                     } label: {
                         Text("Next")
                             .frame(width: 100, height: 50)
@@ -99,6 +102,9 @@ struct ProfilePhotoSelectorUI: View {
                     
                 }
                 
+                
+                           NavigationLink(destination: MainViewUI(), isActive: $navigateToMainView) {
+                           }
                 
                 
                 
@@ -122,6 +128,6 @@ struct ProfilePhotoSelectorUI: View {
 
 struct ProfilePhotoSelectorUI_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilePhotoSelectorUI()
+        ProfilePhotoSelectorUI(navigateToMainView: false)
     }
 }

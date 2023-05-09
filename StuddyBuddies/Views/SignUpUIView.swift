@@ -18,7 +18,7 @@ struct SignUpView: View {
     @State var username : String = ""
     @State var password : String = ""
     
-    @EnvironmentObject var viewModel: AuthManager
+    @EnvironmentObject var auth: AuthManager
     
     
     
@@ -76,13 +76,13 @@ struct SignUpView: View {
                     Spacer()
                     
                     
-                    NavigationLink(destination: ProfilePhotoSelectorUI(), isActive: $viewModel.isActive
+                    NavigationLink(destination: ProfilePhotoSelectorUI( navigateToMainView: false), isActive: $auth.isActive
                                     , label: { }) // once the user presses "sign up" they will be taken to the specified location stated above
 
                     
                     
                     Button {
-                       viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
+                       auth.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
                     } label: {
                         Text ("Sign Up")
                     }
