@@ -120,6 +120,6 @@ struct ChatUI: View {
 
 struct ChatUI_Previews: PreviewProvider {
     static var previews: some View {
-        ChatUI(chatUser: ChatUser(name: "Elvis Rexha", imageURL: "", isOnline: true))
+        ChatUI(chatUser: ChatUser(id: UUID().uuidString, name: "Elvis Rexha", profileImageUrl: "", isOnline: true))
     }
 }

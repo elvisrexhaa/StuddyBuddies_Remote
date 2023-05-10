@@ -25,9 +25,9 @@ class FirebaseManger : ObservableObject {
             self.headerInfo = documents.compactMap { document -> ChatUser? in
                 let data = document.data()
                 let name = data ["Name"] as? String ?? ""
-                let imageURL = data ["ImageURL"] as? String ?? ""
+                let profileImageUrl = data ["profileImageUrl"] as? String ?? ""
                 let isOnline = data ["isOnline"] as? Bool ?? false
-                return ChatUser(name: name, imageURL: imageURL, isOnline: true)
+                return ChatUser(id: UUID().uuidString, name: name, profileImageUrl: profileImageUrl, isOnline: true)
                 
             } //compact map used to return ONLY non nil values in the array. In this the messages.
             

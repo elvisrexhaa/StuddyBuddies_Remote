@@ -1,13 +1,14 @@
 import Foundation
 
-struct ChatUser {
+struct ChatUser : Identifiable {
+    let id: String?
     let name : String
-    let imageURL: String
+    let profileImageUrl: String
     let isOnline : Bool
     
     static var data: [ChatUser] {
             [
-                ChatUser(name: "Elvis Rexha", imageURL: "", isOnline: true)
+                ChatUser(id: UUID().uuidString, name: "Elvis Rexha", profileImageUrl: "", isOnline: true)
                 
             ]
         }

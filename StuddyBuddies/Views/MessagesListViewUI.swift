@@ -1,16 +1,15 @@
 import SwiftUI
 import Kingfisher
 
-
-
-
 struct MessagesListViewUI: View {
     
-    @EnvironmentObject var profile: AuthManager
+    @ObservedObject var fetch = AuthManager()
+    
+    @State var showNewMessageCover: Bool = false
     
     var body: some View {
         NavigationView {
-            if let user = profile.currentUser {
+            if let user = fetch.currentUser {
                 VStack {
                     // Custom Header
                     HStack (spacing: 16) {
@@ -82,7 +81,7 @@ struct MessagesListViewUI: View {
                     .overlay(
                         // Add Message Button
                         Button {
-                            // Action for adding a new message
+                            showNewMessageCover.toggle()
                         } label: {
                             Text("+ New Message")
                                 .frame(maxWidth: .infinity, maxHeight: 55)
@@ -92,6 +91,9 @@ struct MessagesListViewUI: View {
                                 .padding(.horizontal)
                                 .bold()
                         }
+                            .fullScreenCover(isPresented: $showNewMessageCover) {
+                                newMessageViewUI()
+                            }
                         .offset(y: -70),
                         alignment: .init(horizontal: .center, vertical: .bottom)
                     )
