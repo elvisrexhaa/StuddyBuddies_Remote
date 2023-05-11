@@ -7,6 +7,7 @@ struct ProfilePhotoSelectorUI: View {
     @State var selectedImage : UIImage?
     @State var profileImage: Image?
     @State var biotext : String = ""
+    @State var coursetext: String = ""
     
     @State var navigateToMainView: Bool
     
@@ -20,7 +21,7 @@ struct ProfilePhotoSelectorUI: View {
             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea(.all)
             
-            VStack  {
+            VStack(spacing: -300)  {
                 
                 Text ("Select a user profile image below: ")
                     .foregroundColor(.white)
@@ -82,7 +83,21 @@ struct ProfilePhotoSelectorUI: View {
                     .lineSpacing(2)
                     .keyboardType(.default)
                     .padding(.horizontal, 40)
-                    .offset(y: -100)
+                    .offset(y: -160)
+                    
+                
+                CustomInputMessage(placeHolder: "Course Studying", text: $coursetext , imageName: "pencil" )
+                    .lineLimit(nil)
+                    .lineSpacing(2)
+                    .keyboardType(.default)
+                    .padding(.horizontal, 40)
+                    .offset(y: -140)
+
+                    
+
+                
+                
+                    
                 
                 
                 if let selectedImage = selectedImage {
@@ -105,6 +120,8 @@ struct ProfilePhotoSelectorUI: View {
                 NavigationLink(destination: MainViewUI(), isActive: $navigateToMainView) {
                     
                 }
+                
+                
 
             }
 

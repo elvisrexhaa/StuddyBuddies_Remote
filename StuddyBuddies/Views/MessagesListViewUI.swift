@@ -6,6 +6,9 @@ struct MessagesListViewUI: View {
     @ObservedObject var fetch = AuthManager()
     
     @State var showNewMessageCover: Bool = false
+    @State var chatUser: messageListUsers?
+    
+    @State var showChatLogUI : Bool = false
     
     var body: some View {
         NavigationView {
@@ -47,29 +50,35 @@ struct MessagesListViewUI: View {
                     ScrollView {
                         ForEach(0..<10, id: \.self) { list in
                             VStack {
-                                HStack (spacing: 20) {
-                                    Image("canada")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 40, height: 40)
-                                        .padding(10)
-                                        .overlay (
-                                            Circle()
-                                                .stroke(lineWidth: 1.5)
-                                                .foregroundColor(.black)
-                                        )
-                                    VStack (alignment: .leading) {
-                                        Text("Username")
-                                            .font(.system(size: 18, weight: .bold, design: .default))
-                                        Text("Message sent to user")
-                                            .font(.system(size: 16, weight: .semibold, design: .default))
+                                NavigationLink {
+                                    Text("This will be where each user can chat to one another")
+                                } label: {
+                                    HStack (spacing: 20) {
+                                        Image("canada")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 40, height: 40)
+                                            .padding(10)
+                                            .overlay (
+                                                Circle()
+                                                    .stroke(lineWidth: 1.5)
+                                                    .foregroundColor(.black)
+                                            )
+                                        VStack (alignment: .leading) {
+                                            Text("Username")
+                                                .font(.system(size: 18, weight: .bold, design: .default))
+                                            Text("Message sent to user")
+                                                .font(.system(size: 16, weight: .semibold, design: .default))
+                                                .foregroundColor(.secondary)
+                                        }
+                                        Spacer()
+                                        Text("22d")
+                                            .font(.system(size: 14, weight: .semibold, design: .default))
                                             .foregroundColor(.secondary)
                                     }
-                                    Spacer()
-                                    Text("22d")
-                                        .font(.system(size: 14, weight: .semibold, design: .default))
-                                        .foregroundColor(.secondary)
                                 }
+
+                                
                                 Divider()
                                     .frame(width: 400, height: 3)
                                     .foregroundColor(.black)
@@ -92,19 +101,39 @@ struct MessagesListViewUI: View {
                                 .bold()
                         }
                             .fullScreenCover(isPresented: $showNewMessageCover) {
-                                newMessageViewUI()
+                                newMessageViewUI(didSelectNewUser: { user
+                                    in
+                                    print(user.Username)
+                                    self.showChatLogUI.toggle()
+                                    self.chatUser = user
+                                    
+                                })
                             }
                         .offset(y: -70),
                         alignment: .init(horizontal: .center, vertical: .bottom)
+                        
+                        
                     )
                     .navigationBarBackButtonHidden(true)
+                    
+                    NavigationLink("", isActive: $showChatLogUI, destination: {
+                        chatLogViewUI(chatUser: self.chatUser)
+                    })
                 }
                 .navigationBarHidden(true)
+                
+                
                 
             }
             
         }
+        
+        
     }
+    
+    
+    
+    
 }
 
 struct MessagesListViewUI_Previews: PreviewProvider {

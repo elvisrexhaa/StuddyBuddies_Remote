@@ -17,6 +17,7 @@ struct SignUpView: View {
     @State var lastname : String = ""
     @State var username : String = ""
     @State var password : String = ""
+    @State var age : String = ""
     
     @EnvironmentObject var viewModel: AuthManager
     
@@ -72,6 +73,17 @@ struct SignUpView: View {
                             
                             
                         }
+                    
+                    CustomInputAge(placeHolder: "Age", age: $age, imageName: "number.circle")
+                        .foregroundColor(.white)
+                        .offset(y: 100)
+                        .placeholder(when: email.isEmpty) {
+                            
+                            
+                        }
+                    
+                    
+
                     
                     Spacer()
                     

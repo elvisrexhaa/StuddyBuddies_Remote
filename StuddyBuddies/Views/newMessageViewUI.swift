@@ -13,6 +13,8 @@ import Kingfisher
 
 struct newMessageViewUI: View {
     
+    let didSelectNewUser: (messageListUsers) -> ()
+    
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var vm = createNewMessageViewModel()
@@ -22,26 +24,35 @@ struct newMessageViewUI: View {
         NavigationView {
             ScrollView {
                 ForEach(vm.users) { list in
-                    
-                    
-                    HStack(spacing: 16) {
-                        KFImage(URL(string: list.profileImageUrl))
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 60, height: 60)
-                            .clipShape(Circle())
-                            .cornerRadius(50)
-                            .overlay (
-                                Circle()
-                                    .stroke(lineWidth: 1.5)
-                                    .foregroundColor(.black)
-                            )
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                        didSelectNewUser(list)
+                    } label: {
+                        HStack(spacing: 16) {
+                            KFImage(URL(string: list.profileImageUrl))
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 60, height: 60)
+                                .clipShape(Circle())
+                                .cornerRadius(50)
+                                .overlay (
+                                    Circle()
+                                        .stroke(lineWidth: 1.5)
+                                        .foregroundColor(.black)
+                                )
+                            
+                            Text(list.Username)
+                            Spacer()
+                        }
+                        .padding(.horizontal)
                         
-                        Text(list.Username)
-                        Spacer()
                     }
-                    .padding(.horizontal)
+                    .foregroundColor(.black)
                     Divider()
+
+                    
+                    
+                    
                         
                         
                     
@@ -61,10 +72,12 @@ struct newMessageViewUI: View {
         }
         
     }
+    
+   
 }
 
-struct newMessageViewUI_Previews: PreviewProvider {
-    static var previews: some View {
-        newMessageViewUI()
-    }
-}
+//struct newMessageViewUI_Previews: PreviewProvider {
+//    static var previews: some View {
+//        newMessageViewUI()
+//    }
+//}

@@ -120,5 +120,10 @@ class AuthManager: ObservableObject { // the functions below will be required to
                 self.userLogged = self.tempUserLogged
             }
     }
+    
+    
+
+    
+
 
 }

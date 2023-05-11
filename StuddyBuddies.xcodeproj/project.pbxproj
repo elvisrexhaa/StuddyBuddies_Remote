@@ -35,6 +35,10 @@
 		884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D137E2912BC8600461D11 /* ResetPasswordUI.swift */; };
 		884D13812912BD7100461D11 /* MainViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13802912BD7100461D11 /* MainViewUI.swift */; };
 		884D13832912BDB100461D11 /* TabBarCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D13822912BDB100461D11 /* TabBarCustom.swift */; };
+		88550CE42A0C625B00157155 /* CustomInputAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88550CE32A0C625B00157155 /* CustomInputAge.swift */; };
+		88550CE62A0C73DB00157155 /* chatLogViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88550CE52A0C73DB00157155 /* chatLogViewUI.swift */; };
+		88550CEB2A0C854400157155 /* newMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88550CEA2A0C854400157155 /* newMessageModel.swift */; };
+		88550CED2A0C92AC00157155 /* messageBubble1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88550CEC2A0C92AC00157155 /* messageBubble1.swift */; };
 		8874743A29A3C93900BA125C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874743929A3C93800BA125C /* UserProfile.swift */; };
 		887958F52916D44E006A6B19 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F42916D44E006A6B19 /* ProfileView.swift */; };
 		887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F62919817F006A6B19 /* FavouritesUI.swift */; };
@@ -81,6 +85,10 @@
 		884D137E2912BC8600461D11 /* ResetPasswordUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUI.swift; sourceTree = "<group>"; };
 		884D13802912BD7100461D11 /* MainViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewUI.swift; sourceTree = "<group>"; };
 		884D13822912BDB100461D11 /* TabBarCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCustom.swift; sourceTree = "<group>"; };
+		88550CE32A0C625B00157155 /* CustomInputAge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputAge.swift; sourceTree = "<group>"; };
+		88550CE52A0C73DB00157155 /* chatLogViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatLogViewUI.swift; sourceTree = "<group>"; };
+		88550CEA2A0C854400157155 /* newMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newMessageModel.swift; sourceTree = "<group>"; };
+		88550CEC2A0C92AC00157155 /* messageBubble1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageBubble1.swift; sourceTree = "<group>"; };
 		8874743929A3C93800BA125C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		887958F42916D44E006A6B19 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		887958F62919817F006A6B19 /* FavouritesUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesUI.swift; sourceTree = "<group>"; };
@@ -127,6 +135,7 @@
 				88EE45CB299A7C4C0092EE13 /* Message.swift */,
 				8874743929A3C93800BA125C /* UserProfile.swift */,
 				884700712A0C4A350056E792 /* messageListUsers.swift */,
+				88550CEA2A0C854400157155 /* newMessageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 				883E00AB298AA0A7005241C2 /* CustomTabBar.swift */,
 				88EE45CD299A7CA70092EE13 /* MessageBubble.swift */,
 				88EE45FA299BB2230092EE13 /* CustomInputMessage.swift */,
+				88550CE32A0C625B00157155 /* CustomInputAge.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -204,6 +214,8 @@
 				8802B89A2A09A7C700674C0B /* onBoarding_3.swift */,
 				88FC73B02A0A67B8008FD5F8 /* MessagesListViewUI.swift */,
 				881340AA2A0BB88F0086C540 /* newMessageViewUI.swift */,
+				88550CE52A0C73DB00157155 /* chatLogViewUI.swift */,
+				88550CEC2A0C92AC00157155 /* messageBubble1.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88550CE42A0C625B00157155 /* CustomInputAge.swift in Sources */,
+				88550CED2A0C92AC00157155 /* messageBubble1.swift in Sources */,
 				88EE45FB299BB2230092EE13 /* CustomInputMessage.swift in Sources */,
 				884D136C2912A6D800461D11 /* LoginUIView.swift in Sources */,
 				884D13812912BD7100461D11 /* MainViewUI.swift in Sources */,
@@ -350,6 +364,7 @@
 				8802B8992A09A09200674C0B /* onBoarding_2.swift in Sources */,
 				883E00B42992CE92005241C2 /* CardUI.swift in Sources */,
 				8831CEF0299FF72D00A370C9 /* FirebaseManager.swift in Sources */,
+				88550CEB2A0C854400157155 /* newMessageModel.swift in Sources */,
 				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
 				88FC73B32A0A77AE008FD5F8 /* UploadProfileImage.swift in Sources */,
 				884D136A2912A5CD00461D11 /* CustomInputPassword.swift in Sources */,
@@ -358,6 +373,7 @@
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,
 				88EE45C2299A66880092EE13 /* User.swift in Sources */,
 				8802B8972A098EAA00674C0B /* onBoarding_1.swift in Sources */,
+				88550CE62A0C73DB00157155 /* chatLogViewUI.swift in Sources */,
 				88EE45CE299A7CA70092EE13 /* MessageBubble.swift in Sources */,
 				881340AB2A0BB88F0086C540 /* newMessageViewUI.swift in Sources */,
 			);
