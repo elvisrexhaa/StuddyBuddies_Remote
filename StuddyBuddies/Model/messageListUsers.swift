@@ -4,6 +4,7 @@ import Foundation
 
 struct messageListUsers : Identifiable {
     
+    
     var id: String { uid }
     
     let uid: String

@@ -5,6 +5,8 @@ import FirebaseAuth
 
 class AuthManager: ObservableObject { // the functions below will be required to be used in multiple views - Observable object used
     
+    @ObservedObject var refreshMessageList = mainMessagesViewModel()
+    
     @Published var userLogged: FirebaseAuth.User?
     @Published var isActive = false
     @Published var currentUser: User? //this value will always be nil so its optional as app loads quicker than data is fetched
@@ -18,6 +20,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
         print ("current user is \(String(describing: self.userLogged))")
         
         self.fetchUserInfo()
+        
+        
     }
     
     func logOut() {
@@ -26,6 +30,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
         
         let auth = Auth.auth()
         try? auth.signOut() // logout user from backend which in this case is firebase (Optional)
+        
+//        refreshMessageList.fetchRecentMessages()
         
     }
     
@@ -40,6 +46,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
             guard let user = Result?.user else {return} // fast exist, if result is succesful then return user
             
             self.userLogged = user
+            
+            self.refreshMessageList.fetchRecentMessages() // refresh the message list when user logs in
         }
         
     }

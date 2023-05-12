@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct newMessage: Identifiable {
+struct newMessageModel: Identifiable {
     
     var id: String { documentId }
     

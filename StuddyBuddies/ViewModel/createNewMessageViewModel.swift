@@ -2,7 +2,7 @@ import FirebaseFirestore
 import Firebase
 
 class createNewMessageViewModel: ObservableObject {
-    let shared = FirebaseManger()
+    
     
     @Published var users = [messageListUsers]()
     @Published var errorMessage = ""
@@ -12,12 +12,6 @@ class createNewMessageViewModel: ObservableObject {
     }
     
     private func fetchAllUsers() {
-        guard let currentUserID = Auth.auth().currentUser?.uid else {
-            // Handle the case when the current user ID is not available
-            self.errorMessage = "User ID not found."
-            return
-        }
-        
         Firestore.firestore().collection("userData")
             .getDocuments { documentsSnapshot, error in
                 if let error = error {
@@ -31,17 +25,14 @@ class createNewMessageViewModel: ObservableObject {
                     return
                 }
                 
-                self.users = documents.compactMap { document in
-                    let data = document.data()
+                documentsSnapshot?.documents.forEach({ snapshot in
+                    let data = snapshot.data()
                     let user = messageListUsers(data: data)
-                    
-                    // Exclude the current user from the list
-                    if user.uid != currentUserID {
-                        return user
-                    } else {
-                        return nil
+                    if user.uid != Auth.auth().currentUser?.uid {
+                        self.users.append(.init(data: data))
                     }
-                }
+                    
+                })
                 
                 self.errorMessage = "Data fetched successfully."
             }

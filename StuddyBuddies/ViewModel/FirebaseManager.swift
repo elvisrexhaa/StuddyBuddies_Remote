@@ -1,39 +1,26 @@
 
+
 import Foundation
 import Firebase
-import FirebaseFirestore
 import FirebaseStorage
-import SwiftUI
 
-
-class FirebaseManger : ObservableObject {
+class FirebaseManager: NSObject {
     
-    @Published private var headerInfo : [ChatUser] = []
+    let auth: Auth
+    let storage: Storage
+    let firestore: Firestore
     
+    var currentUser: messageListUsers?
     
-    func getHeaderInfo () {
+    static let shared = FirebaseManager()
+    
+    override init() {
         
-        let db = Firestore.firestore()
+        self.auth = Auth.auth()
+        self.storage = Storage.storage()
+        self.firestore = Firestore.firestore()
         
-        db.collection("chatData").addSnapshotListener { querySnapshot, error in //refers to collection in firebase frestore and checks to see the right documents are fetched
-            
-            guard let documents = querySnapshot?.documents else {
-                print("There was an error fetching messages, \(String(describing: error?.localizedDescription))")
-                return
-            }
-            
-            self.headerInfo = documents.compactMap { document -> ChatUser? in
-                let data = document.data()
-                let name = data ["Name"] as? String ?? ""
-                let profileImageUrl = data ["profileImageUrl"] as? String ?? ""
-                let isOnline = data ["isOnline"] as? Bool ?? false
-                return ChatUser(id: UUID().uuidString, name: name, profileImageUrl: profileImageUrl, isOnline: true)
-                
-            } //compact map used to return ONLY non nil values in the array. In this the messages.
-            
-            
-            
-        }
+        super.init()
     }
-  
+    
 }

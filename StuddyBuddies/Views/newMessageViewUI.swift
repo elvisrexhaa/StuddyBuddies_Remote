@@ -1,14 +1,41 @@
-//
-//  newMessageViewUI.swift
-//  StuddyBuddies
-//
-//  Created by Elvis Rexha on 10/05/2023.
-//
+
 
 import SwiftUI
 import FirebaseFirestore
 import Kingfisher
+import Firebase
 
+class CreateNewMessageViewModel: ObservableObject {
+    
+    @Published var users = [messageListUsers]()
+    
+    init() {
+        fetchAllUsers()
+        
+
+    }
+    
+    private func fetchAllUsers() {
+        Firestore.firestore().collection("userData")
+            .getDocuments { documentsSnapshot, error in
+                if let error = error {
+                    print("Failed to fetch users: \(error)")
+                    return
+                }
+                
+                documentsSnapshot?.documents.forEach({ snapshot in
+                    let data = snapshot.data()
+                    let user = messageListUsers(data: data)
+                    if user.uid != Auth.auth().currentUser?.uid {
+                        self.users.append(.init(data: data))
+                    }
+                    
+                })
+            }
+    }
+    
+
+}
 
 
 struct newMessageViewUI: View {
