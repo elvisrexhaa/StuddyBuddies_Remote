@@ -11,6 +11,7 @@ class mainMessagesViewModel: ObservableObject {
     
     @Published var chatUser: messageListUsers?
     
+    
     init(){
         fetchCurrentUser()
         
@@ -40,7 +41,9 @@ class mainMessagesViewModel: ObservableObject {
                     return
                 }
                 
-                self.chatUser = .init(data: data)
+                self.chatUser = .init(data: data) // this fetches the user data for the header
+//                self.chatUser = try? snapshot?.data(as: messageListUsers.self)
+//                FirebaseManager.shared.currentUser = self.chatUser
             }
     }
     
@@ -122,7 +125,7 @@ struct MessagesListViewUI: View {
                 messageViewList
                 
                 NavigationLink("", isActive: $showChatLogUI) {
-                    chatLogViewUI(chatUser: self.chatUser)
+                    chatLogViewUI(vm: chatLogViewModel)
                 }
                 
             }
@@ -140,6 +143,7 @@ struct MessagesListViewUI: View {
         
         HStack (spacing: 16) {
             KFImage(URL(string: vm.chatUser?.profileImageUrl ?? ""))
+           
                 .resizable()
                 .scaledToFill()
                 .frame(width: 65, height: 65)
@@ -153,7 +157,7 @@ struct MessagesListViewUI: View {
                     
                 )
             VStack(alignment: .leading, spacing: 5) {
-                Text("\(vm.chatUser?.Username ?? "")")
+                Text(vm.chatUser?.Username ?? "")
                     .font(.system(size: 24, weight: .bold, design: .rounded))
                 HStack {
                     Circle()
@@ -180,8 +184,14 @@ struct MessagesListViewUI: View {
         ScrollView {
             ForEach(vm.recentMessages) { message in
                 VStack {
-                    NavigationLink {
-                        Text("This will be where each user can chat to one another")
+                    Button {
+                        let uid = Auth.auth().currentUser?.uid == message.fromUserId ? message.toUserId : message.fromUserId
+
+                        self.chatUser = .init( uid: uid, Username: message.Username, profileImageUrl: message.profileImageUrl)
+
+                        self.chatLogViewModel.chatUser = self.chatUser
+                        self.chatLogViewModel.fetchAllMessages()
+                        self.showChatLogUI.toggle()
                     } label: {
                         HStack (spacing: 20) {
                             KFImage(URL(string: message.profileImageUrl))
@@ -214,10 +224,9 @@ struct MessagesListViewUI: View {
                                 .font(.system(size: 12, weight: .semibold, design: .default))
                                 .foregroundColor(.black)
                         }
-                        
+
                     }
-                    
-                    
+
                     Divider()
                         .frame(width: 400, height: 3)
                         .foregroundColor(.black)
@@ -251,6 +260,8 @@ struct MessagesListViewUI: View {
             newMessageViewUI(didSelectNewUser: { user in
                 self.showChatLogUI.toggle()
                 self.chatUser = user
+                self.chatLogViewModel.chatUser = user
+                self.chatLogViewModel.fetchAllMessages()
             })
             
             

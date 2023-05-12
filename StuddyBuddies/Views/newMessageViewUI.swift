@@ -11,12 +11,10 @@ class CreateNewMessageViewModel: ObservableObject {
     
     init() {
         fetchAllUsers()
-        
-
     }
     
     private func fetchAllUsers() {
-        Firestore.firestore().collection("userData")
+        FirebaseManager.shared.firestore.collection("userData")
             .getDocuments { documentsSnapshot, error in
                 if let error = error {
                     print("Failed to fetch users: \(error)")
@@ -26,13 +24,22 @@ class CreateNewMessageViewModel: ObservableObject {
                 documentsSnapshot?.documents.forEach({ snapshot in
                     let data = snapshot.data()
                     let user = messageListUsers(data: data)
-                    if user.uid != Auth.auth().currentUser?.uid {
+                    if user.uid != FirebaseManager.shared.auth.currentUser?.uid {
                         self.users.append(.init(data: data))
                     }
                     
                 })
+                
+//                documentsSnapshot?.documents.forEach({ snapshot in
+//                    let user = try? snapshot.data(as: messageListUsers.self)
+//                    if user?.uid != FirebaseManager.shared.auth.currentUser?.uid {
+//                        self.users.append(user!)
+//                    }
+//
+//                })
             }
     }
+
     
 
 }
@@ -50,7 +57,7 @@ struct newMessageViewUI: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(vm.users) { list in
+                ForEach(vm.users, id: \.self.uid) { list in
                     Button {
                         presentationMode.wrappedValue.dismiss()
                         didSelectNewUser(list)

@@ -5,7 +5,7 @@ import FirebaseAuth
 
 class ChatLogViewModel: ObservableObject {
     
-    let chatUser: messageListUsers?
+    var chatUser: messageListUsers?
 
     @Published var text: String = ""
     
@@ -143,12 +143,12 @@ class ChatLogViewModel: ObservableObject {
 
 struct chatLogViewUI: View {
     
-    let chatUser: messageListUsers?
-
-    init(chatUser: messageListUsers?) {
-        self.chatUser = chatUser
-        self.vm = .init(chatUser: chatUser)
-    }
+//    let chatUser: messageListUsers?
+//
+//    init(chatUser: messageListUsers?) {
+//        self.chatUser = chatUser
+//        self.vm = .init(chatUser: chatUser)
+//    }
     
     @ObservedObject var vm: ChatLogViewModel
     
@@ -246,10 +246,10 @@ struct chatLogViewUI: View {
 }
 
 
-struct chatLogViewUI_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            chatLogViewUI(chatUser: .init(data: ["userid": "Qj5QUG20YaO0sQUBzi0JqdSjwy23", "Username" : "elvisrexhaa"]))
-        }
-    }
-}
+//struct chatLogViewUI_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            chatLogViewUI(vm: .init(chatUser: ["userid": "Qj5QUG20YaO0sQUBzi0JqdSjwy23", "Username" : "elvisrexhaa"]))
+//        }
+//    }
+//}

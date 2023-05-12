@@ -7,6 +7,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
     
     @ObservedObject var refreshMessageList = mainMessagesViewModel()
     
+    
     @Published var userLogged: FirebaseAuth.User?
     @Published var isActive = false
     @Published var currentUser: User? //this value will always be nil so its optional as app loads quicker than data is fetched
@@ -48,6 +49,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
             self.userLogged = user
             
             self.refreshMessageList.fetchRecentMessages() // refresh the message list when user logs in
+            
         }
         
     }

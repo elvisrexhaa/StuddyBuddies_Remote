@@ -18,6 +18,7 @@ struct CardUI: View {
     
     @State var color : Color = .black.opacity(0.2)
     
+    
     var body: some View {
         
         
@@ -31,20 +32,19 @@ struct CardUI: View {
                     
                     
                     
-                    Image("")
+                    Image("canada")
                         .resizable()
                         .cornerRadius(20)
                     
                     VStack (alignment: .leading) {
                         Spacer()
                         HStack {
-                            Text (userData.Firstname)
+                            Text ("Name here")
                                 .font(.system(.largeTitle, design: .rounded))
                                 .bold()
                             
                             
-                            Text(String(""))
-                            
+                                                        
                             
                             Spacer()
                         }

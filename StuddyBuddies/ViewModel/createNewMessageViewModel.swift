@@ -26,13 +26,25 @@ class createNewMessageViewModel: ObservableObject {
                 }
                 
                 documentsSnapshot?.documents.forEach({ snapshot in
-                    let data = snapshot.data()
-                    let user = messageListUsers(data: data)
-                    if user.uid != Auth.auth().currentUser?.uid {
-                        self.users.append(.init(data: data))
+//                    if let user = try? snapshot.data(as: messageListUsers.self),
+//                       let uid = FirebaseManager.shared.auth.currentUser?.uid,
+//                       user.uid != uid {
+//                        self.users.append(user)
+//                    }
+                    
+                    do {
+                        let user = messageListUsers(data: snapshot.data())//try snapshot.data(as: messageListUsers.self)
+                          if let uid = FirebaseManager.shared.auth.currentUser?.uid,
+                           user.uid != uid {
+                            self.users.append(user)
+                        }
+                    }
+                    catch let error {
+                        print(error.localizedDescription)
                     }
                     
                 })
+
                 
                 self.errorMessage = "Data fetched successfully."
             }
