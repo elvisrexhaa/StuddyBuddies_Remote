@@ -76,6 +76,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
                 .setData(data)
             
             self.isActive = true
+            
+            self.refreshMessageList.fetchRecentMessages()
         }
     }
     

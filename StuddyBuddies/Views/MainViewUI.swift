@@ -16,6 +16,7 @@ struct MainViewUI: View {
             //top stack for the main view
             HStack {
                 
+                
                 NavigationLink(destination: CustomTabBar()) {
                     Image("titleblack")
                         .resizable()
@@ -40,6 +41,17 @@ struct MainViewUI: View {
             }
             
             .padding(.horizontal)
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
             

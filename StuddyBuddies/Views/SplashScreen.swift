@@ -1,44 +1,40 @@
 //
-//  onBoarding_1.swift
+//  SplashScreen.swift
 //  StuddyBuddies
 //
-//  Created by Elvis Rexha on 08/05/2023.
+//  Created by Elvis Rexha on 12/05/2023.
 //
 
 import SwiftUI
 
+struct SplashScreen: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
 
+struct SplashScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        SplashScreen()
+    }
+}
 
-struct onBoarding_1: View {
-    
-    var totalOnBoardingScreens = 0
-    
-    @AppStorage("currentPage") var currentPage = 1
+struct Home : View {
     
     var body: some View {
-        
-        if currentPage == 1 {
-            onBoarding_1()
-                .transition(.scale)
-        }
-        if currentPage == 2 {
-            onBoarding_2()
-                .transition(.scale)
-        }
-        if currentPage == 3 {
-            onBoarding_3()
-                .transition(.scale)
-        }
+        LoginUIView()
+    }
+}
 
+struct Splashscreen1 : View {
+        
+    var body: some View {
         ZStack {
-            
-            
+
             VStack (spacing: 10) {
-                
-                
-                
+
                 HStack {
-                    Text("Hello Member!")
+                    Text("Hello Member")
                         .font(.system(size: 40, weight: .semibold, design: .rounded))
                        
                         .kerning(1.4)
@@ -47,7 +43,7 @@ struct onBoarding_1: View {
                     
                     Spacer()
                     
-                    NavigationLink("skip", destination: MainViewUI())
+                    NavigationLink("skip", destination: LoginUIView())
                         .fontWeight(.semibold)
                         .kerning(1.2)
                     
@@ -88,14 +84,7 @@ struct onBoarding_1: View {
         .overlay(
             
             Button {
-                withAnimation(.easeInOut) {
-                    if currentPage <= totalOnBoardingScreens {
-                        currentPage = currentPage + 1
-                    }
-                    else {
-                        currentPage = 1
-                    }
-                }
+               ""
             } label: {
                 Image(systemName: "chevron.right")
                     .foregroundColor(.white)
@@ -123,15 +112,5 @@ struct onBoarding_1: View {
             ,alignment: .bottom
 
         )
-        
-        
-        
-        
-    }
-}
-
-struct onBoarding_1_Previews: PreviewProvider {
-    static var previews: some View {
-        onBoarding_1()
     }
 }

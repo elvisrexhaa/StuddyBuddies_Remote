@@ -9,7 +9,7 @@ struct StuddyBuddiesApp: App {
     
     @StateObject var viewModel = AuthManager() // initialise the object within the main swift file so it doesnt have to be initialised elsewhere.
     
-   
+    
     
     
     init() {
@@ -23,6 +23,7 @@ struct StuddyBuddiesApp: App {
 //                ProfilePhotoSelectorUI()
                 ContentView()
 //                onBoarding_1()
+//                Splashscreen1()
                 //TabBarCustom(tabSelected: .constant(.gearshape))
                 
                 //SignUpView()

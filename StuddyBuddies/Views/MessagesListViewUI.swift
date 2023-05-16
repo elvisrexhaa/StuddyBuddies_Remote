@@ -83,20 +83,13 @@ class mainMessagesViewModel: ObservableObject {
                         print(error)
                     }
 
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
 //                    self.recentMessages.insert(.init(documentId: documentID, data: change.document.data()), at: 0) // append new message on the list to show in the view
                     
                 })
                 
             }
     }
+    
 }
 
 
@@ -113,6 +106,8 @@ struct MessagesListViewUI: View {
     @State var showChatLogUI : Bool = false
     
     private var chatLogViewModel = ChatLogViewModel(chatUser: nil)
+    
+    private var mainMessageViewModel = mainMessagesViewModel()
     
     var body: some View {
         
@@ -262,6 +257,7 @@ struct MessagesListViewUI: View {
                 self.chatUser = user
                 self.chatLogViewModel.chatUser = user
                 self.chatLogViewModel.fetchAllMessages()
+                
             })
             
             

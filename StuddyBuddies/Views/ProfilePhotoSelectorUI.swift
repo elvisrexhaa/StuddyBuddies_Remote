@@ -86,19 +86,13 @@ struct ProfilePhotoSelectorUI: View {
                     .offset(y: -160)
                     
                 
-                CustomInputMessage(placeHolder: "Course Studying", text: $coursetext , imageName: "pencil" )
+                CustomInputMessage(placeHolder: "Subject Of Interest", text: $coursetext , imageName: "pencil" )
                     .lineLimit(nil)
                     .lineSpacing(2)
                     .keyboardType(.default)
                     .padding(.horizontal, 40)
                     .offset(y: -140)
 
-                    
-
-                
-                
-                    
-                
                 
                 if let selectedImage = selectedImage {
                     Button {

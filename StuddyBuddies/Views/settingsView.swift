@@ -43,7 +43,28 @@ struct settingsView: View {
                         
                         
                     }
+                    NavigationLink(destination: LoginUIView()) {
+                        Text("Community Guidelines")
+                        
+                        
+                    }
+                    
+                    
                 }
+                
+                Section(header: Text("Resources and Information")) {
+                    
+                    Link("Well-being", destination: URL(string: "https://www.example.com")!)
+                                        .foregroundColor(.blue)
+                    
+                    Link("Academic Success", destination: URL(string: "https://www.example.com")!)
+                                        .foregroundColor(.blue)
+                    
+                    Link("Mental Health", destination: URL(string: "https://www.google.com")!)
+                                        .foregroundColor(.blue)
+                }
+                
+                
                 
                 Section(header: Text("Session")) {
                     VStack  {
@@ -60,13 +81,23 @@ struct settingsView: View {
                         }
                     }
                 }
+                
+                
             }
+            
+            
+            
+            
 
             .navigationBarTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             
+            
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        
+        
     }
     
     //        Button {
