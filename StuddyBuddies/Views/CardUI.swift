@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-
+import Kingfisher
 
 struct CardUI: View {
     
     @EnvironmentObject var authModel: AuthManager
     
-    @State var userData : User
+    @State var user : User
     
     @State var swipeGesture : cardAnimation
     
@@ -32,14 +32,14 @@ struct CardUI: View {
                     
                     
                     
-                    Image("canada")
-                        .resizable()
-                        .cornerRadius(20)
+                    ProfileImage()
+                       
+                        
                     
                     VStack (alignment: .leading) {
                         Spacer()
                         HStack {
-                            Text ("Name here")
+                            Text("\(user.Firstname) \(user.Lastname)")
                                 .font(.system(.largeTitle, design: .rounded))
                                 .bold()
                             
@@ -50,9 +50,9 @@ struct CardUI: View {
                         }
                         .foregroundColor(.white)
                         
-                        Text("Studying: Computer Science")
+                        Text("Studying: ")
                             .foregroundColor(.white)
-                        Text("Bio: I like to play football")
+                        Text("Bio: \(user.Bio ?? "")")
                             .foregroundColor(.white)
                     }
                     .font(.system(size: 20, design: .rounded))
@@ -112,8 +112,25 @@ struct CardUI: View {
     
 }
 
+
+// MARK: - View Functions
+// MARK: -
+extension CardUI {
+    
+    func ProfileImage() -> some View {
+        KFImage(URL(string: user.profileImageUrl ?? ""))
+            .resizable()
+            .background(Color.black)
+            .cornerRadius(20)
+    }
+    
+}
+
+
+// MARK: - Preview
+// MARK: -
 struct CardUI_Previews: PreviewProvider {
     static var previews: some View {
-        CardUI(userData: User.data[0], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
+        CardUI(user: User.data[0], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
     }
 }

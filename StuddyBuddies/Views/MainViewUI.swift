@@ -5,17 +5,14 @@ import SwiftUI
 struct MainViewUI: View {
     
     @EnvironmentObject var viewModel: AuthManager
+    @StateObject var mainModel = MainViewModel()
     
     var body: some View {
-        
-        
-        
         
         VStack (spacing: -60)  {
             
             //top stack for the main view
             HStack {
-                
                 
                 NavigationLink(destination: CustomTabBar()) {
                     Image("titleblack")
@@ -44,25 +41,12 @@ struct MainViewUI: View {
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             ZStack {
-                CardUI(userData: User.data[0], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
                 
-                CardUI(userData: User.data[1], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
-                
-                CardUI(userData: User.data[2], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
-                
-                
+                ForEach(mainModel.usersList, id: \.Email) { user in
+                    CardUI(user: user, swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
+                }
+
             }
             
             
