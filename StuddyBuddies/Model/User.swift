@@ -3,16 +3,25 @@ import Foundation
 import FirebaseFirestoreSwift
 
 
-struct User: Identifiable, Decodable {
+struct User: Identifiable, Codable {
     
-    @DocumentID var id: String? //reads documents ID and stores in id property
+    var id: String? //reads documents ID and stores in id property
     let Firstname : String
     let Lastname : String
     let Username : String
-    let profileImageUrl: String
+    let profileImageUrl: String?
     let Email: String
-    let Bio: String
+    let Bio: String?
 
+    enum CodingKeys: String, CodingKey {
+            case id = "userid"
+            case Firstname
+            case Lastname
+            case Username
+            case profileImageUrl
+            case Email
+            case Bio
+           }
 
     
     static var data: [User] {

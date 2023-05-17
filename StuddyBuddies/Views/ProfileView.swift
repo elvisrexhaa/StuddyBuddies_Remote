@@ -69,7 +69,7 @@ struct ProfileView: View {
                     .foregroundColor(.pink)
                     .matchedGeometryEffect(id: profileUsernameAnimate, in: profileAnimate)
                 
-                Text(user.Bio)
+                Text(user.Bio ?? "")
                     .padding()
                     .matchedGeometryEffect(id: profileBioAnimate, in: profileAnimate)
             }
@@ -80,7 +80,7 @@ struct ProfileView: View {
     }
     
     func profileImage(user: User) -> some View {
-        KFImage(URL(string: user.profileImageUrl))
+        KFImage(URL(string: user.profileImageUrl ?? ""))
             .resizable()
             .clipShape(Circle())
             .onTapGesture {
