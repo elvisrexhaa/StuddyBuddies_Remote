@@ -43,6 +43,14 @@
 		8874743A29A3C93900BA125C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874743929A3C93800BA125C /* UserProfile.swift */; };
 		887958F52916D44E006A6B19 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F42916D44E006A6B19 /* ProfileView.swift */; };
 		887958F72919817F006A6B19 /* FavouritesUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887958F62919817F006A6B19 /* FavouritesUI.swift */; };
+		889744002A14F343004BDA9C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889743F82A14F343004BDA9C /* Alert.swift */; };
+		889744012A14F343004BDA9C /* UIDevice+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889743F92A14F343004BDA9C /* UIDevice+Blur.swift */; };
+		889744022A14F343004BDA9C /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889743FA2A14F343004BDA9C /* ProgressHUD.swift */; };
+		889744032A14F343004BDA9C /* StatusAlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889743FB2A14F343004BDA9C /* StatusAlertUtils.swift */; };
+		889744042A14F343004BDA9C /* UIDevice+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889743FC2A14F343004BDA9C /* UIDevice+Platform.swift */; };
+		889744052A14F343004BDA9C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889743FD2A14F343004BDA9C /* Enums.swift */; };
+		889744062A14F343004BDA9C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889743FE2A14F343004BDA9C /* Extensions.swift */; };
+		889744072A14F343004BDA9C /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889743FF2A14F343004BDA9C /* Macros.swift */; };
 		88A30E982A0C53D400472941 /* createNewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A30E972A0C53D400472941 /* createNewMessageViewModel.swift */; };
 		88EE45C2299A66880092EE13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C1299A66880092EE13 /* User.swift */; };
 		88EE45C4299A67030092EE13 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C3299A67030092EE13 /* Gesture.swift */; };
@@ -89,6 +97,14 @@
 		8874743929A3C93800BA125C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		887958F42916D44E006A6B19 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		887958F62919817F006A6B19 /* FavouritesUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesUI.swift; sourceTree = "<group>"; };
+		889743F82A14F343004BDA9C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		889743F92A14F343004BDA9C /* UIDevice+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Blur.swift"; sourceTree = "<group>"; };
+		889743FA2A14F343004BDA9C /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		889743FB2A14F343004BDA9C /* StatusAlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusAlertUtils.swift; sourceTree = "<group>"; };
+		889743FC2A14F343004BDA9C /* UIDevice+Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Platform.swift"; sourceTree = "<group>"; };
+		889743FD2A14F343004BDA9C /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		889743FE2A14F343004BDA9C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		889743FF2A14F343004BDA9C /* Macros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		88A30E972A0C53D400472941 /* createNewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createNewMessageViewModel.swift; sourceTree = "<group>"; };
 		88EE45C1299A66880092EE13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		88EE45C3299A67030092EE13 /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
@@ -155,6 +171,7 @@
 				884D13702912AD3A00461D11 /* ViewModel */,
 				884D136D2912AB8300461D11 /* Views */,
 				884D13662912A59000461D11 /* CustomComponents */,
+				889743F62A14F343004BDA9C /* Extras */,
 				884D13582912A3B200461D11 /* StuddyBuddiesApp.swift */,
 				884D135A2912A3B200461D11 /* ContentView.swift */,
 				884D135C2912A3B300461D11 /* Assets.xcassets */,
@@ -220,6 +237,29 @@
 				88550CF02A0DD28500157155 /* FirebaseManager.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		889743F62A14F343004BDA9C /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				889743F72A14F343004BDA9C /* Alert */,
+				889743FD2A14F343004BDA9C /* Enums.swift */,
+				889743FE2A14F343004BDA9C /* Extensions.swift */,
+				889743FF2A14F343004BDA9C /* Macros.swift */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		889743F72A14F343004BDA9C /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				889743F82A14F343004BDA9C /* Alert.swift */,
+				889743F92A14F343004BDA9C /* UIDevice+Blur.swift */,
+				889743FA2A14F343004BDA9C /* ProgressHUD.swift */,
+				889743FB2A14F343004BDA9C /* StatusAlertUtils.swift */,
+				889743FC2A14F343004BDA9C /* UIDevice+Platform.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		88B983082998355A0051C63A /* Frameworks */ = {
@@ -324,10 +364,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889744012A14F343004BDA9C /* UIDevice+Blur.swift in Sources */,
 				88550CF32A0E5E0300157155 /* SplashScreen.swift in Sources */,
+				889744022A14F343004BDA9C /* ProgressHUD.swift in Sources */,
 				88550CE42A0C625B00157155 /* CustomInputAge.swift in Sources */,
+				889744052A14F343004BDA9C /* Enums.swift in Sources */,
 				88EE45FB299BB2230092EE13 /* CustomInputMessage.swift in Sources */,
 				88550CF12A0DD28500157155 /* FirebaseManager.swift in Sources */,
+				889744032A14F343004BDA9C /* StatusAlertUtils.swift in Sources */,
 				884D136C2912A6D800461D11 /* LoginUIView.swift in Sources */,
 				884D13812912BD7100461D11 /* MainViewUI.swift in Sources */,
 				88FC73AF2A0A5C73008FD5F8 /* ProfileSelectorManager.swift in Sources */,
@@ -336,9 +380,11 @@
 				88FC73B52A0ABC80008FD5F8 /* fetchUserData.swift in Sources */,
 				883E00B829952B2F005241C2 /* settingsView.swift in Sources */,
 				88FC73B12A0A67B8008FD5F8 /* MessagesListViewUI.swift in Sources */,
+				889744072A14F343004BDA9C /* Macros.swift in Sources */,
 				8802B89B2A09A7C700674C0B /* onBoarding_3.swift in Sources */,
 				88A30E982A0C53D400472941 /* createNewMessageViewModel.swift in Sources */,
 				883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */,
+				889744062A14F343004BDA9C /* Extensions.swift in Sources */,
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
 				884700722A0C4A350056E792 /* messageListUsers.swift in Sources */,
 				88550CEF2A0D28A100157155 /* recentMessgaeModel.swift in Sources */,
@@ -346,6 +392,7 @@
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
 				881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */,
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
+				889744002A14F343004BDA9C /* Alert.swift in Sources */,
 				8874743A29A3C93900BA125C /* UserProfile.swift in Sources */,
 				8802B8992A09A09200674C0B /* onBoarding_2.swift in Sources */,
 				883E00B42992CE92005241C2 /* CardUI.swift in Sources */,
@@ -356,6 +403,7 @@
 				884D136F2912ABA300461D11 /* SignUpUIView.swift in Sources */,
 				887958F52916D44E006A6B19 /* ProfileView.swift in Sources */,
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,
+				889744042A14F343004BDA9C /* UIDevice+Platform.swift in Sources */,
 				88EE45C2299A66880092EE13 /* User.swift in Sources */,
 				8802B8972A098EAA00674C0B /* onBoarding_1.swift in Sources */,
 				88550CE62A0C73DB00157155 /* chatLogViewUI.swift in Sources */,
