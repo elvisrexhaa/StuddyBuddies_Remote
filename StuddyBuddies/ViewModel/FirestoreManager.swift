@@ -3,6 +3,7 @@
 import Foundation
 import Firebase
 import FirebaseStorage
+import ProgressHUD
 
 class FirestoreManager {
     
@@ -26,7 +27,7 @@ extension FirestoreManager {
             // error
             guard error == nil else {
                 completion(false)
-                customAlert(message: error?.localizedDescription ?? "")
+//                customAlert(message: error?.localizedDescription ?? "")
                 print("Firestore error writing document: \(error!)")
                 return
             }
@@ -46,7 +47,7 @@ extension FirestoreManager {
             
             // error
             guard error == nil else {
-                printOnDebug("**** get data error: \(error?.localizedDescription ?? "")")
+                print("error: \(error?.localizedDescription)")
                 completion(false, nil); return
             }
             
@@ -58,10 +59,10 @@ extension FirestoreManager {
             do {
                 let response = try JSONDecoder().decode(T.self, from: data)
                 completion(true, response)
-                printOnDebug("**** user: \(response)")
+                print("user: \(response)")
             }
             catch let error {
-                print("**** users decoding error = \(error)")
+                print("users decoding error = \(error)")
                 completion(false, nil)
             }
             
@@ -79,7 +80,7 @@ extension FirestoreManager {
             
             // error
             guard error == nil else {
-                printOnDebug("**** get data error: \(error?.localizedDescription ?? "")")
+                print("An error has been reached \(error?.localizedDescription)")
                 completion(false, nil); return
             }
             
@@ -90,11 +91,11 @@ extension FirestoreManager {
             
             do {
                 let list = try JSONDecoder().decode(T.self, from: data)
-                printOnDebug("**** data received: \(list.toDictionary().toString())")
+                print("Error decoding data \(error?.localizedDescription)")
                 completion(true, list)
             }
             catch let error {
-                print("**** coll decoding error = \(error)")
+                print("there was an error retrieving data from firestore \(error.localizedDescription)")
                 completion(false, nil)
             }
             

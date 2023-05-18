@@ -21,14 +21,11 @@ class FavouritesViewModel: ObservableObject {
     }
     
     deinit {
-//        listener?.remove()
+        listener?.remove()
     }
     
 }
 
-
-// MARK: - Api Functions
-// MARK: -
 extension FavouritesViewModel {
     
     private func setUserListener() {
@@ -41,7 +38,7 @@ extension FavouritesViewModel {
                 
                 // error check
                 guard error == nil else {
-                    printOnDebug("**** matches listener error: \(error!.localizedDescription)")
+                    print(" There is a matches listener error: \(error!.localizedDescription)")
                     return
                 }
                 
@@ -53,12 +50,6 @@ extension FavouritesViewModel {
                     let arr = $0["users"] as? [String]
                     return arr?.first == currentUserId ? arr?.last : arr?.first
                 })
-                
-                let ids = Set(self.favoriteUsers.map({$0.id}))
-                
-                if ids.count > 0 {
-                    userIds.removeAll(where: { ids.contains($0) })
-                }
                 
                 self.getMatchedUsers(ids: userIds)
                 
@@ -87,22 +78,11 @@ extension FavouritesViewModel {
 
         // update main users list once all ids are fetched
         group.notify(queue: .main, execute: {
-            self.favoriteUsers.append(contentsOf: users)
+            self.favoriteUsers = users
         })
         
     }
 
     
-    
-}
-
-
-extension FavouritesViewModel {
-    
-}
-
-
-
-extension FavouritesViewModel {
     
 }

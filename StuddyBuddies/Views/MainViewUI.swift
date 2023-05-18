@@ -39,6 +39,7 @@ struct MainViewUI: View {
             
             .padding(.horizontal)
             
+            Spacer()
             
             
             ZStack {
@@ -46,9 +47,9 @@ struct MainViewUI: View {
                 ForEach(mainModel.usersList, id: \.Email) { user in
                     CardUI(user: user, swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0),
                            leftSwiped: {
-                        mainModel.swipeUser(swipedUserID: user.id, isLiked: true)
-                    }, rightSwiped: {
                         mainModel.swipeUser(swipedUserID: user.id, isLiked: false)
+                    }, rightSwiped: {
+                        mainModel.swipeUser(swipedUserID: user.id, isLiked: true)
                     })
                 }
 
@@ -65,8 +66,8 @@ struct MainViewUI: View {
     
     struct MainView_Previews: PreviewProvider {
         static var previews: some View {
-            MainViewUI()
-            
+            MainViewUI(mainModel: MainViewModel())
+
         }
     }
     

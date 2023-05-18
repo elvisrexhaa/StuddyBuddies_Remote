@@ -5,6 +5,7 @@ import FirebaseFirestoreSwift
 
 struct User: Identifiable, Codable {
     
+    
     var id: String? //reads documents ID and stores in id property
     let Firstname : String
     let Lastname : String

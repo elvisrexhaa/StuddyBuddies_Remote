@@ -1,15 +1,19 @@
 import SwiftUI
 import Firebase
+import ProgressHUD
 
 class MainViewModel: ObservableObject {
     
     @Published var usersList = [User]()
     
+    // initialisation
     init() {
         getUnswipedUsers()
     }
     
 }
+
+
 
 extension MainViewModel {
     
@@ -29,12 +33,16 @@ extension MainViewModel {
         
         let currentUserID = userId
         
-                
+        // show progress bar
+        ProgressHUD.show()
+        
         // Get all swiped user IDs for the current user
         FirestoreRefs.usersListRef.document(currentUserID).collection("swipes").getDocuments { (snapshot, error) in
             
             if let error = error {
                 print("Error getting swipes: \(error.localizedDescription)")
+                // hide progress bar
+                ProgressHUD.dismiss()
                 return
             }
             
@@ -49,6 +57,8 @@ extension MainViewModel {
             
             // Get all users who have not been swiped by the current user
             FirestoreManager.getCollectionFirestore(collectionRef: FirestoreRefs.usersListRef, query: nil, modelType: [User].self) { success, data in
+                // hide progress bar
+                ProgressHUD.dismiss()
                 var list = data?.filter({ (swipedUserIDs.contains($0.id ?? "") == false) && ($0.id != currentUserID)})
                 self.usersList = list ?? []
             }
@@ -59,13 +69,19 @@ extension MainViewModel {
 }
 
 
-// MARK: - Getter Functions
-// MARK: -
 extension MainViewModel {
     
     func swipeUser(swipedUserID: String?, isLiked: Bool) {
         
         guard let swipedUserID = swipedUserID else { return }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            // remove user from list as it has been swiped
+            if let index = self.usersList.firstIndex(where: {$0.id == swipedUserID}) {
+                self.usersList.remove(at: index)
+            }
+        }
+        
         let currentUserID = userId
         let db = Firestore.firestore()
         
@@ -89,7 +105,7 @@ extension MainViewModel {
         // Add the current user's swipe to the swipes collection
         currentSwipeRef.setData(currentSwipeData) { (error) in
             if let error = error {
-                customAlert(message: error.localizedDescription)
+//                customAlert(message: error.localizedDescription)
             }
         }
     }
@@ -103,7 +119,7 @@ extension MainViewModel {
             
             // error handling
             if let error = error {
-                customAlert(message: error.localizedDescription)
+//                customAlert(message: error.localizedDescription)
                 return
             }
             
@@ -112,6 +128,9 @@ extension MainViewModel {
             
             // check if other user has liked this person
             guard (data["type"] as? String) ?? "" == "like" else { return }
+            
+//            customAlert(message: "New User Matched", alertType: .success)
+            
             
             // add users in match list
             let matchData: [String: Any] = [
@@ -122,7 +141,7 @@ extension MainViewModel {
             FirestoreRefs.matchesRef.document().setData(matchData) { error in
                 // error handling
                 if let error = error {
-                    customAlert(message: error.localizedDescription)
+//                    customAlert(message: error.localizedDescription)
                     return
                 }
             }
@@ -131,8 +150,4 @@ extension MainViewModel {
         }
     }
 
-}
-
-extension MainViewModel {
-    
 }

@@ -29,6 +29,8 @@ struct CustomInputEmail: View {
                 .frame(width: 400, height: 3)
                 .foregroundColor(.black)
                 .background(.white)
+                
+                
             
             
         }

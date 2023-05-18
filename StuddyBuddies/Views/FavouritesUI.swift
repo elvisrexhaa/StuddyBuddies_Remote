@@ -9,14 +9,19 @@ import SwiftUI
 import Kingfisher
 
 struct FavouritesUI: View {
-    
+
     @ObservedObject var favouritesModel: FavouritesViewModel
     
+    @State private var showChatLogUI : Bool = false
+    @State private var chatUser: messageListUsers?
+    
+    var chatLogViewModel = ChatLogViewModel(chatUser: nil)
     
     var body: some View {
         
         
         ScrollView {
+            
             VStack {
                 
                 Text ("Lets Study Together!")
@@ -32,24 +37,59 @@ struct FavouritesUI: View {
                         .foregroundColor(.yellow)
                 }
                 
-                
-                LazyVGrid(columns: [GridItem(), GridItem()], content: {
+                LazyVStack {
                     ForEach(favouritesModel.favoriteUsers, id: \.Email) { user in
-                        KFImage(URL(string: user.profileImageUrl ?? ""))
-                            .resizable()
-                            .background(Color.black)
-                            .frame(height: 250)
-                            .cornerRadius(30)
+                        
+                        VStack {
+                            
+                            HStack {
+                                
+                                KFImage(URL(string: user.profileImageUrl ?? ""))
+                                    .resizable()
+                                    .background(Color.black)
+                                    .frame(width: 100, height: 100)
+                                    .cornerRadius(.infinity)
+                                
+                                Text(user.Username)
+                                
+                                Spacer()
+                                
+                            }
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                chatTapped(user: user)
+                            }
+                            
+                            Divider()
+                        }
+                        
                     }
-                })
-                
+                }
                 
                 
             }
         }
-        
+        .background{
+            NavigationLink("", isActive: $showChatLogUI) {
+                chatLogViewUI(vm: chatLogViewModel)
+            }
+        }
+       
         
     }
+    
+    
+}
+
+extension FavouritesUI {
+    
+    private func chatTapped(user: User) {
+        self.chatUser = .init(uid: user.id ?? "", Username: user.Username, profileImageUrl: user.profileImageUrl ?? "")
+        self.chatLogViewModel.chatUser = self.chatUser
+        self.chatLogViewModel.fetchAllMessages()
+        self.showChatLogUI.toggle()
+    }
+
 }
 
 struct FavouritesUI_Previews: PreviewProvider {

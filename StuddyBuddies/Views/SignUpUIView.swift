@@ -37,7 +37,10 @@ struct SignUpView: View {
                     CustomInputEmail(placeHolder: "Email", text: $email, imageName: "envelope.circle")
                         .foregroundColor(.white)
                         .offset(y: 100)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
                         .placeholder(when: email.isEmpty) {
+                            
                             
                             
                     }
@@ -59,6 +62,7 @@ struct SignUpView: View {
                     }
                     
                     CustomInputEmail(placeHolder: "Username", text: $username, imageName: "person")
+                        
                         .foregroundColor(.white)
                         .offset(y: 100)
                         .placeholder(when: email.isEmpty) {
