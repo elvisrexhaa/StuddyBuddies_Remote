@@ -11,6 +11,8 @@ struct CustomTabBar: View {
     
     @State var currentSelection = 0
     
+    @StateObject var mainModel = MainViewModel()
+    @StateObject var favouritesModel = FavouritesViewModel()
     
     private var symbolColor : Color {
         
@@ -41,9 +43,9 @@ struct CustomTabBar: View {
                 
                 switch currentSelection{
                 case 0:
-                    MainViewUI()
+                    MainViewUI(mainModel: mainModel)
                 case 1:
-                    FavouritesUI()
+                    FavouritesUI(favouritesModel: favouritesModel)
                 case 2:
                     MessagesListViewUI()
                 case 3:
@@ -97,5 +99,4 @@ struct CustomTabBar_Previews: PreviewProvider {
         CustomTabBar()
     }
 }
-
 

@@ -114,7 +114,6 @@ extension MainViewModel {
             guard (data["type"] as? String) ?? "" == "like" else { return }
             
             // add users in match list
-            let matchRef = FirestoreRefs.matchesRef.document()
             let matchData: [String: Any] = [
                 "user1": currentUserID,
                 "user2": swipedUserID,

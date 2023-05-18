@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FavouritesUI: View {
+    
+    @ObservedObject var favouritesModel: FavouritesViewModel
 
     
     var body: some View {
@@ -64,7 +66,7 @@ struct FavouritesUI: View {
 
 struct FavouritesUI_Previews: PreviewProvider {
     static var previews: some View {
-        FavouritesUI()
+        FavouritesUI(favouritesModel: FavouritesViewModel())
         
     }
     
