@@ -163,12 +163,7 @@ struct MessagesListViewUI: View {
                 }
             }
             Spacer()
-            NavigationLink(destination: MainViewUI()) {
-                Image(systemName: "house.fill")
-                    .font(.system(size: 20))
-                    .foregroundColor(.black)
-                    .shadow(color: .black, radius: 0.4)
-            }
+            
         }
         .padding(.horizontal)
         

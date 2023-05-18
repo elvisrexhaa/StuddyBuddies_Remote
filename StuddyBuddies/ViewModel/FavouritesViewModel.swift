@@ -26,6 +26,9 @@ class FavouritesViewModel: ObservableObject {
     
 }
 
+
+// MARK: - Api Functions
+// MARK: -
 extension FavouritesViewModel {
     
     private func setUserListener() {
@@ -45,39 +48,59 @@ extension FavouritesViewModel {
                 // success
                 guard let docs = snapShot?.documents.map({$0.data()}) else { return }
                 
-                let userIds = docs.compactMap({
+                // get ids of matched users
+                var userIds = docs.compactMap({
                     let arr = $0["users"] as? [String]
                     return arr?.first == currentUserId ? arr?.last : arr?.first
                 })
                 
+                let ids = Set(self.favoriteUsers.map({$0.id}))
                 
-                //guard let data = try? JSONSerialization.data(withJSONObject: doc, options: []) else { return }
+                if ids.count > 0 {
+                    userIds.removeAll(where: { ids.contains($0) })
+                }
                 
-                // decode
-//                do {
-//                    let user = try JSONDecoder().decode(User.self, from: data)
-//                    printOnDebug("**** user updated: \(user.toDictionary())")
-//
-//                    // set user
-//                    self.user = user
-//
-//                }
-//                catch let error {
-//                    print("****  get user decoding error = \(error)")
-//                }
-//
+                self.getMatchedUsers(ids: userIds)
+                
             }
 
     }
     
+    private func getMatchedUsers(ids: [String]) {
+        
+        var users = [User]()
+        let group = DispatchGroup()
+        var ref: DocumentReference
+        
+        // loop through all ids
+        for id in ids {
+            group.enter()
+            
+            // get data for every id
+            ref = FirestoreRefs.usersListRef.document(id)
+            FirestoreManager.getDataFirestore(docRef: ref, modelType: User.self, completion: { success, data in
+                group.leave()
+                guard success, let data = data else {return}
+                users.append(data)
+            })
+        }
+
+        // update main users list once all ids are fetched
+        group.notify(queue: .main, execute: {
+            self.favoriteUsers.append(contentsOf: users)
+        })
+        
+    }
+
+    
     
 }
-
 
 
 extension FavouritesViewModel {
     
 }
+
 
 
 extension FavouritesViewModel {

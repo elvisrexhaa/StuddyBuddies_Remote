@@ -8,6 +8,7 @@ class FirestoreManager {
     
 }
 
+
 extension FirestoreManager {
     
     // upload data
@@ -39,30 +40,29 @@ extension FirestoreManager {
     }
     
     // get data
-    static func getDataFirestore(collectionRef: CollectionReference, completion: @escaping(_ success:Bool, _ users: [User]) -> ()) {
+    static func getDataFirestore<T:Codable>(docRef: DocumentReference, modelType: T.Type, completion: @escaping(_ success:Bool, _ data: T?) -> ()) {
         
-        collectionRef.getDocuments {  snapShot, error in
+        docRef.getDocument {  snapShot, error in
             
             // error
             guard error == nil else {
                 printOnDebug("**** get data error: \(error?.localizedDescription ?? "")")
-                completion(false, []); return
+                completion(false, nil); return
             }
             
-            // docs
-            guard let snapShot = snapShot else {completion(false, []); return }
-            let docs = snapShot.documents.map({ $0.data() })
-            guard let data = try? JSONSerialization.data(withJSONObject: docs, options: []) else { return }
+            // doc
+            guard let doc = snapShot?.data() else {completion(false, nil); return }
+            guard let data = try? JSONSerialization.data(withJSONObject: doc, options: []) else { return }
             
             // decode
             do {
-                let users = try JSONDecoder().decode([User].self, from: data)
-                completion(true, users)
-                printOnDebug("**** user: \(users)")
+                let response = try JSONDecoder().decode(T.self, from: data)
+                completion(true, response)
+                printOnDebug("**** user: \(response)")
             }
             catch let error {
                 print("**** users decoding error = \(error)")
-                completion(false, [])
+                completion(false, nil)
             }
             
         }

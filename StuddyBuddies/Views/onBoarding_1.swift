@@ -47,7 +47,7 @@ struct onBoarding_1: View {
                     
                     Spacer()
                     
-                    NavigationLink("skip", destination: MainViewUI())
+                    NavigationLink("skip", destination: CustomTabBar())
                         .fontWeight(.semibold)
                         .kerning(1.2)
                     

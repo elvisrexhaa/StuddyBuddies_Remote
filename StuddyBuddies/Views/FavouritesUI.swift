@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FavouritesUI: View {
     
     @ObservedObject var favouritesModel: FavouritesViewModel
-
+    
     
     var body: some View {
         
@@ -32,34 +33,21 @@ struct FavouritesUI: View {
                 }
                 
                 
-                HStack {
-                    Image ("canada")
-                        .resizable()
-                        .frame(width:200, height: 250)
-                        .cornerRadius(30)
-                    
-                    Image ("wave")
-                        .resizable()
-                        .frame(width:200, height: 250)
-                        .cornerRadius(30)
-                }
-                
-                HStack {
-                    Image ("wave")
-                        .resizable()
-                        .frame(width:200, height: 250)
-                    .cornerRadius(22)
-                    Image ("canada")
-                        .resizable()
-                        .frame(width:200, height: 250)
-                        .cornerRadius(22)
-                }
+                LazyVGrid(columns: [GridItem(), GridItem()], content: {
+                    ForEach(favouritesModel.favoriteUsers, id: \.Email) { user in
+                        KFImage(URL(string: user.profileImageUrl ?? ""))
+                            .resizable()
+                            .background(Color.black)
+                            .frame(height: 250)
+                            .cornerRadius(30)
+                    }
+                })
                 
                 
                 
             }
         }
-       
+        
         
     }
 }

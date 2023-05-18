@@ -111,9 +111,9 @@ struct ProfilePhotoSelectorUI: View {
                 }
                 
                 
-                NavigationLink(destination: MainViewUI(), isActive: $navigateToMainView) {
-                    
-                }
+//                NavigationLink(destination: MainViewUI(), isActive: $navigateToMainView) {
+//
+//                }
                 
                 
 
