@@ -1,6 +1,3 @@
-
-//
-
 import SwiftUI
 import Firebase
 
@@ -8,7 +5,6 @@ class MainViewModel: ObservableObject {
     
     @Published var usersList = [User]()
     
-    // initialization
     init() {
         getUnswipedUsers()
     }
@@ -51,13 +47,10 @@ extension MainViewModel {
                 }
             }
             
-            var list = Array(swipedUserIDs)
-            if list == [] { list.append(userId)}
-            
             // Get all users who have not been swiped by the current user
-            let queryRef = FirestoreRefs.usersListRef.whereField("userid", notIn: list)
-            FirestoreManager.getCollectionFirestore(collectionRef: nil, query: queryRef, modelType: [User].self) { success, data in
-                self.usersList = data ?? []
+            FirestoreManager.getCollectionFirestore(collectionRef: FirestoreRefs.usersListRef, query: nil, modelType: [User].self) { success, data in
+                var list = data?.filter({ (swipedUserIDs.contains($0.id ?? "") == false) && ($0.id != currentUserID)})
+                self.usersList = list ?? []
             }
 
         }
@@ -80,13 +73,13 @@ extension MainViewModel {
         addCurrentSwipe(swipedUserID: swipedUserID, isLiked: isLiked, currentUserID: currentUserID)
         
         // Check if the other user has already swiped on the current user
-        checkForMatch(swipedUserID: swipedUserID, currentUserID: currentUserID, batch: db.batch())
+        checkForMatch(swipedUserID: swipedUserID, currentUserID: currentUserID)
         
     }
 
     func addCurrentSwipe(swipedUserID: String, isLiked: Bool, currentUserID: String) {
         
-        let currentSwipeRef = FirestoreRefs.usersListRef.document(currentUserID).collection("swipes").document()
+        let currentSwipeRef = FirestoreRefs.usersListRef.document(currentUserID).collection("swipes").document(swipedUserID)
         let currentSwipeData: [String: Any] = [
             "userid": swipedUserID,
             "type": isLiked ? "like" : "dislike",
@@ -101,7 +94,7 @@ extension MainViewModel {
         }
     }
 
-    func checkForMatch(swipedUserID: String, currentUserID: String, batch: WriteBatch) {
+    func checkForMatch(swipedUserID: String, currentUserID: String) {
         
         let otherUserSwipeRef = FirestoreRefs.usersListRef.document(swipedUserID).collection("swipes").document(currentUserID)
         
@@ -128,16 +121,20 @@ extension MainViewModel {
                 "timestamp": Timestamp()
             ]
             
-            batch.setData(matchData, forDocument: matchRef)
+            FirestoreRefs.matchesRef.document().setData(matchData) { error in
+                // error handling
+                if let error = error {
+                    customAlert(message: error.localizedDescription)
+                    return
+                }
+            }
+            
             
         }
     }
 
 }
 
-
-// MARK: - Helper Functions
-// MARK: -
 extension MainViewModel {
     
 }
