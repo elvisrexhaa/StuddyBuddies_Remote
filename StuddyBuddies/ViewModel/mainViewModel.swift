@@ -115,8 +115,7 @@ extension MainViewModel {
             
             // add users in match list
             let matchData: [String: Any] = [
-                "user1": currentUserID,
-                "user2": swipedUserID,
+                "users": [currentUserID, swipedUserID],
                 "timestamp": Timestamp()
             ]
             
