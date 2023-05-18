@@ -44,7 +44,12 @@ struct MainViewUI: View {
             ZStack {
                 
                 ForEach(mainModel.usersList, id: \.Email) { user in
-                    CardUI(user: user, swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
+                    CardUI(user: user, swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0),
+                           leftSwiped: {
+                        mainModel.swipeUser(swipedUserID: user.id, isLiked: true)
+                    }, rightSwiped: {
+                        mainModel.swipeUser(swipedUserID: user.id, isLiked: false)
+                    })
                 }
 
             }

@@ -18,6 +18,9 @@ struct CardUI: View {
     
     @State var color : Color = .black.opacity(0.2)
     
+    var leftSwiped: ()->()
+    var rightSwiped: ()->()
+    
     
     var body: some View {
         
@@ -62,7 +65,6 @@ struct CardUI: View {
                 .frame(height: 570)
                 .offset(x: swipeGesture.x, y:swipeGesture.y)
                 .rotationEffect(.init(degrees: swipeGesture.degree))
-                
                 .gesture(
                     
                     DragGesture()
@@ -99,9 +101,11 @@ struct CardUI: View {
             //checks coordinates for right swipe
         case let x where x  > 150:
             swipeGesture.x = 700; swipeGesture.degree = 15
+            rightSwiped()
             //checks coordinates for left swipe
         case let x where x < -150:
             swipeGesture.x  = -700; swipeGesture.degree = -15
+            leftSwiped()
             //leaves card in middle if nothing is being dragged hence coordinates for x and y are 0 and so is degrees
         default:
             swipeGesture.x = 0; swipeGesture.y = 0 ; swipeGesture.degree = 0
@@ -113,8 +117,6 @@ struct CardUI: View {
 }
 
 
-// MARK: - View Functions
-// MARK: -
 extension CardUI {
     
     func ProfileImage() -> some View {
@@ -131,6 +133,6 @@ extension CardUI {
 // MARK: -
 struct CardUI_Previews: PreviewProvider {
     static var previews: some View {
-        CardUI(user: User.data[0], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0))
+        CardUI(user: User.data[0], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0), leftSwiped: {}, rightSwiped: {})
     }
 }

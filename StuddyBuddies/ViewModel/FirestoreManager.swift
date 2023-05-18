@@ -8,8 +8,6 @@ class FirestoreManager {
     
 }
 
-// MARK: - FireStore  Functions
-// MARK: -
 extension FirestoreManager {
     
     // upload data
@@ -18,7 +16,7 @@ extension FirestoreManager {
         // show progress bar
         ProgressHUD.show()
         
-        // upload data onto firestore
+        // upload
         path.setData(data, merge: true) { error in
             
             // dismiss progress bar
@@ -73,9 +71,11 @@ extension FirestoreManager {
     }
     
     // get collection
-    static func getCollectionFirestore<T:Codable>(collectionRef: CollectionReference, modelType: T.Type, completion: @escaping(_ success:Bool, _ data: T?) -> ()) {
+    static func getCollectionFirestore<T:Codable>(collectionRef: CollectionReference?, query: Query?, modelType: T.Type, completion: @escaping(_ success:Bool, _ data: T?) -> ()) {
         
-        collectionRef.getDocuments {  snapShot, error in
+        guard let ref = collectionRef ?? query else { return }
+        
+        ref.getDocuments {  snapShot, error in
             
             // error
             guard error == nil else {
@@ -110,7 +110,8 @@ struct FirestoreRefs {
     static let db = Firestore.firestore()
     
 //    static let friendRef = db.collection("users").document(AppUser.userId).collection("friends")
-    static let userRef = db.collection("users")
+    static let userRef      = db.collection("users")
     static let usersListRef = db.collection("userData")
+    static let matchesRef   = db.collection("matches")
     
 }
