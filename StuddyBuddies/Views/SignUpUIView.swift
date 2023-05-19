@@ -8,9 +8,9 @@ struct SignUpView: View {
         
         let navBarColor = UINavigationBar.appearance()
         navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-              }
+    }
     
-
+    
     //declared state properties which will be used below for the sign up page
     @State var email : String = ""
     @State var firstname: String = ""
@@ -43,7 +43,7 @@ struct SignUpView: View {
                             
                             
                             
-                    }
+                        }
                     
                     CustomInputEmail(placeHolder: "First Name", text: $firstname, imageName: "person")
                         .foregroundColor(.white)
@@ -51,7 +51,7 @@ struct SignUpView: View {
                         .placeholder(when: email.isEmpty) {
                             
                             
-                    }
+                        }
                     
                     CustomInputEmail(placeHolder: "Last Name", text: $lastname, imageName: "person.circle")
                         .foregroundColor(.white)
@@ -59,16 +59,16 @@ struct SignUpView: View {
                         .placeholder(when: email.isEmpty) {
                             
                             
-                    }
+                        }
                     
                     CustomInputEmail(placeHolder: "Username", text: $username, imageName: "person")
-                        
+                    
                         .foregroundColor(.white)
                         .offset(y: 100)
                         .placeholder(when: email.isEmpty) {
                             
                             
-                    }
+                        }
                     
                     CustomInputPassword(placeHolder: "Password", text: $password, imageName: "lock.circle")
                         .foregroundColor(.white)
@@ -87,22 +87,24 @@ struct SignUpView: View {
                         }
                     
                     
-
+                    
                     
                     Spacer()
                     
                     
                     NavigationLink(destination: ProfilePhotoSelectorUI(navigateToMainView: false), isActive: $viewModel.isActive
-                                    , label: { }) // once the user presses "sign up" they will be taken to the specified location stated above
-
+                                   , label: { }) // once the user presses "sign up" they will be taken to the specified location stated above
+                    
                     
                     
                     Button {
-                       viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
+                        viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
                     } label: {
                         Text ("Sign Up")
                     }
                     .foregroundColor(.black)
+                    .disabled(!authenticateButton)
+                    .opacity(authenticateButton ? 1.0 : 0.3)
                     .bold()
                     .frame(width: 350, height: 50)
                     .background(.white)
@@ -110,10 +112,10 @@ struct SignUpView: View {
                     .padding(.all)
                     .shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0)
                     
-                Spacer()
+                    Spacer()
                 }
                 Spacer()
-                .padding()
+                    .padding()
                 
                 
                 VStack {
@@ -129,7 +131,7 @@ struct SignUpView: View {
                     }
                     
                 }
-  
+                
             }
             .navigationTitle("Sign Up")
             .navigationBarBackButtonHidden(true)
@@ -139,13 +141,24 @@ struct SignUpView: View {
         
         
     }
-    
-    
-    struct SignUpView_Previews: PreviewProvider {
-        static var previews: some View {
-            SignUpView()
-        }
-    }
-    
 }
 
+
+
+
+extension SignUpView : AuthenticationProtocol {
+    var authenticateButton: Bool {
+        
+        return !email.isEmpty && email.contains("@") && !password.isEmpty && password.count > 6 && !firstname.isEmpty && !lastname.isEmpty && !username.isEmpty
+        
+        
+    }
+
+        struct SignUpView_Previews: PreviewProvider {
+            static var previews: some View {
+                SignUpView()
+            }
+        }
+        
+    }
+    

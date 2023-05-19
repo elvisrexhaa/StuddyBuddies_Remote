@@ -16,7 +16,7 @@ struct settingsView: View {
                     }
                     
                     
-                    NavigationLink(destination: SignUpView()) {
+                    NavigationLink(destination: ChangePasswordView()) {
                         Text("Change Password")
  
                     }

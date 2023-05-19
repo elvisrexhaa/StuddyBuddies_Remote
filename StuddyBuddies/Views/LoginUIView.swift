@@ -92,6 +92,8 @@ struct LoginUIView: View {
                 }
                 .foregroundColor(.black)
                 .bold()
+                .disabled(!authenticateButton)
+                .opacity(authenticateButton ? 1.0 : 0.3)
                 .frame(width: 350, height: 50)
                 .background(Color.white)
                 .cornerRadius(20)
@@ -99,20 +101,21 @@ struct LoginUIView: View {
                 .shadow(color: .purple.opacity(0.5), radius: 10, x: 0, y: 0)
                 .offset(y:130)
                 
-                Button {
-                    auth.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
-                    
-                } label: {
-                    Text ("Sign Up")
-                }
-                .foregroundColor(.black)
-                .bold()
-                .frame(width: 350, height: 50)
-                .background(.white)
-                .cornerRadius(20)
-                .padding(.all)
-                .shadow(color: .purple.opacity(0.5), radius: 10, x: 0, y: 0)
-                .offset(y: 230)
+//                Button {
+//                    auth.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
+//                    
+//                } label: {
+//                    Text ("Sign Up")
+//                }
+//                .foregroundColor(.black)
+//                .bold()
+//                .frame(width: 350, height: 50)
+//                .background(.white)
+//                .cornerRadius(20)
+//                .padding(.all)
+//                .shadow(color: .purple.opacity(0.5), radius: 10, x: 0, y: 0)
+//                .offset(y: 230)
+                
                 
                 
                 NavigationLink(destination: {
@@ -136,6 +139,13 @@ struct LoginUIView: View {
         
     }
     
+}
+
+extension LoginUIView : AuthenticationProtocol {
+    var authenticateButton: Bool {
+        
+        return !email.isEmpty && email.contains("@") && !password.isEmpty && password.count > 6
+    }
 }
 
 

@@ -2,11 +2,14 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 
+protocol AuthenticationProtocol {
+    var authenticateButton: Bool { get }
+}
+
 
 class AuthManager: ObservableObject { // the functions below will be required to be used in multiple views - Observable object used
     
     @ObservedObject var refreshMessageList = mainMessagesViewModel()
-    
     
     @Published var userLogged: FirebaseAuth.User?
     @Published var isActive = false
@@ -148,6 +151,30 @@ class AuthManager: ObservableObject { // the functions below will be required to
                 print("Failed to update user data: \(error.localizedDescription)")
             } else {
                 print("User data updated successfully!")
+            }
+        }
+    }
+    
+    func changePassword(currentPassword: String, newPassword: String) {
+        guard let currentUser = Auth.auth().currentUser else {
+            print("No authenticated user.")
+            return
+        }
+        
+        let credential = EmailAuthProvider.credential(withEmail: currentUser.email!, password: currentPassword)
+        
+        currentUser.reauthenticate(with: credential) { (_, error) in
+            if let error = error {
+                print("Failed to reauthenticate user: \(error.localizedDescription)")
+                return
+            }
+            
+            currentUser.updatePassword(to: newPassword) { error in
+                if let error = error {
+                    print("Failed to update password: \(error.localizedDescription)")
+                } else {
+                    print("Password updated successfully!")
+                }
             }
         }
     }

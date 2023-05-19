@@ -52,6 +52,7 @@
 		88A0E31A2A1670FF006742EB /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 88A0E3192A1670FF006742EB /* ProgressHUD */; };
 		88A30E982A0C53D400472941 /* createNewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A30E972A0C53D400472941 /* createNewMessageViewModel.swift */; };
 		88B97B232A17EC6500085C04 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B97B222A17EC6500085C04 /* UpdateProfileView.swift */; };
+		88B97B252A17F91100085C04 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B97B242A17F91100085C04 /* ChangePasswordView.swift */; };
 		88EE45C2299A66880092EE13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C1299A66880092EE13 /* User.swift */; };
 		88EE45C4299A67030092EE13 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE45C3299A67030092EE13 /* Gesture.swift */; };
 		88EE45F8299A96970092EE13 /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = 88EE45F6299A96970092EE13 /* shapes.riv */; };
@@ -105,6 +106,7 @@
 		8898595B2A16473F0090564D /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		88A30E972A0C53D400472941 /* createNewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createNewMessageViewModel.swift; sourceTree = "<group>"; };
 		88B97B222A17EC6500085C04 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
+		88B97B242A17F91100085C04 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		88EE45C1299A66880092EE13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		88EE45C3299A67030092EE13 /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
 		88EE45F6299A96970092EE13 /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				88550CE52A0C73DB00157155 /* chatLogViewUI.swift */,
 				88550CF22A0E5E0300157155 /* SplashScreen.swift */,
 				88B97B222A17EC6500085C04 /* UpdateProfileView.swift */,
+				88B97B242A17F91100085C04 /* ChangePasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				884D135B2912A3B200461D11 /* ContentView.swift in Sources */,
 				884700722A0C4A350056E792 /* messageListUsers.swift in Sources */,
 				88550CEF2A0D28A100157155 /* recentMessgaeModel.swift in Sources */,
+				88B97B252A17F91100085C04 /* ChangePasswordView.swift in Sources */,
 				88EE45C4299A67030092EE13 /* Gesture.swift in Sources */,
 				884D13722912AD4F00461D11 /* AuthLog.swift in Sources */,
 				881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */,
