@@ -22,6 +22,7 @@ struct StuddyBuddiesApp: App {
             NavigationView {
 //                ProfilePhotoSelectorUI()
                 ContentView()
+//                UpdateProfileView()
 //                onBoarding_1()
 //                Splashscreen1()
                 //TabBarCustom(tabSelected: .constant(.gearshape))

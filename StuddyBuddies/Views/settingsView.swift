@@ -11,7 +11,7 @@ struct settingsView: View {
         NavigationView {
             List {
                 Section(header: Text("Account")) {
-                    NavigationLink(destination: LoginUIView()) {
+                    NavigationLink(destination: UpdateProfileView()) {
                         Text("Update Profile")
                     }
                     

@@ -27,6 +27,7 @@ extension FirestoreManager {
             // error
             guard error == nil else {
                 completion(false)
+                    
 //                customAlert(message: error?.localizedDescription ?? "")
                 print("Firestore error writing document: \(error!)")
                 return

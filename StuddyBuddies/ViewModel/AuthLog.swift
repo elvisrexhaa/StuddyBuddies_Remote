@@ -134,6 +134,29 @@ class AuthManager: ObservableObject { // the functions below will be required to
     }
     
     
+    func updateProfile(Bio: String, Username: String) {
+        
+        guard let uid = self.userLogged?.uid else {return}
+        let db = Firestore.firestore()
+        let userDataRef = db.collection("userData").document(uid)
+        
+        userDataRef.updateData([
+            "Bio": Bio,
+            "Username": Username
+        ]) { error in
+            if let error = error {
+                print("Failed to update user data: \(error.localizedDescription)")
+            } else {
+                print("User data updated successfully!")
+            }
+        }
+    }
+    
+    
+    
+
+    
+    
 
     
 
