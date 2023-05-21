@@ -82,20 +82,24 @@ struct settingsView: View {
                     }
                 }
                 
+                Section(header: Text("Report")) {
+                    VStack {
+                        Text("Contact Us: StudyBuddies@gmail.com")
+                    }
+                }
+                
+                
+                
                 
             }
-            
-            
-            
-            
-
             .navigationBarTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             
             
             
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+    
+        
         
         
     }

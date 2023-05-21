@@ -12,12 +12,13 @@ struct SignUpView: View {
     
     
     //declared state properties which will be used below for the sign up page
-    @State var email : String = ""
-    @State var firstname: String = ""
-    @State var lastname : String = ""
-    @State var username : String = ""
-    @State var password : String = ""
-    @State var age : String = ""
+    @State var email     : String = ""
+    @State var firstname : String = ""
+    @State var lastname  : String = ""
+    @State var username  : String = ""
+    @State var password  : String = ""
+    @State var age       : String = ""
+    @State var course    : String = ""
     
     @EnvironmentObject var viewModel: AuthManager
     
@@ -34,41 +35,45 @@ struct SignUpView: View {
                 
                 VStack (spacing: 50) {
                     
-                    CustomInputEmail(placeHolder: "Email", text: $email, imageName: "envelope.circle")
-                        .foregroundColor(.white)
-                        .offset(y: 100)
-                        .textInputAutocapitalization(.never)
-                        .autocorrectionDisabled()
-                        .placeholder(when: email.isEmpty) {
-                            
-                            
-                            
-                        }
-                    
-                    CustomInputEmail(placeHolder: "First Name", text: $firstname, imageName: "person")
-                        .foregroundColor(.white)
-                        .offset(y: 100)
-                        .placeholder(when: email.isEmpty) {
-                            
-                            
-                        }
-                    
-                    CustomInputEmail(placeHolder: "Last Name", text: $lastname, imageName: "person.circle")
-                        .foregroundColor(.white)
-                        .offset(y: 100)
-                        .placeholder(when: email.isEmpty) {
-                            
-                            
-                        }
-                    
-                    CustomInputEmail(placeHolder: "Username", text: $username, imageName: "person")
-                    
-                        .foregroundColor(.white)
-                        .offset(y: 100)
-                        .placeholder(when: email.isEmpty) {
-                            
-                            
-                        }
+                    Group {
+                        
+                        CustomInputEmail(placeHolder: "Email", text: $email, imageName: "envelope.circle")
+                            .foregroundColor(.white)
+                            .offset(y: 100)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .placeholder(when: email.isEmpty) {
+                                
+                                
+                                
+                            }
+                        
+                        CustomInputEmail(placeHolder: "First Name", text: $firstname, imageName: "person")
+                            .foregroundColor(.white)
+                            .offset(y: 100)
+                            .placeholder(when: email.isEmpty) {
+                                
+                                
+                            }
+                        
+                        CustomInputEmail(placeHolder: "Last Name", text: $lastname, imageName: "person.circle")
+                            .foregroundColor(.white)
+                            .offset(y: 100)
+                            .placeholder(when: email.isEmpty) {
+                                
+                                
+                            }
+                        
+                        CustomInputEmail(placeHolder: "Username", text: $username, imageName: "person")
+                        
+                            .foregroundColor(.white)
+                            .offset(y: 100)
+                            .placeholder(when: email.isEmpty) {
+                                
+                                
+                            }
+                        
+                    }
                     
                     CustomInputPassword(placeHolder: "Password", text: $password, imageName: "lock.circle")
                         .foregroundColor(.white)
@@ -82,12 +87,11 @@ struct SignUpView: View {
                         .foregroundColor(.white)
                         .offset(y: 100)
                         .placeholder(when: email.isEmpty) {
-                            
-                            
                         }
                     
-                    
-                    
+                    CustomInputCourse(placeHolder: "Course", course: $course, imageName: "book")
+                        .offset(y: 80)
+
                     
                     Spacer()
                     
@@ -141,24 +145,22 @@ struct SignUpView: View {
         
         
     }
+    
 }
 
 
-
-
 extension SignUpView : AuthenticationProtocol {
+    
     var authenticateButton: Bool {
-        
         return !email.isEmpty && email.contains("@") && !password.isEmpty && password.count > 6 && !firstname.isEmpty && !lastname.isEmpty && !username.isEmpty
         
-        
     }
 
-        struct SignUpView_Previews: PreviewProvider {
-            static var previews: some View {
-                SignUpView()
-            }
-        }
-        
+}
+
+struct SignUpView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignUpView()
     }
+}
     
