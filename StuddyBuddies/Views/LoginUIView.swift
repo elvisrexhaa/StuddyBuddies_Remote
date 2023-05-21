@@ -24,12 +24,12 @@ struct LoginUIView: View {
             
             
             VStack (spacing: 16)  {
-                Image ("titlewhite")
+                Image ("newtitle")
                     .resizable()
                     .scaledToFit()
                     .offset(y: -300)
                     .padding(.all)
-                    .frame(width: 300, height: 300)
+                    .frame(width: 350, height: 350)
                 
                 
                 

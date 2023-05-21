@@ -11,24 +11,10 @@ import SwiftUI
 
 struct onBoarding_1: View {
     
-    var totalOnBoardingScreens = 0
-    
-    @AppStorage("currentPage") var currentPage = 1
+
     
     var body: some View {
         
-        if currentPage == 1 {
-            onBoarding_1()
-                .transition(.scale)
-        }
-        if currentPage == 2 {
-            onBoarding_2()
-                .transition(.scale)
-        }
-        if currentPage == 3 {
-            onBoarding_3()
-                .transition(.scale)
-        }
 
         ZStack {
             
@@ -88,14 +74,7 @@ struct onBoarding_1: View {
         .overlay(
             
             Button {
-                withAnimation(.easeInOut) {
-                    if currentPage <= totalOnBoardingScreens {
-                        currentPage = currentPage + 1
-                    }
-                    else {
-                        currentPage = 1
-                    }
-                }
+                ""
             } label: {
                 Image(systemName: "chevron.right")
                     .foregroundColor(.white)

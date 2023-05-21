@@ -10,6 +10,7 @@ struct SignUpView: View {
         navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
+    @Environment(\.presentationMode) var presentationMode // for dismissing this view
     
     //declared state properties which will be used below for the sign up page
     @State var email     : String = ""
@@ -27,114 +28,53 @@ struct SignUpView: View {
     var body: some View {
         
         NavigationView {
+            
             ZStack {
                 
                 LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
                 
-                
-                VStack (spacing: 50) {
+                ScrollView {
                     
-                    Group {
+                    VStack (spacing: 50) {
                         
                         CustomInputEmail(placeHolder: "Email", text: $email, imageName: "envelope.circle")
                             .foregroundColor(.white)
-                            .offset(y: 100)
                             .textInputAutocapitalization(.never)
                             .autocorrectionDisabled()
-                            .placeholder(when: email.isEmpty) {
-                                
-                                
-                                
-                            }
+                            .placeholder(when: email.isEmpty) {}
                         
                         CustomInputEmail(placeHolder: "First Name", text: $firstname, imageName: "person")
                             .foregroundColor(.white)
-                            .offset(y: 100)
-                            .placeholder(when: email.isEmpty) {
-                                
-                                
-                            }
+                            .placeholder(when: email.isEmpty) {}
                         
                         CustomInputEmail(placeHolder: "Last Name", text: $lastname, imageName: "person.circle")
                             .foregroundColor(.white)
-                            .offset(y: 100)
-                            .placeholder(when: email.isEmpty) {
-                                
-                                
-                            }
+                            .placeholder(when: email.isEmpty) {}
                         
                         CustomInputEmail(placeHolder: "Username", text: $username, imageName: "person")
-                        
                             .foregroundColor(.white)
-                            .offset(y: 100)
-                            .placeholder(when: email.isEmpty) {
-                                
-                                
-                            }
+                            .placeholder(when: email.isEmpty) {}
+                        
+                        CustomInputPassword(placeHolder: "Password", text: $password, imageName: "lock.circle")
+                            .foregroundColor(.white)
+                            .placeholder(when: email.isEmpty) {}
+                        
+                        CustomInputAge(placeHolder: "Age", age: $age, imageName: "number.circle")
+                            .foregroundColor(.white)
+                            .placeholder(when: email.isEmpty) {}
+                        
+                        CustomInputCourse(placeHolder: "Course", course: $course, imageName: "book")
+                        
+                        LocationView()
+                        
+                        BottomButtonsView()
                         
                     }
                     
-                    CustomInputPassword(placeHolder: "Password", text: $password, imageName: "lock.circle")
-                        .foregroundColor(.white)
-                        .offset(y: 100)
-                        .placeholder(when: email.isEmpty) {
-                            
-                            
-                        }
-                    
-                    CustomInputAge(placeHolder: "Age", age: $age, imageName: "number.circle")
-                        .foregroundColor(.white)
-                        .offset(y: 100)
-                        .placeholder(when: email.isEmpty) {
-                        }
-                    
-                    CustomInputCourse(placeHolder: "Course", course: $course, imageName: "book")
-                        .offset(y: 80)
-
-                    
-                    Spacer()
-                    
-                    
-                    NavigationLink(destination: ProfilePhotoSelectorUI(navigateToMainView: false), isActive: $viewModel.isActive
-                                   , label: { }) // once the user presses "sign up" they will be taken to the specified location stated above
-                    
-                    
-                    
-                    Button {
-                        viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
-                    } label: {
-                        Text ("Sign Up")
-                    }
-                    .foregroundColor(.black)
-                    .disabled(!authenticateButton)
-                    .opacity(authenticateButton ? 1.0 : 0.3)
-                    .bold()
-                    .frame(width: 350, height: 50)
-                    .background(.white)
-                    .cornerRadius(20)
-                    .padding(.all)
-                    .shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0)
-                    
-                    Spacer()
                 }
-                Spacer()
-                    .padding()
-                
-                
-                VStack {
-                    Spacer()
-                    NavigationLink {
-                        ContentView()
-                    } label: {
-                        HStack (spacing: 2 ) {
-                            Text("Already have an account?")
-                            Text("Login Here")
-                                .bold()
-                        }
-                    }
-                    
-                }
+                .padding(.top)
+                .background { NavigationLinks() }
                 
             }
             .navigationTitle("Sign Up")
@@ -147,6 +87,49 @@ struct SignUpView: View {
     }
     
 }
+
+extension SignUpView {
+    
+    private func BottomButtonsView() -> some View {
+        
+        VStack {
+            
+            Button {
+                viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
+            } label: {
+                Text ("Sign Up")
+            }
+            .foregroundColor(.black)
+            .disabled(!authenticateButton)
+            .opacity(authenticateButton ? 1.0 : 0.3)
+            .bold()
+            .frame(width: 350, height: 50)
+            .background(.white)
+            .cornerRadius(20)
+            .padding(.all)
+            .shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0)
+            
+            
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                HStack (spacing: 2 ) {
+                    Text("Already have an account?")
+                    Text("Login Here").bold()
+                }
+            }
+        }
+    }
+    
+    private func NavigationLinks() -> some View {
+        NavigationLink(destination: ProfilePhotoSelectorUI(navigateToMainView: false), isActive: $viewModel.isActive, label: { })
+        // once the user presses "sign up" they will be taken to the specified location stated above
+    }
+    
+    
+}
+
+
 
 
 extension SignUpView : AuthenticationProtocol {

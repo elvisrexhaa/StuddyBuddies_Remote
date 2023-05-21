@@ -21,9 +21,9 @@ struct StuddyBuddiesApp: App {
         WindowGroup {
             NavigationView {
 //                ProfilePhotoSelectorUI()
-                ContentView()
+//                ContentView()
 //                UpdateProfileView()
-//                onBoarding_1()
+                onBoarding_3()
 //                Splashscreen1()
                 //TabBarCustom(tabSelected: .constant(.gearshape))
                 

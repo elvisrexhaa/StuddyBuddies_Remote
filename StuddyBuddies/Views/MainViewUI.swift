@@ -15,10 +15,10 @@ struct MainViewUI: View {
             HStack {
                 
                 NavigationLink(destination: CustomTabBar()) {
-                    Image("titleblack")
+                    Image("titlenew2")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 225)
+                        .frame(width: 250)
                         
 
                 }
@@ -30,7 +30,7 @@ struct MainViewUI: View {
                     Image("settings1")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 60, height: 60)
+                        .frame(width: 50, height: 50)
                         .shadow(color: .blue, radius: 1)
                     
                 }
