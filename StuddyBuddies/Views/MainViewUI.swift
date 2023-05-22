@@ -26,6 +26,12 @@ struct MainViewUI: View {
                 
                 Spacer()
                 
+                Image(systemName: "line.3.horizontal.decrease")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25)
+                    
+                
                 NavigationLink(destination: settingsView()) {
                     Image("settings1")
                         .resizable()

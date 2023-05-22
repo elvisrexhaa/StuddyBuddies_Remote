@@ -12,6 +12,8 @@ struct ChangePasswordView: View {
     @State private var currentPassword: String = ""
     @State private var newPassword: String = ""
     
+    @Binding var showAlert: Bool
+    
     @EnvironmentObject var viewModel: AuthManager
     
     var body: some View {
@@ -40,6 +42,18 @@ struct ChangePasswordView: View {
                         .padding(.top)
                 }
             }
+            .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Success"),
+                            message: Text("Password successfully changed"),
+                            dismissButton: .default(Text("OK"), action: {
+                                viewModel.logOut()
+                            })
+                        )
+                    }
+            
+
+            
             .navigationTitle("Change Password")
             .navigationBarTitleDisplayMode(.inline)
             
@@ -53,8 +67,8 @@ struct ChangePasswordView: View {
     
 }
 
-struct ChangePasswordView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChangePasswordView()
-    }
-}
+//struct ChangePasswordView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChangePasswordView(showAlert: $viewModel.showAlert)
+//    }
+//}

@@ -13,12 +13,31 @@ class AuthManager: ObservableObject { // the functions below will be required to
     
     @Published var userLogged: FirebaseAuth.User?
     @Published var isActive = false
-    @Published var currentUser: User? //this value will always be nil so its optional as app loads quicker than data is fetched
+    //this value will always be nil so its optional as app loads quicker than data is fetched
+    @Published var showAlert: Bool = false
+    
+    @Published var currentUser: User? {
+        didSet {
+            Constants.currentUser = currentUser
+            // save to user defaults
+            if let encoded = try? JSONEncoder().encode(currentUser) {
+                UserDefaults.standard.set(encoded, forKey: "currentUser")
+            }
+        }
+    } //this value will always be nil so its optional as app loads quicker than data is fetched
+    
     
     private var tempUserLogged: FirebaseAuth.User?
     private let service = UserService()
     
     init() {
+        
+        // fetch from user defaults
+        if let data = UserDefaults.standard.data(forKey: "currentUser") {
+            if let decoded = try? JSONDecoder().decode(User.self, from: data) {
+                self.currentUser = decoded
+            }
+        }
         
         self.userLogged = Auth.auth().currentUser // store user curerently logged in, into the variable "userinfo"
         print ("current user is \(String(describing: self.userLogged))")
@@ -31,11 +50,12 @@ class AuthManager: ObservableObject { // the functions below will be required to
     func logOut() {
         
         self.userLogged = nil
+        self.currentUser = nil
         
         let auth = Auth.auth()
         try? auth.signOut() // logout user from backend which in this case is firebase (Optional)
         
-//        refreshMessageList.fetchRecentMessages()
+        //        refreshMessageList.fetchRecentMessages()
         
     }
     
@@ -57,7 +77,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
         
     }
     
-    func signup(withEmail email: String, firstname: String, lastname: String, username: String, password: String)
+    func signup(withEmail email: String, firstname: String, lastname: String, username: String, password: String, course: String, lat: Float, long: Float)
     { // as shown above these are the parameters that will be accpeted by the user when the function is executed
         Auth.auth().createUser(withEmail: email, password: password) { Result, error in // firebase code to authenticate user for sign up. will produce either a successful result or error with the sign up
             if error != nil {
@@ -72,7 +92,16 @@ class AuthManager: ObservableObject { // the functions below will be required to
             
             
             // assigns constant " data" to the following info so then the data can get retrieved
-            let data = ["userid": user.uid, "Username": username.lowercased(), "Email": email, "Firstname":firstname, "Lastname": lastname]
+            let data = [
+                "userid": user.uid,
+                "Username": username.lowercased(),
+                "Email": email,
+                "Firstname":firstname,
+                "Lastname": lastname,
+                "Course": course,
+                "Location": ["lat" : lat,
+                             "long": long]
+            ] as [String : Any]
             
             Firestore.firestore().collection("userData")
                 .document(user.uid)
@@ -94,6 +123,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
                 print ("Check your inbox to reset password")
             }
         }
+        
+        self.showAlert = true
     }
     
     func userStatus (isOnline: Bool) -> String {
@@ -123,7 +154,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
             self.currentUser = user
             
         }
-
+        
     }
     
     func updateBio(bio: String) {
@@ -153,6 +184,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
                 print("User data updated successfully!")
             }
         }
+        
     }
     
     func changePassword(currentPassword: String, newPassword: String) {
@@ -177,15 +209,17 @@ class AuthManager: ObservableObject { // the functions below will be required to
                 }
             }
         }
+        
+        showAlert = true
     }
     
     
     
-
     
     
-
     
-
-
+    
+    
+    
+    
 }

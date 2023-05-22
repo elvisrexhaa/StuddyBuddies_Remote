@@ -1,5 +1,6 @@
 
 import SwiftUI
+import CoreLocation
 
 extension View {
     
@@ -15,7 +16,7 @@ extension View {
 }
 
 //extension Dictionary {
-//    
+//
 //    func toString() -> String {
 //        do {
 //            let jsonData = try JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
@@ -25,11 +26,11 @@ extension View {
 //            return ""
 //        }
 //    }
-//    
+//
 //    func print() {
 //        printOnDebug(self.toString())
 //    }
-//    
+//
 //}
 
 extension Encodable {
@@ -60,4 +61,10 @@ extension UIApplication {
         return window
     }
     
+}
+
+extension CLLocationCoordinate2D: Equatable {
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
 }

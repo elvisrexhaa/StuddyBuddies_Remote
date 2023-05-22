@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct Subjects {
+struct Constants {
+    
+    static var currentUser: User?
 
     static let courses = [
     "Computer Science",

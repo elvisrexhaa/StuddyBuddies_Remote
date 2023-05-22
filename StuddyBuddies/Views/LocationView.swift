@@ -13,49 +13,88 @@ import ProgressHUD
 struct LocationView: View {
     
     @StateObject var locationManager = LocationManager()
-
+    
+    @Binding var lat: Float
+    @Binding var long: Float
+    
     var body: some View {
         
-        VStack {
-            if let location = locationManager.location {
-                Text("Your location: \(location.latitude), \(location.longitude)")
+        VStack(alignment: .leading) {
+            
+            HStack {
+                
+                
+                
+                Image(systemName: "location.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25)
+                    .padding(.leading)
+                
+                
+                
+                if lat != 0.0, long != 0.0 {
+                    Text ("\(lat), \(long)")
+                }
+                
+                
+                
+                LocationButton (.currentLocation) {
+                    locationManager.requestLocation()
+                }
+                .symbolVariant (.fill)
+                .labelStyle (.titleAndIcon)
+                .foregroundColor (Color.white)
+                .cornerRadius (12)
+                .font(.system(size: 12))
+                
             }
-
-            LocationButton(.currentLocation) {
-                locationManager.requestLocation()
-            }
-            .cornerRadius(30)
-            .frame(width: 300, height: 50)
-            .foregroundColor(.white)
+            
+            
+            
+            Divider()
+                .frame(width: 400, height: 3)
+                .foregroundColor(.black)
+                .background(.white)
         }
+        .onChange(of: locationManager.location) { newValue in
+            if let lat = newValue?.latitude, let long = newValue?.longitude {
+                self.lat = Float(lat)
+                self.long = Float(long)
+            }
+            
+        }
+        
     }
+    
 }
+
 
 
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView()
+        LocationView(lat: .constant(0.0), long: .constant(0.0))
     }
 }
 
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
-
+    
     @Published var location: CLLocationCoordinate2D?
-
+    
     override init() {
         super.init()
         manager.delegate = self
     }
-
+    
     func requestLocation() {
         // show progress bar
         ProgressHUD.show()
         manager.requestLocation()
     }
     
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // hide progress bar
         ProgressHUD.dismiss()

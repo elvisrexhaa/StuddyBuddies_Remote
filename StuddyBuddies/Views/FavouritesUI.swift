@@ -47,12 +47,17 @@ struct FavouritesUI: View {
                                 KFImage(URL(string: user.profileImageUrl ?? ""))
                                     .resizable()
                                     .background(Color.black)
-                                    .frame(width: 100, height: 100)
+                                    .frame(width: 70, height: 70)
                                     .cornerRadius(.infinity)
                                 
                                 Text(user.Username)
                                 
                                 Spacer()
+                                
+                                Image("hat")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 40, height: 40)
                                 
                             }
                             .contentShape(Rectangle())
@@ -65,6 +70,7 @@ struct FavouritesUI: View {
                         
                     }
                 }
+                .padding()
                 
                 
             }

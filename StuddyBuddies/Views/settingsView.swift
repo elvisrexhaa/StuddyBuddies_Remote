@@ -5,6 +5,7 @@ import SwiftUI
 struct settingsView: View {
     
     @EnvironmentObject private var viewModel: AuthManager
+    
     var body: some View {
         
         
@@ -16,7 +17,7 @@ struct settingsView: View {
                     }
                     
                     
-                    NavigationLink(destination: ChangePasswordView()) {
+                    NavigationLink(destination: ChangePasswordView(showAlert: $viewModel.showAlert)) {
                         Text("Change Password")
  
                     }
@@ -98,11 +99,13 @@ struct settingsView: View {
             
             
         }
+        
     
         
         
         
     }
+
     
     //        Button {
     //            viewModel.logOut()
@@ -120,6 +123,9 @@ struct settingsView: View {
     //        .navigationTitle("Settings")
     
 }
+
+
+
 
 struct settingsView_Previews: PreviewProvider {
     static var previews: some View {

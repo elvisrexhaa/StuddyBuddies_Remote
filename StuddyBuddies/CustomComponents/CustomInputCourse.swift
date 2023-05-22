@@ -27,7 +27,7 @@ struct CustomInputCourse: View {
                     .padding(.leading)
 
                 Picker("Select a Course", selection: $course) {
-                    ForEach(Subjects.courses, id: \.self) {
+                    ForEach(Constants.courses, id: \.self) {
                         Text($0)
                     }
                 }

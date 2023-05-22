@@ -19,7 +19,9 @@ struct SignUpView: View {
     @State var username  : String = ""
     @State var password  : String = ""
     @State var age       : String = ""
-    @State var course    : String = ""
+    @State var course    : String = "Computer Science"
+    @State var lat: Float = 0.0
+    @State var long: Float = 0.0
     
     @EnvironmentObject var viewModel: AuthManager
     
@@ -36,7 +38,7 @@ struct SignUpView: View {
                 
                 ScrollView {
                     
-                    VStack (spacing: 50) {
+                    VStack(spacing: 40) {
                         
                         CustomInputEmail(placeHolder: "Email", text: $email, imageName: "envelope.circle")
                             .foregroundColor(.white)
@@ -65,8 +67,9 @@ struct SignUpView: View {
                             .placeholder(when: email.isEmpty) {}
                         
                         CustomInputCourse(placeHolder: "Course", course: $course, imageName: "book")
+                            .padding(.top, -20)
                         
-                        LocationView()
+                        LocationView(lat: $lat, long: $long)
                         
                         BottomButtonsView()
                         
@@ -95,9 +98,9 @@ extension SignUpView {
         VStack {
             
             Button {
-                viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
+                viewModel.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password, course: course, lat: lat, long: long)
             } label: {
-                Text ("Sign Up")
+                Text ("Next")
             }
             .foregroundColor(.black)
             .disabled(!authenticateButton)

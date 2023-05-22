@@ -84,15 +84,15 @@ struct ProfilePhotoSelectorUI: View {
                     .keyboardType(.default)
                     .padding(.horizontal, 40)
                     .offset(y: -160)
-                    
                 
-                CustomInputMessage(placeHolder: "Subject Of Interest", text: $coursetext , imageName: "pencil" )
-                    .lineLimit(nil)
-                    .lineSpacing(2)
-                    .keyboardType(.default)
-                    .padding(.horizontal, 40)
-                    .offset(y: -140)
-
+                
+                //                CustomInputMessage(placeHolder: "Subject Of Interest", text: $coursetext , imageName: "pencil" )
+                //                    .lineLimit(nil)
+                //                    .lineSpacing(2)
+                //                    .keyboardType(.default)
+                //                    .padding(.horizontal, 40)
+                //                    .offset(y: -140)
+                
                 
                 if let selectedImage = selectedImage {
                     Button {
@@ -100,25 +100,28 @@ struct ProfilePhotoSelectorUI: View {
                         profile.updateBio(bio: self.biotext)
                         navigateToMainView.toggle()
                     } label: {
-                        Text("Next")
-                            .frame(width: 100, height: 50)
-                            .background(Color.white)
-                            .cornerRadius(30)
-                            .foregroundColor(.black)
-                            .font(.title)
+                        Text("Sign Up")
+                        
                     }
+                    .foregroundColor(.black)
+                    .bold()
+                    .frame(width: 350, height: 50)
+                    .background(.white)
+                    .cornerRadius(20)
+                    .padding(.all)
+                    .shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0)
                     
                 }
                 
                 
-//                NavigationLink(destination: MainViewUI(), isActive: $navigateToMainView) {
-//
-//                }
+                //                NavigationLink(destination: MainViewUI(), isActive: $navigateToMainView) {
+                //
+                //                }
                 
                 
-
+                
             }
-
+            
         }
         
     }

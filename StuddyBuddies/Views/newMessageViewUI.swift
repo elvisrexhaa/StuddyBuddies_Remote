@@ -93,6 +93,7 @@ struct newMessageViewUI: View {
                 }
             }
             .navigationTitle("New Message")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button {
@@ -100,7 +101,7 @@ struct newMessageViewUI: View {
                     } label: {
                         Text("Cancel")
                     }
-                    
+
                 }
             }
         }

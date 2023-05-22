@@ -46,7 +46,7 @@ extension FavouritesViewModel {
                 guard let docs = snapShot?.documents.map({$0.data()}) else { return }
                 
                 // get ids of matched users
-                var userIds = docs.compactMap({
+                let userIds = docs.compactMap({
                     let arr = $0["users"] as? [String]
                     return arr?.first == currentUserId ? arr?.last : arr?.first
                 })

@@ -4,16 +4,18 @@ import Firebase
 
 struct ResetPasswordUI: View {
     
-    init() { // initialiser method used to make the navigation title colour white. When executed the code will run through init method first.
-        
-        let navBarColor = UINavigationBar.appearance()
-        navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        navBarColor.titleTextAttributes = [.foregroundColor: UIColor.white]
-    }
+//    init() { // initialiser method used to make the navigation title colour white. When executed the code will run through init method first.
+//        
+//        let navBarColor = UINavigationBar.appearance()
+//        navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+//        
+//        navBarColor.titleTextAttributes = [.foregroundColor: UIColor.white]
+//    }
     
     
     @State private var email: String = ""
+    
+    @Binding var showAlert: Bool
     
     @Environment (\.presentationMode) var presentationMode
     
@@ -56,6 +58,15 @@ struct ResetPasswordUI: View {
                     
                     
                 }
+                .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Success"),
+                                message: Text("Password reset email has been sent to your email"),
+                                dismissButton: .default(Text("OK"))
+                                    
+                            
+                            )
+                        }
                 
                 VStack {
                     Spacer()
@@ -82,9 +93,9 @@ struct ResetPasswordUI: View {
     }
 }
 
-struct ResetPasswordUI_Previews: PreviewProvider {
-    static var previews: some View {
-        ResetPasswordUI()
-    }
-}
+//struct ResetPasswordUI_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ResetPasswordUI()
+//    }
+//}
 

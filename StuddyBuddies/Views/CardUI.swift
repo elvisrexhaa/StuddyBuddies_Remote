@@ -36,8 +36,8 @@ struct CardUI: View {
                     
                     
                     ProfileImage()
-                       
-                        
+                    
+                    
                     
                     VStack (alignment: .leading) {
                         Spacer()
@@ -47,13 +47,11 @@ struct CardUI: View {
                                 .bold()
                             
                             
-                                                        
-                            
                             Spacer()
                         }
                         .foregroundColor(.white)
                         
-                        Text("Studying: ")
+                        Text("Studying: \(user.Course ?? "") ")
                             .foregroundColor(.white)
                         Text("Bio: \(user.Bio ?? "")")
                             .foregroundColor(.white)
@@ -93,7 +91,7 @@ struct CardUI: View {
             Spacer()
             
         }
-
+        
     }
     
     func swipeCard (_: cardAnimation) {
@@ -116,7 +114,6 @@ struct CardUI: View {
     
 }
 
-
 extension CardUI {
     
     func ProfileImage() -> some View {
@@ -128,9 +125,6 @@ extension CardUI {
     
 }
 
-
-// MARK: - Preview
-// MARK: -
 struct CardUI_Previews: PreviewProvider {
     static var previews: some View {
         CardUI(user: User.data[0], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0), leftSwiped: {}, rightSwiped: {})

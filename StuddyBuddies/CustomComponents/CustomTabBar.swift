@@ -31,7 +31,7 @@ struct CustomTabBar: View {
     }
     
     
-    let tabIcons = ["house", "star", "message", "person"]
+    let tabIcons = ["house", "book", "message", "person"]
     
     var body: some View {
         
