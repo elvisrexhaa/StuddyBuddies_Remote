@@ -22,19 +22,29 @@ struct FavouritesUI: View {
         
         ScrollView {
             
-            VStack {
+            VStack(spacing: -10) {
+                
+                Image("titlenew2")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250)
                 
                 Text ("Lets Study Together!")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .font(.system(size: 30, weight: .bold, design: .monospaced))
                     .padding()
+                    .kerning(-1.2)
                 Spacer()
                 
                 HStack {
-                    Image(systemName: "star")
-                        .foregroundColor(.yellow)
-                    Text("Study buddies")
-                    Image(systemName: "star")
-                        .foregroundColor(.yellow)
+                    Image("open-book2")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                    Text("Study Buddies List")
+                        .font(.system(size: 20, weight: .medium, design: .monospaced))
+                    Image("open-book2")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        
                 }
                 
                 LazyVStack {
@@ -57,7 +67,7 @@ struct FavouritesUI: View {
                                 Image("hat")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: 40, height: 40)
+                                    .frame(width: 30, height: 30)
                                 
                             }
                             .contentShape(Rectangle())

@@ -45,12 +45,11 @@ struct settingsView: View {
                         
                     }
                     NavigationLink(destination: LoginUIView()) {
-                        Text("Community Guidelines")
+                        Text("FAQ")
                         
                         
                     }
-                    
-                    
+
                 }
                 
                 Section(header: Text("Resources and Information")) {
@@ -64,9 +63,7 @@ struct settingsView: View {
                     Link("Mental Health", destination: URL(string: "https://www.google.com")!)
                                         .foregroundColor(.blue)
                 }
-                
-                
-                
+
                 Section(header: Text("Session")) {
                     VStack  {
                         Button(action: {
@@ -75,10 +72,8 @@ struct settingsView: View {
                             Text("Logout")
                                 .foregroundColor(.red)
                                 .frame(maxWidth: .infinity, alignment: .center) // set the width to infinity & align items in center.
-                                .font(.system(size: 20, weight: .medium, design: .rounded))
-                                .bold()
-                            
-                            
+                                .font(.system(size: 20, weight: .regular, design: .rounded))
+
                         }
                     }
                 }
@@ -89,21 +84,19 @@ struct settingsView: View {
                     }
                 }
                 
-                
-                
+                Section(header: Text("Version")) {
+                    VStack {
+                        Text("Study Buddies v1.0.0")
+                    }
+                }
+
                 
             }
             .navigationBarTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
-            
-            
-            
+
         }
-        
-    
-        
-        
-        
+
     }
 
     

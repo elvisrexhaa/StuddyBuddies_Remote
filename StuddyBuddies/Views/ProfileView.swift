@@ -44,6 +44,7 @@ struct ProfileView: View {
                 }
                 
                 Spacer()
+                
             }
             
             Spacer()
@@ -72,9 +73,13 @@ struct ProfileView: View {
                 Text(user.Bio ?? "")
                     .padding()
                     .matchedGeometryEffect(id: profileBioAnimate, in: profileAnimate)
+                
+                
             }
             
             Spacer()
+            
+            
         }
         .padding()
     }

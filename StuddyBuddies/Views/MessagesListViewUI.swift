@@ -235,7 +235,7 @@ struct MessagesListViewUI: View {
         } label: {
             Text("+ New Message")
                 .frame(maxWidth: .infinity, maxHeight: 55)
-                .background(.indigo)
+                .background(.black)
                 .foregroundColor(.white)
                 .cornerRadius(30)
                 .padding(.horizontal)
