@@ -22,7 +22,7 @@ struct FavouritesUI: View {
         
         ScrollView {
             
-            VStack(spacing: -10) {
+            VStack {
                 
                 Image("titlenew2")
                     .resizable()
@@ -79,8 +79,11 @@ struct FavouritesUI: View {
                         }
                         
                     }
+                    
                 }
                 .padding()
+                
+                
                 
                 
             }

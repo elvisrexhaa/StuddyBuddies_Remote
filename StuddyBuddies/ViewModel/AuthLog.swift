@@ -13,18 +13,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
     
     @Published var userLogged: FirebaseAuth.User?
     @Published var isActive = false
-    //this value will always be nil so its optional as app loads quicker than data is fetched
     @Published var showAlert: Bool = false
-    
-    @Published var currentUser: User? {
-        didSet {
-            Constants.currentUser = currentUser
-            // save to user defaults
-            if let encoded = try? JSONEncoder().encode(currentUser) {
-                UserDefaults.standard.set(encoded, forKey: "currentUser")
-            }
-        }
-    } //this value will always be nil so its optional as app loads quicker than data is fetched
+    @Published var currentUser: User? //this value will always be nil so its optional as app loads quicker than data is fetched
     
     
     private var tempUserLogged: FirebaseAuth.User?
@@ -32,12 +22,6 @@ class AuthManager: ObservableObject { // the functions below will be required to
     
     init() {
         
-        // fetch from user defaults
-        if let data = UserDefaults.standard.data(forKey: "currentUser") {
-            if let decoded = try? JSONDecoder().decode(User.self, from: data) {
-                self.currentUser = decoded
-            }
-        }
         
         self.userLogged = Auth.auth().currentUser // store user curerently logged in, into the variable "userinfo"
         print ("current user is \(String(describing: self.userLogged))")
@@ -51,6 +35,10 @@ class AuthManager: ObservableObject { // the functions below will be required to
         
         self.userLogged = nil
         self.currentUser = nil
+        
+        // remove filter values
+        UserDefaults.standard.removeObject(forKey: "selectedCourse")
+        UserDefaults.standard.removeObject(forKey: "selectedRange")
         
         let auth = Auth.auth()
         try? auth.signOut() // logout user from backend which in this case is firebase (Optional)
@@ -71,6 +59,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
             
             self.userLogged = user
             
+            self.fetchUserInfo()
             self.refreshMessageList.fetchRecentMessages() // refresh the message list when user logs in
             
         }
@@ -152,6 +141,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
         service.fetchUserData(withUid: uid) { user in
             
             self.currentUser = user
+            Constants.currentUser = user
             
         }
         

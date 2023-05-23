@@ -11,7 +11,7 @@ struct MainViewUI: View {
     
     var body: some View {
         
-        VStack (spacing: 0)  {
+        VStack (spacing: -30)  {
             
             //top stack for the main view
             HStack {
@@ -64,6 +64,10 @@ struct MainViewUI: View {
                     })
                 }
                 
+            }
+            .onChange(of: viewModel.currentUser) { newValue in
+                guard newValue != nil else { return }
+                mainModel.getInitialUsers()
             }
             
             

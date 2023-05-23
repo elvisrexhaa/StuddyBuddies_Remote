@@ -2,7 +2,12 @@ import Foundation
 import FirebaseFirestoreSwift
 
 
-struct User: Identifiable, Codable {
+struct User: Identifiable, Codable, Equatable {
+    
+    static func == (lhs: User, rhs: User) -> Bool {
+        lhs.Email == rhs.Email
+    }
+    
     
     
     var id: String? //reads documents ID and stores in id property

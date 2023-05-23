@@ -12,6 +12,7 @@ struct Constants {
     static var currentUser: User?
 
     static let courses = [
+    "None",
     "Computer Science",
     "Psychology",
     "Business Administration",
