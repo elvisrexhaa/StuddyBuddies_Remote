@@ -7,12 +7,11 @@ struct settingsView: View {
     @EnvironmentObject private var viewModel: AuthManager
     
     var body: some View {
-        
-        
+
         NavigationView {
             List {
                 Section(header: Text("Account")) {
-                    NavigationLink(destination: UpdateProfileView()) {
+                    NavigationLink(destination: UpdateProfileView(showAlert: $viewModel.showAlert)) {
                         Text("Update Profile")
                     }
                     
@@ -21,11 +20,13 @@ struct settingsView: View {
                         Text("Change Password")
  
                     }
+                    
+                    
 
                 }
                 
                 Section(header: Text("Legal")) {
-                    NavigationLink(destination: LoginUIView()) {
+                    NavigationLink(destination: PrivacyPolicyView()) {
                         HStack {
                             Image("privacypolicy")
                                 .resizable()
@@ -35,16 +36,16 @@ struct settingsView: View {
                         }
                         
                     }
-                    NavigationLink(destination: LoginUIView()) {
+                    NavigationLink(destination:  TermsOfServiceView()) {
                         Text("Terms of Service")
                         
                     }
-                    NavigationLink(destination: LoginUIView()) {
+                    NavigationLink(destination: AboutStudyBuddiesView()) {
                         Text("About Studdy Buddies")
                         
                         
                     }
-                    NavigationLink(destination: LoginUIView()) {
+                    NavigationLink(destination: FAQView()) {
                         Text("FAQ")
                         
                         
@@ -80,7 +81,7 @@ struct settingsView: View {
                 
                 Section(header: Text("Report")) {
                     VStack {
-                        Text("Contact Us: StudyBuddies@gmail.com")
+                        Link("Contact Us: StudyBuddies@gmail.com", destination:URL(string: "https://www.outlook.com")!)
                     }
                 }
                 

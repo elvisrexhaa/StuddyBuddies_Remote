@@ -1,9 +1,10 @@
 
-
 import Foundation
 import Firebase
 import FirebaseStorage
 import ProgressHUD
+
+
 
 class FirestoreManager {
     
@@ -29,6 +30,9 @@ extension FirestoreManager {
                 completion(false)
                     
 //                customAlert(message: error?.localizedDescription ?? "")
+                
+            
+                
                 print("Firestore error writing document: \(error!)")
                 return
             }

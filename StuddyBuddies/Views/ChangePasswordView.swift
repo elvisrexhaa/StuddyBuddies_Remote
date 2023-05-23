@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+
 struct ChangePasswordView: View {
+    
+    let gradient = LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
     
     @State private var currentPassword: String = ""
     @State private var newPassword: String = ""
@@ -36,29 +39,47 @@ struct ChangePasswordView: View {
                 }) {
                     Text("Change Password")
                         .frame(width: 400, height: 50)
-                        .background(.pink)
+                        .background(gradient)
                         .foregroundColor(.white)
                         .cornerRadius(30)
                         .padding(.top)
                 }
             }
             .alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("Success"),
-                            message: Text("Password successfully changed"),
-                            dismissButton: .default(Text("OK"), action: {
-                                viewModel.logOut()
-                            })
-                        )
-                    }
+                Alert(
+                    title: Text("Success"),
+                    message: Text("Password successfully changed"),
+                    dismissButton: .default(Text("OK"), action: {
+                        viewModel.logOut()
+                    })
+                )
+            }
             
-
+            Button {
+                Task {
+                    do {
+                        try await viewModel.deactivateAccount()
+                    } catch {
+                        // Handle the error here
+                        print("Failed to deactivate account: \(error.localizedDescription)")
+                    }
+                }
+            } label: {
+                Text("Delete Account")
+            }
+            .frame(width: 400, height: 50)
+            .background(.red)
+            .foregroundColor(.white)
+            .cornerRadius(30)
+            .padding(.top)
+            
+            
             
             .navigationTitle("Change Password")
             .navigationBarTitleDisplayMode(.inline)
             
             Spacer()
-        
+            
         }
         
         .navigationBarBackButtonHidden(true)

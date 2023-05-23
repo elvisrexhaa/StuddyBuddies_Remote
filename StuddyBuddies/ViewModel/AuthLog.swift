@@ -2,6 +2,7 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 
+
 protocol AuthenticationProtocol {
     var authenticateButton: Bool { get }
 }
@@ -147,7 +148,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
         
     }
     
-    func updateBio(bio: String) {
+    func fetchBio(bio: String) {
         guard let uid = tempUserLogged?.uid else {return}
         
         let db = Firestore.firestore()
@@ -158,22 +159,28 @@ class AuthManager: ObservableObject { // the functions below will be required to
     }
     
     
-    func updateProfile(Bio: String, Username: String) {
+    func updateProfile(Course: String, Bio: String) {
         
         guard let uid = self.userLogged?.uid else {return}
         let db = Firestore.firestore()
         let userDataRef = db.collection("userData").document(uid)
         
         userDataRef.updateData([
-            "Bio": Bio,
-            "Username": Username
+            "Course": Course,
+            "Bio": Bio
         ]) { error in
             if let error = error {
                 print("Failed to update user data: \(error.localizedDescription)")
             } else {
                 print("User data updated successfully!")
+                
             }
+            
         }
+        
+        self.showAlert = true
+        
+        
         
     }
     
@@ -203,13 +210,22 @@ class AuthManager: ObservableObject { // the functions below will be required to
         showAlert = true
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    func deactivateAccount() async throws {
+        
+        guard let user = Auth.auth().currentUser else {
+            return
+        }
+        
+        try await user.delete()
+        
+        
+        
+        self.logOut()
+        
+    }
 }
+    
+    
+    
+    
+

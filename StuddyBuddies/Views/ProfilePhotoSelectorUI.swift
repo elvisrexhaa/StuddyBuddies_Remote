@@ -97,7 +97,7 @@ struct ProfilePhotoSelectorUI: View {
                 if let selectedImage = selectedImage {
                     Button {
                         profile.uploadImage(selectedImage)
-                        profile.updateBio(bio: self.biotext)
+                        profile.fetchBio(bio: self.biotext)
                         navigateToMainView.toggle()
                     } label: {
                         Text("Sign Up")

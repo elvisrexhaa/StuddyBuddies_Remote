@@ -51,7 +51,7 @@ struct CardUI: View {
                         }
                         .foregroundColor(.white)
                         
-                        Text("Studying: \(user.Course ?? "") ")
+                        Text("Course: \(user.Course ?? "") ")
                             .foregroundColor(.white)
                         Text("Bio: \(user.Bio ?? "")")
                             .foregroundColor(.white)

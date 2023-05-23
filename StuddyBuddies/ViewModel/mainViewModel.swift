@@ -2,13 +2,17 @@ import SwiftUI
 import Firebase
 import ProgressHUD
 import CoreLocation
+import SwiftAlertView
 
 class MainViewModel: ObservableObject {
     
     @Published var usersList = [User]()
     
+    
+    
     // initialisation
     init() {
+        
     }
     
 }
@@ -165,6 +169,9 @@ extension MainViewModel {
             guard (data["type"] as? String) ?? "" == "like" else { return }
             
             //            customAlert(message: "New User Matched", alertType: .success)
+            SwiftAlertView.show(title: "Study Buddies!",
+                                message: "Lets Study and Collaborate Together!\n View the Book Icon to start chatting and more!",
+                                buttonTitles: "OK")
             
             
             // add users in match list
