@@ -11,6 +11,9 @@ class ChatLogViewModel: ObservableObject {
     
     
     @Published var chatMessages = [newMessageModel]()
+    
+    @Published var count: Int = 0
+    
         
     
     init(chatUser: messageListUsers?) {
@@ -48,6 +51,7 @@ class ChatLogViewModel: ObservableObject {
             
             self.persistRecentMessage()
             self.text = ""
+            self.count += 1
         }
         
         let receiverDocument = Firestore.firestore().collection("messages")
@@ -93,6 +97,7 @@ class ChatLogViewModel: ObservableObject {
                 print("Failed to save recent messsage: \(error.localizedDescription)")
                 return
             }
+            
         }
         
        
@@ -139,7 +144,11 @@ class ChatLogViewModel: ObservableObject {
     }
     
     
+    
+    
 }
+
+
 
 struct chatLogViewUI: View {
     
@@ -168,48 +177,29 @@ struct chatLogViewUI: View {
         
     }
     
+    static let scrollToEmpty = "Empty"
+    
     private var messageView : some View {
         
         VStack {
             ScrollView {
                 
-                ForEach(vm.chatMessages) { message in
-                    
-                    VStack {
-                        if message.fromUserId == Auth.auth().currentUser?.uid { //if user is sending the message then show blue bubble
-                            HStack {
-                                Spacer()
-                                HStack{
-                                    Text(message.text)
-                                        .foregroundColor(.white)
-                                }
-                                .padding()
-                                .background(.blue)
-                                .cornerRadius(10)
-                            }
-                            .padding(.horizontal)
-                            .padding(.top, 6)
-                            
-                        } else { // else show green bubble with alignment of .leading
-                            HStack {
-                                HStack{
-                                    Text(message.text)
-                                        .foregroundColor(.white)
-                                }
-                                .padding()
-                                .background(.pink)
-                                .cornerRadius(10)
-                                Spacer()
-                            }
-                            
-                            .padding(.horizontal)
-                            .padding(.top, 6)
-                            
+                ScrollViewReader { scrollViewProxy in
+                    ForEach(vm.chatMessages) { message in
+                        MessageView(message: message)
+
+                    }
+                    HStack { Spacer() }
+                        .id(chatLogViewUI.scrollToEmpty)
+                    .onReceive(vm.$count) { _ in
+                        withAnimation (.linear(duration: 0.5)) {
+                            scrollViewProxy.scrollTo(chatLogViewUI.scrollToEmpty, anchor: .bottom)
                         }
+                        
                     }
                     
-                    
                 }
+               
                 
                 
             }
@@ -243,6 +233,46 @@ struct chatLogViewUI: View {
 
     
     
+}
+
+struct MessageView : View {
+    
+    let message: newMessageModel
+    
+    var body: some View {
+        VStack {
+            if message.fromUserId == Auth.auth().currentUser?.uid { //if user is sending the message then show blue bubble
+                HStack {
+                    Spacer()
+                    HStack{
+                        Text(message.text)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                    .background(.blue)
+                    .cornerRadius(10)
+                }
+                .padding(.horizontal)
+                .padding(.top, 6)
+                
+            } else { // else show green bubble with alignment of .leading
+                HStack {
+                    HStack{
+                        Text(message.text)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                    .background(.pink)
+                    .cornerRadius(10)
+                    Spacer()
+                }
+                
+                .padding(.horizontal)
+                .padding(.top, 6)
+                
+            }
+        }
+    }
 }
 
 
