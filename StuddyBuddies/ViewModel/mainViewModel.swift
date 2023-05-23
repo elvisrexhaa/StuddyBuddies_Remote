@@ -121,6 +121,7 @@ extension MainViewModel {
         addCurrentSwipe(swipedUserID: swipedUserID, isLiked: isLiked, currentUserID: currentUserID)
         
         // Check if the other user has already swiped on the current user
+        guard isLiked else {return}
         checkForMatch(swipedUserID: swipedUserID, currentUserID: currentUserID)
         
     }
