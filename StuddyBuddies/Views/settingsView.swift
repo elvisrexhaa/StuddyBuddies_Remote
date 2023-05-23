@@ -17,7 +17,7 @@ struct settingsView: View {
                     
                     
                     NavigationLink(destination: ChangePasswordView(showAlert: $viewModel.showAlert)) {
-                        Text("Change Password")
+                        Text("Change Password or Delete Account")
  
                     }
                     
