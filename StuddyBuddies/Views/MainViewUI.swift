@@ -7,30 +7,35 @@ struct MainViewUI: View {
     @EnvironmentObject var viewModel: AuthManager
     @StateObject var mainModel = MainViewModel()
     
+    @State private var showFilters = false
+    
     var body: some View {
         
-        VStack (spacing: -60)  {
+        VStack (spacing: 0)  {
             
             //top stack for the main view
             HStack {
                 
-                NavigationLink(destination: CustomTabBar()) {
-                    Image("titlenew2")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 250)
-                        
-
-                }
-                .navigationBarBackButtonHidden(true)
+                Image("titlenew2")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250)
+                
+                
                 
                 Spacer()
                 
                 Image(systemName: "line.3.horizontal.decrease")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 25, height: 25)
-                    
+                    .font(.system(size: 25))
+                //.shadow(color: .blue, radius: 1)
+                    .containerShape(Rectangle())
+                    .onTapGesture{ showFilters.toggle() }
+                    .sheet(isPresented: $showFilters){
+                        FiltersView { course, range in
+                            mainModel.getUnswipedUsers(course: course, range: range)
+                        }
+                    }
+                
                 
                 NavigationLink(destination: settingsView()) {
                     Image("settings1")
@@ -58,11 +63,11 @@ struct MainViewUI: View {
                         mainModel.swipeUser(swipedUserID: user.id, isLiked: true)
                     })
                 }
-
+                
             }
             
             
-    
+            
             
         }
         
@@ -73,7 +78,7 @@ struct MainViewUI: View {
     struct MainView_Previews: PreviewProvider {
         static var previews: some View {
             MainViewUI(mainModel: MainViewModel())
-
+            
         }
     }
     

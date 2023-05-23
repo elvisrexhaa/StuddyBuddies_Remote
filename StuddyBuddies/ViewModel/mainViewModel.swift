@@ -9,7 +9,15 @@ class MainViewModel: ObservableObject {
     
     // initialisation
     init() {
-        getUnswipedUsers()
+        
+        // get values from user defaults
+        let course = UserDefaults.standard.string(forKey: "selectedCourse")
+        var range: Double?
+        if  UserDefaults.standard.object(forKey: "selectedRange") != nil {
+            range = UserDefaults.standard.double(forKey: "selectedRange")
+        }
+        
+        getUnswipedUsers(course: course, range: range)
     }
     
 }
@@ -18,21 +26,28 @@ class MainViewModel: ObservableObject {
 
 extension MainViewModel {
     
-    //    func getUsers() {
-    //        FirestoreManager.getCollectionFirestore(collectionRef: FirestoreRefs.usersListRef, modelType: [User].self) { success, usersList in
-    //
-    //            // check for success
-    //            guard success else { return }
-    //
-    //            // update current users list
-    //            self.usersList = usersList ?? []
-    //        }
-    //
-    //    }
+//    func getUsers() {
+//        FirestoreManager.getCollectionFirestore(collectionRef: FirestoreRefs.usersListRef, modelType: [User].self) { success, usersList in
+//
+//            // check for success
+//            guard success else { return }
+//
+//            // update current users list
+//            self.usersList = usersList ?? []
+//        }
+//
+//    }
     
-    func getUnswipedUsers() {
+    func getUnswipedUsers(course: String?, range: Double?) {
         
         let currentUserID = userId
+        
+        guard let currentUser = Constants.currentUser else { return }
+        
+        let lat = currentUser.location?.lat
+        let long = currentUser.location?.long
+        let range = range ?? 50
+        let course = course ?? currentUser.Course
         
         // show progress bar
         ProgressHUD.show()
@@ -56,14 +71,9 @@ extension MainViewModel {
                 }
             }
             
-            guard let user = Constants.currentUser else {
-                // hide progress bar
-                ProgressHUD.dismiss()
-                return
-            }
             
             // Get all users who have not been swiped by the current user and their course match
-            let query = FirestoreRefs.usersListRef.whereField("Course", isEqualTo: user.Course ?? "")
+            let query = FirestoreRefs.usersListRef.whereField("Course", isEqualTo: course ?? "")
             FirestoreManager.getCollectionFirestore(collectionRef: nil, query: query, modelType: [User].self) {[weak self] (success, data) in
                 guard let self = self else { return }
                 
@@ -74,12 +84,12 @@ extension MainViewModel {
                 var list = data?.filter({ (swipedUserIDs.contains($0.id ?? "") == false) && ($0.id != currentUserID)})
                 
                 // filter users within range
-                list = list?.filter({ self.isWithinKmRange(lat1: $0.location?.lat, lon1: $0.location?.long, lat2: user.location?.lat, lon2: user.location?.long)})
+                list = list?.filter({ self.isWithinKmRange(lat1: $0.location?.lat, lon1: $0.location?.long, lat2: lat, lon2: long, range: range)})
                 
                 self.usersList = list ?? []
                 
             }
-            
+
         }
     }
     
@@ -108,7 +118,7 @@ extension MainViewModel {
         checkForMatch(swipedUserID: swipedUserID, currentUserID: currentUserID)
         
     }
-    
+
     func addCurrentSwipe(swipedUserID: String, isLiked: Bool, currentUserID: String) {
         
         let currentSwipeRef = FirestoreRefs.usersListRef.document(currentUserID).collection("swipes").document(swipedUserID)
@@ -122,11 +132,11 @@ extension MainViewModel {
         currentSwipeRef.setData(currentSwipeData) { (error) in
             if let error = error {
                 print(error.localizedDescription)
-                //                customAlert(message: error.localizedDescription)
+//                customAlert(message: error.localizedDescription)
             }
         }
     }
-    
+
     func checkForMatch(swipedUserID: String, currentUserID: String) {
         
         let otherUserSwipeRef = FirestoreRefs.usersListRef.document(swipedUserID).collection("swipes").document(currentUserID)
@@ -137,7 +147,7 @@ extension MainViewModel {
             // error handling
             if let error = error {
                 print(error.localizedDescription)
-                //                customAlert(message: error.localizedDescription)
+//                customAlert(message: error.localizedDescription)
                 return
             }
             
@@ -147,7 +157,7 @@ extension MainViewModel {
             // check if other user has liked this person
             guard (data["type"] as? String) ?? "" == "like" else { return }
             
-            //            customAlert(message: "New User Matched", alertType: .success)
+//            customAlert(message: "New User Matched", alertType: .success)
             
             
             // add users in match list
@@ -160,31 +170,30 @@ extension MainViewModel {
                 // error handling
                 if let error = error {
                     print(error.localizedDescription)
-                    //                    customAlert(message: error.localizedDescription)
+//                    customAlert(message: error.localizedDescription)
                     return
                 }
-                
-               
-
             }
             
             
         }
     }
-    
+
 }
 
+// MARK: - Helper Functions
+// MARK: -
 extension MainViewModel {
     
-    private func isWithinKmRange(lat1: Float?, lon1: Float?, lat2: Float?, lon2: Float?) -> Bool {
+    private func isWithinKmRange(lat1: Float?, lon1: Float?, lat2: Float?, lon2: Float?, range: Double) -> Bool {
         guard let lat1 = lat1, let lon1 = lon1, let lat2 = lat2, let lon2 = lon2 else {
             return false
         }
         let location1 = CLLocation(latitude: CLLocationDegrees(lat1), longitude: CLLocationDegrees(lon1))
         let location2 = CLLocation(latitude: CLLocationDegrees(lat2), longitude: CLLocationDegrees(lon2))
         let distance = location1.distance(from: location2)
-        return distance <= 50000 // 50,000 meters = 50 kilometers
+        return distance <= range * 1000 // in kilometers
     }
-    
+
     
 }
