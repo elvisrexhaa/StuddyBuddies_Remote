@@ -4,7 +4,6 @@ import FirebaseAuth
 import Firebase
 import FirebaseFirestoreSwift
 
-
 class mainMessagesViewModel: ObservableObject {
     
     private var listenerForFirestore: ListenerRegistration?
@@ -20,9 +19,7 @@ class mainMessagesViewModel: ObservableObject {
     }
     
     @Published var recentMessages = [RecentMessageModel]()
-    
-    
-    
+
     func fetchCurrentUser() {
         
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -42,13 +39,9 @@ class mainMessagesViewModel: ObservableObject {
                 }
                 
                 self.chatUser = .init(data: data) // this fetches the user data for the header
-//                self.chatUser = try? snapshot?.data(as: messageListUsers.self)
-//                FirebaseManager.shared.currentUser = self.chatUser
             }
     }
-    
-    
-    
+
     func fetchRecentMessages() {
         
         guard let UserId = Auth.auth().currentUser?.uid else {return}
@@ -79,8 +72,6 @@ class mainMessagesViewModel: ObservableObject {
                     } catch let error {
                         print(error)
                     }
-
-//                    self.recentMessages.insert(.init(documentId: documentID, data: change.document.data()), at: 0) // append new message on the list to show in the view
                     
                 })
                 
@@ -88,8 +79,6 @@ class mainMessagesViewModel: ObservableObject {
     }
     
 }
-
-
 
 struct MessagesListViewUI: View {
     
@@ -135,7 +124,7 @@ struct MessagesListViewUI: View {
         
         HStack (spacing: 16) {
             KFImage(URL(string: vm.chatUser?.profileImageUrl ?? ""))
-           
+            
                 .resizable()
                 .scaledToFill()
                 .frame(width: 65, height: 65)
@@ -173,9 +162,9 @@ struct MessagesListViewUI: View {
                 VStack {
                     Button {
                         let uid = Auth.auth().currentUser?.uid == message.fromUserId ? message.toUserId : message.fromUserId
-
+                        
                         self.chatUser = .init( uid: uid, Username: message.Username, profileImageUrl: message.profileImageUrl)
-
+                        
                         self.chatLogViewModel.chatUser = self.chatUser
                         self.chatLogViewModel.fetchAllMessages()
                         self.showChatLogUI.toggle()
@@ -200,7 +189,7 @@ struct MessagesListViewUI: View {
                                     .foregroundColor(.black)
                                 Text(message.text)
                                     .font(.system(size: 16, weight: .semibold, design: .default))
-                                    
+                                
                                     .foregroundColor(.secondary)
                                     .padding(.top, -4)
                                 
@@ -211,9 +200,9 @@ struct MessagesListViewUI: View {
                                 .font(.system(size: 12, weight: .semibold, design: .default))
                                 .foregroundColor(.black)
                         }
-
+                        
                     }
-
+                    
                     Divider()
                         .frame(width: 400, height: 3)
                         .foregroundColor(.black)
@@ -257,16 +246,8 @@ struct MessagesListViewUI: View {
         }
         
         
-        
-        
-        //            NavigationLink("", isActive: $showChatLogUI, destination: {
-        //                chatLogViewUI(chatUser: chatUser)
-        //            })
-        //            .navigationBarBackButtonHidden(true)
-        
-        
-        
     }
+}
     
     
     struct MessagesListViewUI_Previews: PreviewProvider {
@@ -275,4 +256,3 @@ struct MessagesListViewUI: View {
         }
     }
     
-}

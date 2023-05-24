@@ -1,5 +1,3 @@
-
-
 import Foundation
 import FirebaseFirestoreSwift
 
@@ -29,3 +27,7 @@ struct messageListUsers :  Decodable {
         self.profileImageUrl = profileImageUrl
     }
 }
+
+
+
+

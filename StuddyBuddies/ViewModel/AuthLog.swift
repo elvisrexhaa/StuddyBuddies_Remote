@@ -2,8 +2,6 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 
-
-
 protocol AuthenticationProtocol {
     var authenticateButton: Bool { get }
 }
@@ -132,13 +130,13 @@ class AuthManager: ObservableObject { // the functions below will be required to
         self.showAlert = true
     }
     
-    func userStatus (isOnline: Bool) -> String {
-        if isOnline {
-            return "Online"
-        } else {
-            return "Offline"
-        }
-    }
+//    func userStatus (isOnline: Bool) -> String {
+//        if isOnline {
+//            return "Online"
+//        } else {
+//            return "Offline"
+//        }
+//    }
     
     func uploadImage(_ image: UIImage) {
         guard let uid = tempUserLogged?.uid else {return}
@@ -195,9 +193,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
         }
         
         self.showAlert = true
-        
-        
-        
+
     }
     
     func changePassword(currentPassword: String, newPassword: String) {

@@ -1,39 +1,22 @@
-
 import SwiftUI
 import Firebase
 
 struct ResetPasswordUI: View {
     
-//    init() { // initialiser method used to make the navigation title colour white. When executed the code will run through init method first.
-//        
-//        let navBarColor = UINavigationBar.appearance()
-//        navBarColor.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-//        
-//        navBarColor.titleTextAttributes = [.foregroundColor: UIColor.white]
-//    }
-    
-    
     @State private var email: String = ""
-    
     @Binding var showAlert: Bool
     
     @Environment (\.presentationMode) var presentationMode
-    
     @EnvironmentObject var viewModel: AuthManager
     
     var body: some View {
    
         NavigationView {
             ZStack {
-                
-                
+
                 LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
-                
-                
-                
-                
-                
+
                 VStack (spacing: 20) {
                     CustomInputEmail(placeHolder: "Email", text: $email, imageName: "envelope.circle")
                         .foregroundColor(.white)
@@ -63,8 +46,7 @@ struct ResetPasswordUI: View {
                                 title: Text("Success"),
                                 message: Text("Password reset email has been sent to your email"),
                                 dismissButton: .default(Text("OK"))
-                                    
-                            
+
                             )
                         }
                 
@@ -77,12 +59,9 @@ struct ResetPasswordUI: View {
                             Text("Return to login")
                                 .foregroundColor(.white)
                                 .bold()
-                            
                         }
                     }
-                    
                 }
-                
                 
             }
         }

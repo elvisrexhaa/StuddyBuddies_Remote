@@ -13,39 +13,29 @@ struct CardUI: View {
     @EnvironmentObject var authModel: AuthManager
     
     @State var user : User
-    
     @State var swipeGesture : cardAnimation
-    
     @State var color : Color = .black.opacity(0.2)
     
     var leftSwiped: ()->()
     var rightSwiped: ()->()
     
-    
     var body: some View {
-        
         
         VStack (spacing: -150) {
             
             Spacer()
-            
-            
+
             HStack {
                 ZStack (alignment: .leading) {
-                    
-                    
-                    
+
                     ProfileImage()
-                    
-                    
-                    
+
                     VStack (alignment: .leading) {
                         Spacer()
                         HStack {
                             Text("\(user.Firstname) \(user.Lastname)")
                                 .font(.system(.largeTitle, design: .rounded))
                                 .bold()
-                            
                             
                             Spacer()
                         }
@@ -80,11 +70,8 @@ struct CardUI: View {
                             withAnimation(.interpolatingSpring(mass: 0.3, stiffness: 5, damping: 4, initialVelocity: 0)) {
                                 swipeCard(cardAnimation(rightSwipe: 0, leftSwipe: 0))
                             }
-                            
-                            
-                            
+
                         }
-                    
                 )
             }
             
@@ -125,8 +112,8 @@ extension CardUI {
     
 }
 
-struct CardUI_Previews: PreviewProvider {
-    static var previews: some View {
-        CardUI(user: User.data[0], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0), leftSwiped: {}, rightSwiped: {})
-    }
-}
+//struct CardUI_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CardUI(user: User.data[0], swipeGesture: cardAnimation(rightSwipe: 0, leftSwipe: 0), leftSwiped: {}, rightSwiped: {})
+//    }
+//}

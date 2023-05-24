@@ -10,3 +10,4 @@ struct cardAnimation {
     var leftSwipe : CGFloat
  
 }
+

@@ -40,8 +40,7 @@ struct ProfilePhotoSelectorUI: View {
                                 .scaledToFill()
                                 .frame(width: 150, height: 150)
                                 .clipShape(Circle())
-                            
-                            
+
                         } else {
                             
                             Image(systemName: "plus.circle")
@@ -53,41 +52,30 @@ struct ProfilePhotoSelectorUI: View {
                                 .multilineTextAlignment(.center)
                                 .font(.system(size: 30))
                                 .bold()
-                            
                         }
                         
                         Spacer()
-                        
-                        
-                        
                     }
                     
                     .foregroundColor(.white)
-                    
                 }
-                
             }
             .sheet(isPresented: $isImagePickerShowing, onDismiss: nil) {
                 ImagePicker(selectedImage: $selectedImage)
-                
-                
+ 
             }
-            
-            
+
             VStack {
                 
                 Spacer()
-                CustomInputMessage(placeHolder: "Description about yourself", text: $biotext , imageName: "pencil" )
+                CustomInputMessage(placeHolder: "Description about yourself: (Hobbies/Interests)", text: $biotext , imageName: "pencil" )
                     .lineLimit(nil)
                     .lineSpacing(2)
                     .keyboardType(.default)
                     .padding(.horizontal, 40)
                     .offset(y: -140)
                     .shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0)
-                
 
-                
-                
                 if let selectedImage = selectedImage {
                     Button {
                         profile.uploadImage(selectedImage)
@@ -106,10 +94,7 @@ struct ProfilePhotoSelectorUI: View {
                     .shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0)
                     
                 }
-                
-                
-                
-                
+
             }
             
         }

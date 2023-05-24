@@ -1,10 +1,3 @@
-//
-//  FiltersView.swift
-//  StuddyBuddies
-//
-//  Created by Elvis Rexha on 23/05/2023.
-//
-
 import SwiftUI
 
 struct FiltersView: View {
@@ -75,8 +68,6 @@ extension FiltersView {
             }
         }
     }
-    
-    
 }
 
 struct FiltersView_Previews: PreviewProvider {
@@ -85,13 +76,9 @@ struct FiltersView_Previews: PreviewProvider {
     }
 }
 
-
-
-
 struct CustomView: View {
     
     @Environment(\.dismiss) var dismiss // for dismissing this view
-    
     @State private var isOnAppearCalled = false  // for calling onAppear only once
     
     var body: some View {
@@ -101,16 +88,12 @@ struct CustomView: View {
         }
         .onAppear { onAppearHandling() }
         .toolbar { TopRightButtonView() }
-        
     }
-    
 }
-
 
 extension CustomView {
     
     private func TopRightButtonView() -> some ToolbarContent {
-        
         // button on top right
         ToolbarItem(placement: .navigationBarTrailing) {
             Button {
@@ -120,32 +103,23 @@ extension CustomView {
             }
         }
     }
-    
 }
-
 
 extension CustomView {
     
     private func onAppearHandling() {
-        
         // for calling onAppear only once
         guard isOnAppearCalled == false else { return }
         isOnAppearCalled = true
-        
-        
     }
-    
 }
-
 
 struct CustomView_Previews: PreviewProvider {
     
     static var previews: some View {
-        
+    
         CustomView()
-        
         CustomView()
             .colorScheme(.dark)
-        
     }
 }

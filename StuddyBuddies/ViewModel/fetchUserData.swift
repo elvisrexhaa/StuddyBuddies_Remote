@@ -13,13 +13,12 @@ struct UserService {
                 
                 guard let user = try? snapshot.data(as: User.self) else {return}
                 completion(user)
-                
-                
+                            
             }
-        
-        
+
         print("Fetching user data")
     }
     
 
 }
+

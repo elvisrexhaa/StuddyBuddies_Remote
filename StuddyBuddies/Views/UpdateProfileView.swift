@@ -1,10 +1,3 @@
-//
-//  UpdateProfileView.swift
-//  StuddyBuddies
-//
-//  Created by Elvis Rexha on 19/05/2023.
-//
-
 import SwiftUI
 
 struct UpdateProfileView: View {
@@ -62,11 +55,7 @@ struct UpdateProfileView: View {
             Spacer()
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Update Profile")
-            
-            
-            
-            
-            
+
         }
         
         .navigationBarBackButtonHidden(true)

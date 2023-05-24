@@ -8,39 +8,15 @@ class MainViewModel: ObservableObject {
     
     @Published var usersList = [User]()
     
-    
-    
     // initialisation
     init() {
         
     }
-    
+
 }
 
 extension MainViewModel {
     
-    //    func getUsers() {
-    //        FirestoreManager.getCollectionFirestore(collectionRef: FirestoreRefs.usersListRef, modelType: [User].self) { success, usersList in
-    //
-    //            // check for success
-    //            guard success else { return }
-    //
-    //            // update current users list
-    //            self.usersList = usersList ?? []
-    //        }
-    //
-    //    }
-    
-    // get users after app starts
-//    func getInitialUsers() {
-//        // get values from user defaults
-//        let course = UserDefaults.standard.string(forKey: "selectedCourse")
-//        var range: Double?
-//        if  UserDefaults.standard.object(forKey: "selectedRange") != nil {
-//            range = UserDefaults.standard.double(forKey: "selectedRange")
-//        }
-//        getUnswipedUsers(course: course, range: range)
-//    }
     
     func getUnswipedUsers(course: String?, range: Double?) {
         
@@ -74,7 +50,6 @@ extension MainViewModel {
                     swipedUserIDs.insert(swipedUserID)
                 }
             }
-            
             
             // Get all users who have not been swiped by the current user and their course match
             var ref: CollectionReference? = FirestoreRefs.usersListRef
@@ -173,7 +148,6 @@ extension MainViewModel {
                                 message: "Lets Study and Collaborate Together!\n View the Book Icon to start chatting and more!",
                                 buttonTitles: "OK")
             
-            
             // add users in match list
             let matchData: [String: Any] = [
                 "users": [currentUserID, swipedUserID],
@@ -188,9 +162,7 @@ extension MainViewModel {
                     return
                 }
             }
-            
         }
-        
     }
 }
     

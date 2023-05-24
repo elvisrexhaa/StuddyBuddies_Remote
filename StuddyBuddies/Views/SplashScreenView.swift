@@ -1,10 +1,3 @@
-//
-//  SplashScreenView.swift
-//  StuddyBuddies
-//
-//  Created by Elvis Rexha on 24/05/2023.
-//
-
 import SwiftUI
 
 struct SplashScreenView: View {
@@ -27,14 +20,12 @@ struct SplashScreenView_Previews: PreviewProvider {
     }
 }
 
-
 struct onBoardingScreen: View {
     
     @AppStorage("currentPage") var currentPage = 1
     
     var body: some View{
-        
-        
+
         ZStack{
 
             if currentPage == 1 {
@@ -47,13 +38,11 @@ struct onBoardingScreen: View {
                 ScreenView(title: "Your Location will be used at all times when using the application", image: "location_2", heading: "Follow the steps and allow for your location to be accessed to use the application", bgColor: Color("Color2"))
                     .transition(.scale)
             }
-            
             if currentPage == 3 {
                 
                 ScreenView(title: "All Data shared with us is kept safe and only used for the applications purpose", image: "key", heading: "For more information on Legal issues, go to settings and read more", bgColor: Color("Color3"))
                     .transition(.scale)
-                    
-                    
+ 
             }
             
         }
@@ -84,8 +73,7 @@ struct onBoardingScreen: View {
                             
                             Circle()
                                 .stroke(Color.black.opacity(0.04),lineWidth: 4)
-                            
-                            
+
                             Circle()
                                 .trim(from: 0, to: CGFloat(currentPage) / CGFloat(totalPages))
                                 .stroke(Color.white,lineWidth: 4)
@@ -103,8 +91,6 @@ struct onBoardingScreen: View {
 
 var totalPages = 3
 
-
-
 struct ScreenView: View {
     
     var title: String
@@ -119,7 +105,6 @@ struct ScreenView: View {
         VStack(alignment: .center, spacing: 20){
             
             HStack{
-                
                 // Show title "Hello Member" for first page if exceeds then shows back button
                 if currentPage == 1{
                     Text("Hello Member!")

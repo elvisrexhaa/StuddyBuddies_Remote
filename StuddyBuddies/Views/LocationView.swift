@@ -1,10 +1,3 @@
-//
-//  LocationView.swift
-//  StuddyBuddies
-//
-//  Created by Elvis Rexha on 21/05/2023.
-//
-
 import SwiftUI
 import CoreLocation
 import CoreLocationUI
@@ -22,9 +15,7 @@ struct LocationView: View {
         VStack(alignment: .leading) {
             
             HStack {
-                
-                
-                
+
                 Image(systemName: "location.circle")
                     .resizable()
                     .scaledToFit()
@@ -34,9 +25,7 @@ struct LocationView: View {
                 if lat != 0.0, long != 0.0 {
                     Text ("\(lat), \(long)")
                 }
-                
-                
-                
+
                 LocationButton (.currentLocation) {
                     locationManager.requestLocation()
                 }
@@ -47,9 +36,7 @@ struct LocationView: View {
                 .font(.system(size: 12))
                 
             }
-            
-            
-            
+
             Divider()
                 .frame(width: 400, height: 3)
                 .foregroundColor(.black)
@@ -67,14 +54,11 @@ struct LocationView: View {
     
 }
 
-
-
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
         LocationView(lat: .constant(0.0), long: .constant(0.0))
     }
 }
-
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()

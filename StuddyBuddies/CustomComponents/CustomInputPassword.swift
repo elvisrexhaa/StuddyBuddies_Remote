@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct CustomInputPassword: View {
@@ -6,7 +5,6 @@ struct CustomInputPassword: View {
     let placeHolder: String
     @Binding var text: String
     let imageName : String
-    
     
     var body: some View {
         
@@ -22,7 +20,6 @@ struct CustomInputPassword: View {
                     .foregroundColor(.white)
                     .bold()
                 
-                
             }
             Divider() // creates a divider between the email and password - also added a frame to display it
                 .frame(width: 400, height: 3)
@@ -33,21 +30,10 @@ struct CustomInputPassword: View {
                     .foregroundColor(.white)
                     .font(.system(size: 14))
                     .bold()
-
             }
-            
-            
-            
-            
         }
-        
-        
-        
-        
-        
     }
 }
-
 
 struct CustomInputPassoword_Previews: PreviewProvider {
     static var previews: some View {

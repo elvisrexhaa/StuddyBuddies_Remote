@@ -1,4 +1,3 @@
-
 import SwiftUI
 import Firebase
 
@@ -24,9 +23,7 @@ struct SignUpView: View {
     @State var long: Float = 0.0
     
     @EnvironmentObject var viewModel: AuthManager
-    
-    
-    
+
     var body: some View {
         
         NavigationView {
@@ -92,7 +89,6 @@ struct SignUpView: View {
     }
     
 }
-  
 
 extension SignUpView {
     
@@ -114,8 +110,7 @@ extension SignUpView {
             .cornerRadius(20)
             .padding(.all)
             .shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0)
-            
-            
+
             Button {
                 presentationMode.wrappedValue.dismiss()
             } label: {
@@ -131,12 +126,8 @@ extension SignUpView {
         NavigationLink(destination: ProfilePhotoSelectorUI(navigateToMainView: false), isActive: $viewModel.isActive, label: { })
         // once the user presses "sign up" they will be taken to the specified location stated above
     }
-    
-    
+
 }
-
-
-
 
 extension SignUpView : AuthenticationProtocol {
     

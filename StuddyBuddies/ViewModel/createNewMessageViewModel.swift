@@ -2,8 +2,7 @@ import FirebaseFirestore
 import Firebase
 
 class createNewMessageViewModel: ObservableObject {
-    
-    
+
     @Published var users = [messageListUsers]()
     @Published var errorMessage = ""
     
@@ -31,7 +30,6 @@ class createNewMessageViewModel: ObservableObject {
 //                       user.uid != uid {
 //                        self.users.append(user)
 //                    }
-                    
                     let user = messageListUsers(data: snapshot.data())//try snapshot.data(as: messageListUsers.self)
                     if let uid = Auth.auth().currentUser?.uid,
                        user.uid != uid {
@@ -40,7 +38,6 @@ class createNewMessageViewModel: ObservableObject {
                     
                 })
 
-                
                 self.errorMessage = "Data fetched successfully."
             }
     }

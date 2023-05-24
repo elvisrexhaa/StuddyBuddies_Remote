@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 
 struct CustomInputAge: View {
@@ -7,8 +5,7 @@ struct CustomInputAge: View {
     let placeHolder: String
     @Binding var age: String
     let imageName : String
-    
-    
+
     var body: some View {
         
         VStack {
@@ -24,7 +21,6 @@ struct CustomInputAge: View {
                     .bold()
                     .keyboardType(.numberPad)
                 
-                    
             }
             Divider() // creates a divider between the email and password - also added a frame to display it
                 .frame(width: 400, height: 3)
@@ -37,19 +33,11 @@ struct CustomInputAge: View {
                 .padding(.horizontal)
                 .font(.system(size: 12))
         }
-       
-        
-        
-    
-        
-        
     }
 }
-
 
 struct CustomInputAge_Previews: PreviewProvider {
     static var previews: some View {
         CustomInputAge(placeHolder: "Enter Age", age: .constant(""), imageName: "number.circle")
-        
     }
 }

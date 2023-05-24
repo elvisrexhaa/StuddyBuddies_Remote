@@ -1,10 +1,3 @@
-//
-//  ChangePasswordView.swift
-//  StuddyBuddies
-//
-//  Created by Elvis Rexha on 19/05/2023.
-//
-
 import SwiftUI
 
 
@@ -21,7 +14,6 @@ struct ChangePasswordView: View {
     @EnvironmentObject var viewModel: AuthManager
     
     var body: some View {
-        
         
         NavigationStack {
             VStack {
@@ -78,24 +70,19 @@ struct ChangePasswordView: View {
                         
                     })
                 )
-            }            .frame(width: 400, height: 50)
-            .background(.red)
-            .foregroundColor(.white)
-            .cornerRadius(30)
-            .padding(.top)
+            }   .frame(width: 400, height: 50)
+                .background(.red)
+                .foregroundColor(.white)
+                .cornerRadius(30)
+                .padding(.top)
             
-            
-            
-            
-            .navigationTitle("Change Password")
-            .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Change Password")
+                .navigationBarTitleDisplayMode(.inline)
             
             Spacer()
             
         }
-        
         .navigationBarBackButtonHidden(true)
-        
     }
     
 }

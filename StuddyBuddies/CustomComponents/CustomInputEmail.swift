@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 
 struct CustomInputEmail: View {
@@ -7,7 +5,6 @@ struct CustomInputEmail: View {
     let placeHolder: String
     @Binding var text: String
     let imageName : String
-    
     
     var body: some View {
         
@@ -22,26 +19,17 @@ struct CustomInputEmail: View {
                 TextField(placeHolder, text: $text)
                     .foregroundColor(.white)
                     .bold()
-                
-                    
+    
             }
             Divider() // creates a divider between the email and password - also added a frame to display it
                 .frame(width: 400, height: 3)
                 .foregroundColor(.black)
                 .background(.white)
-                
-                
-            
-            
+
         }
-        
-        
-    
-        
-        
+
     }
 }
-
 
 struct CustomInputEmail_Previews: PreviewProvider {
     static var previews: some View {

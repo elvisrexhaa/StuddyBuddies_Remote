@@ -12,10 +12,7 @@ struct FAQView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    
-                
-                    
-                    
+
                     Paragraph(title: "1. What is Study Buddies?", sentence: "Study Buddies is a mobile application designed to help students connect with one another to find study partners. It provides a platform for students to collaborate, share resources, and enhance their learning experience.")
                     
                     Paragraph(title: "2. How can I create an account on Study Buddies?", sentence: "To create an account on Study Buddies, simply download the app from the App Store and follow the registration process. You will be prompted to provide some basic information and set up your profile.")

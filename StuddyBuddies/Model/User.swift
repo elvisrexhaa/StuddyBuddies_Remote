@@ -1,15 +1,12 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-
 struct User: Identifiable, Codable, Equatable {
     
     static func == (lhs: User, rhs: User) -> Bool {
         lhs.Email == rhs.Email
     }
-    
-    
-    
+
     var id: String? //reads documents ID and stores in id property
     let Firstname : String
     let Lastname : String
@@ -36,19 +33,9 @@ struct User: Identifiable, Codable, Equatable {
         let lat: Float?
         let long: Float?
     }
-    
-    
-    static var data: [User] {
-        [
-            
-            User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: "", Bio: "", Course: "", location: nil),
-            User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: "", Bio: "", Course: "", location: nil),
-            User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: "", Bio: "", Course: "", location: nil),
-            User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: "", Bio: "", Course: "", location: nil),
-            User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: "", Bio: "", Course: "", location: nil),
-            User(Firstname: "Elvis", Lastname: "Rexha", Username: "@elvisrexha", profileImageUrl: "wave", Email: "", Bio: "", Course: "", location: nil),
-            
-        ]
-    }
-    
+ 
 }
+
+
+
+

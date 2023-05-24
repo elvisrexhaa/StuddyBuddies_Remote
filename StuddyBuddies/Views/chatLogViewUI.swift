@@ -1,4 +1,3 @@
-
 import SwiftUI
 import Firebase
 import FirebaseAuth
@@ -8,13 +7,9 @@ class ChatLogViewModel: ObservableObject {
     var chatUser: messageListUsers?
 
     @Published var text: String = ""
-    
-    
     @Published var chatMessages = [newMessageModel]()
-    
     @Published var count: Int = 0
     
-        
     
     init(chatUser: messageListUsers?) {
         self.chatUser = chatUser
@@ -66,9 +61,6 @@ class ChatLogViewModel: ObservableObject {
             return
         }
 
-        
-
-        
     }
     
     private func persistRecentMessage() {
@@ -99,9 +91,7 @@ class ChatLogViewModel: ObservableObject {
             }
             
         }
-        
-       
-        
+
     }
 
     
@@ -129,40 +119,18 @@ class ChatLogViewModel: ObservableObject {
                     }
                 })
 
-                //                querySnapshot?.documents.forEach({ queryDocumentSnapshot in
-                //                    let data = queryDocumentSnapshot.data()
-                //                    let documentID = queryDocumentSnapshot.documentID
-                //                    let newChatMessage = newMessage(documentId: documentID, data: data)
-                //
-                //                    self.chatMessages.append(newChatMessage)
-                //                })
             }
-        
-        
-        
-        
+
     }
-    
-    
-    
-    
+
 }
 
 
 
 struct chatLogViewUI: View {
-    
-//    let chatUser: messageListUsers?
-//
-//    init(chatUser: messageListUsers?) {
-//        self.chatUser = chatUser
-//        self.vm = .init(chatUser: chatUser)
-//    }
-    
+        
     @ObservedObject var vm: ChatLogViewModel
-    
-    
-    
+
     var body: some View {
         
         ZStack{
@@ -199,9 +167,7 @@ struct chatLogViewUI: View {
                     }
                     
                 }
-               
-                
-                
+
             }
             HStack(spacing: 16) {
                 Image(systemName: "photo.on.rectangle")
@@ -218,21 +184,15 @@ struct chatLogViewUI: View {
                     Image(systemName: "paperplane.fill")
                     Text("Send")
                 }
-                
-                
-                
-                
+
             }
             .padding(.bottom, 70)
             .padding(.horizontal)
-            
-            
+                        
         }
         
     }
 
-    
-    
 }
 
 struct MessageView : View {
@@ -255,14 +215,14 @@ struct MessageView : View {
                 .padding(.horizontal)
                 .padding(.top, 6)
                 
-            } else { // else show green bubble with alignment of .leading
+            } else { // else show gray bubble with alignment of .leading
                 HStack {
                     HStack{
                         Text(message.text)
                             .foregroundColor(.white)
                     }
                     .padding()
-                    .background(.pink)
+                    .background(.gray)
                     .cornerRadius(10)
                     Spacer()
                 }

@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 import FirebaseFirestore
 import Kingfisher
@@ -30,17 +28,8 @@ class CreateNewMessageViewModel: ObservableObject {
                     
                 })
                 
-//                documentsSnapshot?.documents.forEach({ snapshot in
-//                    let user = try? snapshot.data(as: messageListUsers.self)
-//                    if user?.uid != FirebaseManager.shared.auth.currentUser?.uid {
-//                        self.users.append(user!)
-//                    }
-//
-//                })
             }
     }
-
-    
 
 }
 
@@ -84,12 +73,6 @@ struct newMessageViewUI: View {
                     .foregroundColor(.black)
                     Divider()
 
-                    
-                    
-                    
-                        
-                        
-                    
                 }
             }
             .navigationTitle("New Message")

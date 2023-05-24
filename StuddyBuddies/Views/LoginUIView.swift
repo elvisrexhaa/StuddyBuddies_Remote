@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 import Firebase
 
@@ -13,16 +11,12 @@ struct LoginUIView: View {
     @State var username : String = ""
     @State var password: String = "" // state property of the variable password and assigned an empty string to it
     
-    
     var body: some View {
         
         ZStack {
             
             LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                
-            
-            
-            
+
             VStack (spacing: 16)  {
                 Image ("newtitle")
                     .resizable()
@@ -30,20 +24,14 @@ struct LoginUIView: View {
                     .offset(y: -300)
                     .padding(.all)
                     .frame(width: 350, height: 350)
-                
-                
-                
-                
-                
+
                 Text ("Welcome to StudyBuddies. Please sign in or sign up to get started!")
                     .font(.system(size: 20, weight: .bold, design: .default))
                     .foregroundColor(.white)
                     .padding(.all)
                     .multilineTextAlignment(.center)
                     .offset(y: -370)
-                    
             }
-            
             
             VStack (spacing : 30) {
                 CustomInputEmail(placeHolder: "Enter Email", text: $email, imageName: "envelope.circle")
@@ -52,9 +40,7 @@ struct LoginUIView: View {
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                     .placeholder(when: email.isEmpty) {
-                        
-                        
-                        
+ 
                     }
                 
                 CustomInputPassword(placeHolder: "Password", text: $password, imageName: "lock.circle")
@@ -85,8 +71,6 @@ struct LoginUIView: View {
                 Button {
                     
                     auth.login(withEmail: email, password: password)
-                        
-                    
                 } label: {
                     Text ("Login")
                     
@@ -101,24 +85,7 @@ struct LoginUIView: View {
                 .padding(.all)
                 .shadow(color: .purple.opacity(0.5), radius: 10, x: 0, y: 0)
                 .offset(y:130)
-                
-//                Button {
-//                    auth.signup(withEmail: email, firstname: firstname, lastname: lastname, username: username, password: password)
-//                    
-//                } label: {
-//                    Text ("Sign Up")
-//                }
-//                .foregroundColor(.black)
-//                .bold()
-//                .frame(width: 350, height: 50)
-//                .background(.white)
-//                .cornerRadius(20)
-//                .padding(.all)
-//                .shadow(color: .purple.opacity(0.5), radius: 10, x: 0, y: 0)
-//                .offset(y: 230)
-                
-                
-                
+
                 NavigationLink(destination: {
                     SignUpView() // destination for when the user clicks the link.
                         .navigationBarHidden(true) // hide the back bar when this destination is accessed

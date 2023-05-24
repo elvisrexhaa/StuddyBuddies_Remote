@@ -30,12 +30,9 @@ struct CustomTabBar: View {
         }
     }
     
-    
     let tabIcons = ["house", "book", "message", "person"]
     
     var body: some View {
-        
-        
         
         VStack {
             
@@ -55,7 +52,6 @@ struct CustomTabBar: View {
                     Text ("")
                 }
                 
-                
                 VStack {
                     Spacer()
                     HStack {
@@ -72,22 +68,17 @@ struct CustomTabBar: View {
                                             currentSelection = item
                                         }
                                     }
-                                
                             }
                             
                             Spacer()
-                            
                         }
-                        
+
                     }
                     .frame(width: 400, height: 65)
                     .background(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .cornerRadius(30)
                     .shadow(color: .gray, radius: 2)
-                    
-                    
-                    
-                    
+
                 }
             }
         }

@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 
 struct MainViewUI: View {
@@ -8,9 +6,6 @@ struct MainViewUI: View {
     @StateObject var mainModel = MainViewModel()
     
     @State private var showFilters = false
-    
-    
-    
     
     var body: some View {
         
@@ -24,8 +19,6 @@ struct MainViewUI: View {
                     .scaledToFit()
                     .frame(width: 250)
                 
-                
-                
                 Spacer()
                 
                 Image(systemName: "line.3.horizontal.decrease")
@@ -38,7 +31,6 @@ struct MainViewUI: View {
                             mainModel.getUnswipedUsers(course: course, range: range)
                         }
                     }
-                
                 
                 NavigationLink(destination: settingsView(showAlert: $viewModel.showAlert)) {
                     Image("settings1")
@@ -77,14 +69,10 @@ struct MainViewUI: View {
                 mainModel.getUnswipedUsers(course: nil, range: range)
             }
             
-            
-            
-            
         }
         
-        
-        
     }
+}
     
     struct MainView_Previews: PreviewProvider {
         static var previews: some View {
@@ -92,10 +80,6 @@ struct MainViewUI: View {
             
         }
     }
+
     
-    
-    
-    
-    
-    
-}
+

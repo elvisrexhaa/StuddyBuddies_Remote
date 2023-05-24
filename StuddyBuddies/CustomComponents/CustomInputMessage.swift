@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 
 struct CustomInputMessage: View {
@@ -7,7 +5,6 @@ struct CustomInputMessage: View {
     let placeHolder: String
     @Binding var text: String
     let imageName : String
-    
     
     var body: some View {
         
@@ -31,27 +28,16 @@ struct CustomInputMessage: View {
                     
                 }
                 .padding(.bottom, 40)
-                    
-                
-                
-                
+
             }
-            
-            
-            
+
         }
-        
-        
-        
-        
-        
+
     }
 }
-
 
 struct CustomInputMessage_Previews: PreviewProvider {
     static var previews: some View {
         CustomInputMessage(placeHolder: "Email", text: .constant(""), imageName: "pencil")
-        
     }
 }

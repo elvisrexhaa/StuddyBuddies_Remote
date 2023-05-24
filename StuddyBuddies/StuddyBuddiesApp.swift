@@ -1,4 +1,3 @@
-
 import SwiftUI
 import Firebase
 import FirebaseCore
@@ -8,10 +7,7 @@ import FirebaseFirestore
 struct StuddyBuddiesApp: App {
     
     @StateObject var viewModel = AuthManager() // initialise the object within the main swift file so it doesnt have to be initialised elsewhere.
-    
-    
-    
-    
+
     init() {
         FirebaseApp.configure()
         
@@ -31,15 +27,11 @@ struct StuddyBuddiesApp: App {
                 
                 //SignUpView()
 //          MainViewUI()
-                
-                
+  
             }
             .environmentObject(viewModel)
             .navigationBarBackButtonHidden(true)
-            
-            
-            
-            
+
         }
     }
 }

@@ -18,8 +18,7 @@ struct FavouritesUI: View {
     var chatLogViewModel = ChatLogViewModel(chatUser: nil)
     
     var body: some View {
-        
-        
+
         ScrollView {
             
             VStack {
@@ -82,10 +81,7 @@ struct FavouritesUI: View {
                     
                 }
                 .padding()
-                
-                
-                
-                
+
             }
         }
         .background{
