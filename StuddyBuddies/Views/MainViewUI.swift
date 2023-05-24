@@ -9,6 +9,9 @@ struct MainViewUI: View {
     
     @State private var showFilters = false
     
+    
+    
+    
     var body: some View {
         
         VStack (spacing: -30)  {
