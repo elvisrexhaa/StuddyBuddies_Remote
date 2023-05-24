@@ -44,10 +44,6 @@ struct CustomInputCourse: View {
         }
 
 
-
-
-
-
     }
 }
 
