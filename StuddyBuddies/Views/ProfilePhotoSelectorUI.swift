@@ -7,7 +7,6 @@ struct ProfilePhotoSelectorUI: View {
     @State var selectedImage : UIImage?
     @State var profileImage: Image?
     @State var biotext : String = ""
-    @State var coursetext: String = ""
     
     @State var navigateToMainView: Bool
     
@@ -83,15 +82,10 @@ struct ProfilePhotoSelectorUI: View {
                     .lineSpacing(2)
                     .keyboardType(.default)
                     .padding(.horizontal, 40)
-                    .offset(y: -160)
+                    .offset(y: -140)
+                    .shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0)
                 
-                
-                //                CustomInputMessage(placeHolder: "Subject Of Interest", text: $coursetext , imageName: "pencil" )
-                //                    .lineLimit(nil)
-                //                    .lineSpacing(2)
-                //                    .keyboardType(.default)
-                //                    .padding(.horizontal, 40)
-                //                    .offset(y: -140)
+
                 
                 
                 if let selectedImage = selectedImage {
@@ -113,10 +107,6 @@ struct ProfilePhotoSelectorUI: View {
                     
                 }
                 
-                
-                //                NavigationLink(destination: MainViewUI(), isActive: $navigateToMainView) {
-                //
-                //                }
                 
                 
                 

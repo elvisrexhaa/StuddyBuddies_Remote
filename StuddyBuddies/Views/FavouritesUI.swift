@@ -30,7 +30,7 @@ struct FavouritesUI: View {
                     .frame(width: 250)
                 
                 Text ("Lets Study Together!")
-                    .font(.system(size: 30, weight: .bold, design: .monospaced))
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
                     .padding()
                     .kerning(-1.2)
                 Spacer()
@@ -40,7 +40,7 @@ struct FavouritesUI: View {
                         .resizable()
                         .frame(width: 30, height: 30)
                     Text("Study Buddies List")
-                        .font(.system(size: 20, weight: .medium, design: .monospaced))
+                        .font(.system(size: 20, weight: .medium, design: .rounded))
                     Image("open-book2")
                         .resizable()
                         .frame(width: 30, height: 30)

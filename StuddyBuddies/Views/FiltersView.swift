@@ -11,7 +11,7 @@ struct FiltersView: View {
     
     @Environment(\.presentationMode) var presentationMode // for dismissing this view
     
-    @AppStorage("selectedCourse") var selectedCourse = Constants.currentUser?.Course ?? ""
+    @State var selectedCourse = "None"
     @AppStorage("selectedRange") var selectedRange = 50.0
     
     var completion: (_ course: String, _ range: Double)->()

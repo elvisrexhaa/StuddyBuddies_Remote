@@ -70,7 +70,11 @@ struct MainViewUI: View {
             }
             .onChange(of: viewModel.currentUser) { newValue in
                 guard newValue != nil else { return }
-                mainModel.getInitialUsers()
+                var range: Double?
+                if  UserDefaults.standard.object(forKey: "selectedRange") != nil {
+                    range = UserDefaults.standard.double(forKey: "selectedRange")
+                }
+                mainModel.getUnswipedUsers(course: nil, range: range)
             }
             
             

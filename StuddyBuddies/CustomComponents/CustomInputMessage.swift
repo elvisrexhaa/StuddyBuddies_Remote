@@ -15,8 +15,8 @@ struct CustomInputMessage: View {
             
             
             ZStack (alignment: .leading) {
-                RoundedRectangle(cornerRadius: 20, style: .circular)
-                    .foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .foregroundColor(.white.opacity(0.4))
                     .frame(width: 350, height: 100)
                 
                 HStack {

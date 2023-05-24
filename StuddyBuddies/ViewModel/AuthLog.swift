@@ -41,7 +41,6 @@ class AuthManager: ObservableObject { // the functions below will be required to
         self.currentUser = nil
         
         // remove filter values
-        UserDefaults.standard.removeObject(forKey: "selectedCourse")
         UserDefaults.standard.removeObject(forKey: "selectedRange")
         
         let auth = Auth.auth()

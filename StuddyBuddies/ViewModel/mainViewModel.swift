@@ -32,15 +32,15 @@ extension MainViewModel {
     //    }
     
     // get users after app starts
-    func getInitialUsers() {
-        // get values from user defaults
-        let course = UserDefaults.standard.string(forKey: "selectedCourse")
-        var range: Double?
-        if  UserDefaults.standard.object(forKey: "selectedRange") != nil {
-            range = UserDefaults.standard.double(forKey: "selectedRange")
-        }
-        getUnswipedUsers(course: course, range: range)
-    }
+//    func getInitialUsers() {
+//        // get values from user defaults
+//        let course = UserDefaults.standard.string(forKey: "selectedCourse")
+//        var range: Double?
+//        if  UserDefaults.standard.object(forKey: "selectedRange") != nil {
+//            range = UserDefaults.standard.double(forKey: "selectedRange")
+//        }
+//        getUnswipedUsers(course: course, range: range)
+//    }
     
     func getUnswipedUsers(course: String?, range: Double?) {
         
@@ -51,7 +51,7 @@ extension MainViewModel {
         let lat = currentUser.location?.lat
         let long = currentUser.location?.long
         let range = range ?? 50
-        let course = course ?? currentUser.Course
+        let course = course ?? "None"
         
         // show progress bar
         ProgressHUD.show()
@@ -80,7 +80,7 @@ extension MainViewModel {
             var ref: CollectionReference? = FirestoreRefs.usersListRef
             var query: Query?
             if course != "None" {
-                query = FirestoreRefs.usersListRef.whereField("Course", isEqualTo: course ?? "")
+                query = FirestoreRefs.usersListRef.whereField("Course", isEqualTo: course )
                 ref = nil
             }
             
