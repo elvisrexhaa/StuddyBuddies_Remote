@@ -70,14 +70,15 @@ struct ChangePasswordView: View {
             }
             .alert(isPresented: $showAlertDeleteAccount) {
                 Alert(
-                    title: Text("Success"),
-                    message: Text("Account has been successfully deleted"),
-                    dismissButton: .destructive(Text("OK"), action: {
+                    title: Text("Delete Account"),
+                    message: Text("Do you want to delete your account?"),
+                    primaryButton: .default(Text("Dismiss")),
+                    secondaryButton: .destructive(Text("Delete"), action: {
                         viewModel.logOut()
+                        
                     })
                 )
-            }
-            .frame(width: 400, height: 50)
+            }            .frame(width: 400, height: 50)
             .background(.red)
             .foregroundColor(.white)
             .cornerRadius(30)
