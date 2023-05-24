@@ -83,6 +83,7 @@ struct LoginUIView: View {
                 
                 
                 Button {
+                    
                     auth.login(withEmail: email, password: password)
                         
                     

@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8802B8972A098EAA00674C0B /* onBoarding_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8802B8962A098EAA00674C0B /* onBoarding_1.swift */; };
-		8802B8992A09A09200674C0B /* onBoarding_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8802B8982A09A09200674C0B /* onBoarding_2.swift */; };
-		8802B89B2A09A7C700674C0B /* onBoarding_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8802B89A2A09A7C700674C0B /* onBoarding_3.swift */; };
 		881340AB2A0BB88F0086C540 /* newMessageViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881340AA2A0BB88F0086C540 /* newMessageViewUI.swift */; };
 		881BDD0D299D300B007E6D93 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 881BDD0C299D300B007E6D93 /* FirebaseFirestoreSwift */; };
 		881E3CDF297EDF200093EA7E /* ProfilePhotoSelectorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */; };
@@ -60,6 +57,7 @@
 		889744092A14F524004BDA9C /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889744082A14F524004BDA9C /* FirestoreManager.swift */; };
 		8897440B2A14F781004BDA9C /* mainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8897440A2A14F781004BDA9C /* mainViewModel.swift */; };
 		8898595C2A16473F0090564D /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8898595B2A16473F0090564D /* FavouritesViewModel.swift */; };
+		889CF9332A1D961C0048F0A9 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CF9322A1D961C0048F0A9 /* SplashScreenView.swift */; };
 		88A0E31A2A1670FF006742EB /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 88A0E3192A1670FF006742EB /* ProgressHUD */; };
 		88A30E982A0C53D400472941 /* createNewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A30E972A0C53D400472941 /* createNewMessageViewModel.swift */; };
 		88B97B232A17EC6500085C04 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B97B222A17EC6500085C04 /* UpdateProfileView.swift */; };
@@ -77,9 +75,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8802B8962A098EAA00674C0B /* onBoarding_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoarding_1.swift; sourceTree = "<group>"; };
-		8802B8982A09A09200674C0B /* onBoarding_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoarding_2.swift; sourceTree = "<group>"; };
-		8802B89A2A09A7C700674C0B /* onBoarding_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoarding_3.swift; sourceTree = "<group>"; };
 		881340AA2A0BB88F0086C540 /* newMessageViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newMessageViewUI.swift; sourceTree = "<group>"; };
 		881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorUI.swift; sourceTree = "<group>"; };
 		883E00AB298AA0A7005241C2 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -126,6 +121,7 @@
 		889744082A14F524004BDA9C /* FirestoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		8897440A2A14F781004BDA9C /* mainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewModel.swift; sourceTree = "<group>"; };
 		8898595B2A16473F0090564D /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		889CF9322A1D961C0048F0A9 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		88A30E972A0C53D400472941 /* createNewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createNewMessageViewModel.swift; sourceTree = "<group>"; };
 		88B97B222A17EC6500085C04 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
 		88B97B242A17F91100085C04 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
@@ -244,9 +240,6 @@
 				881E3CDE297EDF200093EA7E /* ProfilePhotoSelectorUI.swift */,
 				883E00B32992CE92005241C2 /* CardUI.swift */,
 				883E00B729952B2F005241C2 /* settingsView.swift */,
-				8802B8962A098EAA00674C0B /* onBoarding_1.swift */,
-				8802B8982A09A09200674C0B /* onBoarding_2.swift */,
-				8802B89A2A09A7C700674C0B /* onBoarding_3.swift */,
 				88FC73B02A0A67B8008FD5F8 /* MessagesListViewUI.swift */,
 				881340AA2A0BB88F0086C540 /* newMessageViewUI.swift */,
 				88550CE52A0C73DB00157155 /* chatLogViewUI.swift */,
@@ -259,6 +252,7 @@
 				8860EFC12A1D2504003E78F1 /* PrivacyPolicyView.swift */,
 				8860EFC52A1D3D00003E78F1 /* TermsOfServiceView.swift */,
 				8860EFC72A1D3FD5003E78F1 /* FAQView.swift */,
+				889CF9322A1D961C0048F0A9 /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -419,7 +413,6 @@
 				8860EFAC2A1A2D73003E78F1 /* Constants.swift in Sources */,
 				8860EFAA2A1A2D35003E78F1 /* CustomInputCourse.swift in Sources */,
 				8860EFAE2A1A2F22003E78F1 /* LocationView.swift in Sources */,
-				8802B89B2A09A7C700674C0B /* onBoarding_3.swift in Sources */,
 				8860EFC22A1D2504003E78F1 /* PrivacyPolicyView.swift in Sources */,
 				88A30E982A0C53D400472941 /* createNewMessageViewModel.swift in Sources */,
 				883E00AC298AA0A7005241C2 /* CustomTabBar.swift in Sources */,
@@ -434,7 +427,7 @@
 				884D13682912A5A600461D11 /* CustomInputEmail.swift in Sources */,
 				8874743A29A3C93900BA125C /* UserProfile.swift in Sources */,
 				8860EFC02A1D22E6003E78F1 /* AboutStudyBuddiesView.swift in Sources */,
-				8802B8992A09A09200674C0B /* onBoarding_2.swift in Sources */,
+				889CF9332A1D961C0048F0A9 /* SplashScreenView.swift in Sources */,
 				883E00B42992CE92005241C2 /* CardUI.swift in Sources */,
 				88550CEB2A0C854400157155 /* newMessageModel.swift in Sources */,
 				884D137F2912BC8600461D11 /* ResetPasswordUI.swift in Sources */,
@@ -446,7 +439,6 @@
 				8860EFC42A1D2E3B003E78F1 /* Paragraph.swift in Sources */,
 				884D13592912A3B200461D11 /* StuddyBuddiesApp.swift in Sources */,
 				88EE45C2299A66880092EE13 /* User.swift in Sources */,
-				8802B8972A098EAA00674C0B /* onBoarding_1.swift in Sources */,
 				88550CE62A0C73DB00157155 /* chatLogViewUI.swift in Sources */,
 				881340AB2A0BB88F0086C540 /* newMessageViewUI.swift in Sources */,
 				88B97B232A17EC6500085C04 /* UpdateProfileView.swift in Sources */,

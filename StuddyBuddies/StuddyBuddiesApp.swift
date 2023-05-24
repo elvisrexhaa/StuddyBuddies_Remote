@@ -21,7 +21,8 @@ struct StuddyBuddiesApp: App {
         WindowGroup {
             NavigationView {
 //                ProfilePhotoSelectorUI()
-                ContentView()
+//                ContentView()
+                SplashScreenView()
 //                UpdateProfileView()
 //                onBoarding_3()
 //                SignUpView()
