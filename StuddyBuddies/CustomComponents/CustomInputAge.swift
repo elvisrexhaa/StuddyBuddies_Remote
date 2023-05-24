@@ -11,9 +11,9 @@ struct CustomInputAge: View {
     
     var body: some View {
         
-        VStack (alignment: .leading){
+        VStack {
             HStack {
-                Image (systemName: imageName)
+                Image (imageName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 25, height: 25)
@@ -33,7 +33,7 @@ struct CustomInputAge: View {
             
             Text("Note: You have to be over the age of 18")
                 .bold()
-                .foregroundColor(.red)
+                .foregroundColor(.white)
                 .padding(.horizontal)
                 .font(.system(size: 12))
         }

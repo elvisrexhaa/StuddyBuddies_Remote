@@ -13,13 +13,13 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode // for dismissing this view
     
     //declared state properties which will be used below for the sign up page
-    @State var email     : String = ""
-    @State var firstname : String = ""
-    @State var lastname  : String = ""
-    @State var username  : String = ""
-    @State var password  : String = ""
-    @State var age       : String = ""
-    @State var course    : String = "Computer Science"
+    @State var email: String = ""
+    @State var firstname: String = ""
+    @State var lastname: String = ""
+    @State var username: String = ""
+    @State var password: String = ""
+    @State var age: String = ""
+    @State var course: String = "Computer Science"
     @State var lat: Float = 0.0
     @State var long: Float = 0.0
     
@@ -48,23 +48,23 @@ struct SignUpView: View {
                         
                         CustomInputEmail(placeHolder: "First Name", text: $firstname, imageName: "person")
                             .foregroundColor(.white)
-                            .placeholder(when: email.isEmpty) {}
+                            .placeholder(when: firstname.isEmpty) {}
                         
                         CustomInputEmail(placeHolder: "Last Name", text: $lastname, imageName: "person.circle")
                             .foregroundColor(.white)
-                            .placeholder(when: email.isEmpty) {}
+                            .placeholder(when: lastname.isEmpty) {}
                         
                         CustomInputEmail(placeHolder: "Username", text: $username, imageName: "person")
                             .foregroundColor(.white)
-                            .placeholder(when: email.isEmpty) {}
+                            .placeholder(when: username.isEmpty) {}
                         
                         CustomInputPassword(placeHolder: "Password", text: $password, imageName: "lock.circle")
                             .foregroundColor(.white)
-                            .placeholder(when: email.isEmpty) {}
+                            .placeholder(when: password.isEmpty) {}
                         
-                        CustomInputAge(placeHolder: "Age", age: $age, imageName: "number.circle")
+                        CustomInputAge(placeHolder: "Age", age: $age, imageName: "age")
                             .foregroundColor(.white)
-                            .placeholder(when: email.isEmpty) {}
+                            .placeholder(when: age.isEmpty) {}
                         
                         CustomInputCourse(placeHolder: "Course", course: $course, imageName: "book")
                             .padding(.top, -20)
@@ -90,6 +90,7 @@ struct SignUpView: View {
     }
     
 }
+  
 
 extension SignUpView {
     

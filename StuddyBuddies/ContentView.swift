@@ -11,6 +11,8 @@ struct ContentView: View {
         
         if viewModel.userLogged == nil {
             LoginUIView()
+                .transition(.move(edge: .trailing))
+                .animation(.easeInOut(duration: 0.5))
                 
             
         } else {
