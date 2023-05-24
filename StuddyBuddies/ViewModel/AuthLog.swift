@@ -133,6 +133,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
             Firestore.firestore().collection("userData").document(uid)
                 .updateData(["profileImageUrl": profileImageUrl]) { _ in
                     self.userLogged = self.tempUserLogged
+                    self.fetchUserInfo()
                 }// find the correct user id for each profile pic
         }
     }
@@ -155,7 +156,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
         let db = Firestore.firestore()
         db.collection("userData").document(uid)
             .updateData(["Bio": bio]) { _ in
-                self.userLogged = self.tempUserLogged
+//                self.userLogged = self.tempUserLogged
             }
     }
     
@@ -218,9 +219,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
         }
         
         try await user.delete()
-        
-        
-        
+
         self.logOut()
         
     }
