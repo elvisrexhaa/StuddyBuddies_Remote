@@ -3,6 +3,7 @@ import Firebase
 import FirebaseAuth
 
 
+
 protocol AuthenticationProtocol {
     var authenticateButton: Bool { get }
 }
@@ -15,6 +16,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
     @Published var userLogged: FirebaseAuth.User?
     @Published var isActive = false
     @Published var showAlert: Bool = false
+    @Published var showAlertChangePasssowrd: Bool = false
+    @Published var showAlertDeleteAccount: Bool = false
     @Published var currentUser: User? //this value will always be nil so its optional as app loads quicker than data is fetched
     
     
@@ -54,6 +57,16 @@ class AuthManager: ObservableObject { // the functions below will be required to
         Auth.auth().signIn(withEmail: email, password: password) { Result, error in // sign in will either produce a result or an error and perform right activity depending on what occurs
             if error != nil { // checks to see if there is an error - if so, print this statement below
                 print("Could not login, \(error!.localizedDescription)")
+                
+                // Display an alert to the user
+                let alertController = UIAlertController(title: "Login Error", message: "Invalid email or password. Please check your credentials and try again.", preferredStyle: .alert)
+                let button = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+                alertController.addAction(button)
+                
+                if let window = UIApplication.shared.windows.first {
+                    window.rootViewController?.present(alertController, animated: true, completion: nil)
+                }
+                
                 return
             }
             guard let user = Result?.user else {return} // fast exist, if result is succesful then return user
@@ -156,7 +169,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
         let db = Firestore.firestore()
         db.collection("userData").document(uid)
             .updateData(["Bio": bio]) { _ in
-//                self.userLogged = self.tempUserLogged
+                //                self.userLogged = self.tempUserLogged
             }
     }
     
@@ -209,7 +222,7 @@ class AuthManager: ObservableObject { // the functions below will be required to
             }
         }
         
-        showAlert = true
+        self.showAlertChangePasssowrd = true
     }
     
     func deactivateAccount() async throws {
@@ -219,13 +232,15 @@ class AuthManager: ObservableObject { // the functions below will be required to
         }
         
         try await user.delete()
-
+        
+        self.showAlertDeleteAccount = true
         self.logOut()
         
     }
+    
 }
-    
-    
-    
-    
+
+
+
+
 

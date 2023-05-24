@@ -15,7 +15,8 @@ struct ChangePasswordView: View {
     @State private var currentPassword: String = ""
     @State private var newPassword: String = ""
     
-    @Binding var showAlert: Bool
+    @Binding var showAlertChangePassword: Bool
+    @Binding var showAlertDeleteAccount: Bool
     
     @EnvironmentObject var viewModel: AuthManager
     
@@ -45,7 +46,7 @@ struct ChangePasswordView: View {
                         .padding(.top)
                 }
             }
-            .alert(isPresented: $showAlert) {
+            .alert(isPresented: $showAlertChangePassword) {
                 Alert(
                     title: Text("Success"),
                     message: Text("Password successfully changed"),
@@ -67,11 +68,21 @@ struct ChangePasswordView: View {
             } label: {
                 Text("Delete Account")
             }
+            .alert(isPresented: $showAlertDeleteAccount) {
+                Alert(
+                    title: Text("Success"),
+                    message: Text("Account has been successfully deleted"),
+                    dismissButton: .destructive(Text("OK"), action: {
+                        viewModel.logOut()
+                    })
+                )
+            }
             .frame(width: 400, height: 50)
             .background(.red)
             .foregroundColor(.white)
             .cornerRadius(30)
             .padding(.top)
+            
             
             
             
