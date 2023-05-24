@@ -12,7 +12,7 @@ struct ContentView: View {
         if viewModel.userLogged == nil {
             LoginUIView()
                 .transition(.move(edge: .trailing))
-                .animation(.easeInOut(duration: 0.5))
+                .animation(.linear)
                 
             
         } else {
@@ -20,7 +20,9 @@ struct ContentView: View {
         }
 
     }
+        
 }
+    
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

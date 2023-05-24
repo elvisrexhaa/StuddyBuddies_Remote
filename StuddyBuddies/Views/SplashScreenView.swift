@@ -39,31 +39,35 @@ struct onBoardingScreen: View {
 
             if currentPage == 1 {
                 ScreenView(title: "Welcome to Study Buddies", image: "study", heading: "This is an App that will aid with finding Study Partners and form revision sessions!", bgColor: Color("Color1"))
-                    
+                    .transition(.scale)
                 
             }
             if currentPage == 2 {
                 
                 ScreenView(title: "Your Location will be used at all times when using the application", image: "location_2", heading: "Follow the steps and allow for your location to be accessed to use the application", bgColor: Color("Color2"))
-                    
+                    .transition(.scale)
             }
             
             if currentPage == 3 {
                 
                 ScreenView(title: "All Data shared with us is kept safe and only used for the applications purpose", image: "key", heading: "For more information on Legal issues, go to settings and read more", bgColor: Color("Color3"))
+                    .transition(.scale)
+                    
                     
             }
             
         }
-        .animation(.easeInOut(duration: 0.8))
+        .animation(.linear)
         .overlay(
             
             Button(action: {
                 
-                withAnimation(.easeInOut(duration: 0.5)){
+                withAnimation(.linear){
                     
                     if currentPage <= totalPages{
                         currentPage += 1
+                    } else {
+                        currentPage = 1
                     }
                 }
             }, label: {
@@ -125,9 +129,9 @@ struct ScreenView: View {
                         .font(.system(size: 70))
                 }
                 else{
-                    // Back Button...
+                    
                     Button(action: {
-                        withAnimation(.easeInOut(duration: 0.5)){
+                        withAnimation(.linear){
                             currentPage -= 1
                         }
                     }, label: {
@@ -144,7 +148,7 @@ struct ScreenView: View {
                 Spacer()
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 0.5)){
+                    withAnimation(.linear){
                         currentPage = totalPages + 1
                     }
                 }, label: {
