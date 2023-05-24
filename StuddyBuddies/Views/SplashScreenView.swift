@@ -38,19 +38,19 @@ struct onBoardingScreen: View {
         ZStack{
 
             if currentPage == 1 {
-                ScreenView(title: "Welcome to Study Buddies", image: "studytogether2", heading: "This is an App that will aid with finding Study Partners and form revision sessions!", bgColor: Color("Color1"))
+                ScreenView(title: "Welcome to Study Buddies", image: "study", heading: "This is an App that will aid with finding Study Partners and form revision sessions!", bgColor: Color("Color1"))
                     
                 
             }
             if currentPage == 2 {
                 
-                ScreenView(title: "Your Location will be used at all times when using the application", image: "locations", heading: "Follow the steps and allow for your location to be accessed to use the application", bgColor: Color("Color2"))
+                ScreenView(title: "Your Location will be used at all times when using the application", image: "location_2", heading: "Follow the steps and allow for your location to be accessed to use the application", bgColor: Color("Color2"))
                     
             }
             
             if currentPage == 3 {
                 
-                ScreenView(title: "All Data shared with us is kept safe and only used for the applications purpose", image: "privacypolicy_1", heading: "For more information on Legal issues, go to settings and read more", bgColor: Color("Color3"))
+                ScreenView(title: "All Data shared with us is kept safe and only used for the applications purpose", image: "key", heading: "For more information on Legal issues, go to settings and read more", bgColor: Color("Color3"))
                     
             }
             
@@ -153,7 +153,7 @@ struct ScreenView: View {
                         .kerning(1.2)
                 })
             }
-            .foregroundColor(.black)
+            .foregroundColor(.white)
             .padding()
             
             Spacer(minLength: 0)
@@ -164,7 +164,7 @@ struct ScreenView: View {
             
             Text(title)
                 .font(.system(size: 25, weight: .bold, design: .rounded))
-                .foregroundColor(.black)
+                .foregroundColor(.white)
                 .padding(.top)
                 .multilineTextAlignment(.center)
             
@@ -173,6 +173,7 @@ struct ScreenView: View {
                 .multilineTextAlignment(.center)
                 .font(.subheadline)
                 .kerning(1.2)
+                .foregroundColor(.white)
             
             Spacer(minLength: 120)
         }
