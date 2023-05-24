@@ -57,6 +57,8 @@ struct SignUpView: View {
                         CustomInputEmail(placeHolder: "Username", text: $username, imageName: "person")
                             .foregroundColor(.white)
                             .placeholder(when: username.isEmpty) {}
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
                         
                         CustomInputPassword(placeHolder: "Password", text: $password, imageName: "lock.circle")
                             .foregroundColor(.white)

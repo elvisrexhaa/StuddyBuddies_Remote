@@ -40,7 +40,7 @@ struct MainViewUI: View {
                     }
                 
                 
-                NavigationLink(destination: settingsView()) {
+                NavigationLink(destination: settingsView(showAlert: $viewModel.showAlert)) {
                     Image("settings1")
                         .resizable()
                         .scaledToFit()

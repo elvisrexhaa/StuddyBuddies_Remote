@@ -6,8 +6,10 @@ struct settingsView: View {
     
     @EnvironmentObject private var viewModel: AuthManager
     
+    @Binding var showAlert: Bool
+    
     var body: some View {
-
+        
         NavigationView {
             List {
                 Section(header: Text("Account")) {
@@ -18,11 +20,11 @@ struct settingsView: View {
                     
                     NavigationLink(destination: ChangePasswordView(showAlertChangePassword: $viewModel.showAlertChangePasssowrd, showAlertDeleteAccount: $viewModel.showAlertDeleteAccount)) {
                         Text("Change Password or Delete Account")
- 
+                        
                     }
                     
                     
-
+                    
                 }
                 
                 Section(header: Text("Legal")) {
@@ -50,31 +52,42 @@ struct settingsView: View {
                         
                         
                     }
-
+                    
                 }
                 
                 Section(header: Text("Resources and Information")) {
                     
                     Link("Well-being", destination: URL(string: "https://www.example.com")!)
-                                        .foregroundColor(.blue)
+                        .foregroundColor(.blue)
                     
                     Link("Academic Success", destination: URL(string: "https://www.example.com")!)
-                                        .foregroundColor(.blue)
+                        .foregroundColor(.blue)
                     
                     Link("Mental Health", destination: URL(string: "https://www.google.com")!)
-                                        .foregroundColor(.blue)
+                        .foregroundColor(.blue)
                 }
-
+                
                 Section(header: Text("Session")) {
                     VStack  {
                         Button(action: {
-                            viewModel.logOut()
+                            showAlert.toggle()
                         }) {
                             Text("Logout")
                                 .foregroundColor(.red)
                                 .frame(maxWidth: .infinity, alignment: .center) // set the width to infinity & align items in center.
                                 .font(.system(size: 20, weight: .regular, design: .rounded))
-
+                            
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Logout"),
+                                message: Text("Do you want to logout?"),
+                                primaryButton: .default(Text("Dismiss")),
+                                secondaryButton: .destructive(Text("Logout"), action: {
+                                    viewModel.logOut()
+                                    
+                                })
+                            )
                         }
                     }
                 }
@@ -90,16 +103,16 @@ struct settingsView: View {
                         Text("Study Buddies v1.0.0")
                     }
                 }
-
+                
                 
             }
             .navigationBarTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
-
+            
         }
-
+        
     }
-
+    
     
     //        Button {
     //            viewModel.logOut()
@@ -123,6 +136,6 @@ struct settingsView: View {
 
 struct settingsView_Previews: PreviewProvider {
     static var previews: some View {
-        settingsView()
+        settingsView(showAlert: .constant(true))
     }
 }

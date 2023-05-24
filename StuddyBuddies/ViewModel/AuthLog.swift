@@ -47,6 +47,8 @@ class AuthManager: ObservableObject { // the functions below will be required to
         let auth = Auth.auth()
         try? auth.signOut() // logout user from backend which in this case is firebase (Optional)
         
+        showAlert.toggle()
+        
         //        refreshMessageList.fetchRecentMessages()
         
     }
