@@ -29,8 +29,6 @@ struct LocationView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 25, height: 25)
-                    .padding(.leading)
-                
                 
                 
                 if lat != 0.0, long != 0.0 {
@@ -45,7 +43,7 @@ struct LocationView: View {
                 .symbolVariant (.fill)
                 .labelStyle (.titleAndIcon)
                 .foregroundColor (Color.white)
-                .cornerRadius (12)
+                .cornerRadius (10)
                 .font(.system(size: 12))
                 
             }

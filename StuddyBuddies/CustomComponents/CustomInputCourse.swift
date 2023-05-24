@@ -24,7 +24,7 @@ struct CustomInputCourse: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 25, height: 25)
-                    .padding(.leading)
+//                    .padding(.leading)
 
                 Picker("Select a Course", selection: $course) {
                     ForEach(Constants.courses, id: \.self) {
