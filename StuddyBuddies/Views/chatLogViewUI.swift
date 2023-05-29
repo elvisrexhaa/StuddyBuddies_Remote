@@ -222,7 +222,7 @@ struct MessageView : View {
                             .foregroundColor(.white)
                     }
                     .padding()
-                    .background(.gray)
+                    .background(.black)
                     .cornerRadius(10)
                     Spacer()
                 }

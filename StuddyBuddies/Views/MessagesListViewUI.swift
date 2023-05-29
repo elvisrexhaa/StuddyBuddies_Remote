@@ -13,9 +13,7 @@ class mainMessagesViewModel: ObservableObject {
     
     init(){
         fetchCurrentUser()
-        
         fetchRecentMessages()
-        
     }
     
     @Published var recentMessages = [RecentMessageModel]()

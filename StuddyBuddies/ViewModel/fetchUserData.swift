@@ -1,5 +1,3 @@
-
-
 import Firebase
 import FirebaseFirestoreSwift
 
@@ -19,6 +17,5 @@ struct UserService {
         print("Fetching user data")
     }
     
-
 }
 

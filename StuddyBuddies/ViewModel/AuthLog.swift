@@ -6,7 +6,6 @@ protocol AuthenticationProtocol {
     var authenticateButton: Bool { get }
 }
 
-
 class AuthManager: ObservableObject { // the functions below will be required to be used in multiple views - Observable object used
     
     @ObservedObject var refreshMessageList = mainMessagesViewModel()
@@ -45,8 +44,6 @@ class AuthManager: ObservableObject { // the functions below will be required to
         try? auth.signOut() // logout user from backend which in this case is firebase (Optional)
         
         showAlert.toggle()
-        
-        //        refreshMessageList.fetchRecentMessages()
         
     }
     
@@ -168,7 +165,6 @@ class AuthManager: ObservableObject { // the functions below will be required to
         let db = Firestore.firestore()
         db.collection("userData").document(uid)
             .updateData(["Bio": bio]) { _ in
-                //                self.userLogged = self.tempUserLogged
             }
     }
     

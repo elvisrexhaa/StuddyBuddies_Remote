@@ -74,6 +74,7 @@ struct ProfilePhotoSelectorUI: View {
                     .keyboardType(.default)
                     .padding(.horizontal, 40)
                     .offset(y: -140)
+                    .foregroundColor(.white)
                     .shadow(color: .gray.opacity(0.4), radius: 10, x: 0, y: 0)
 
                 if let selectedImage = selectedImage {

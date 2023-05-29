@@ -34,8 +34,13 @@ struct settingsView: View {
                         
                     }
                     NavigationLink(destination:  TermsOfServiceView()) {
-                        Text("Terms of Service")
-                        
+                        HStack {
+                            Image("terms")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                            Text("Terms of Service")
+                        }
                     }
                     NavigationLink(destination: AboutStudyBuddiesView()) {
                         Text("About Studdy Buddies")
@@ -43,7 +48,14 @@ struct settingsView: View {
                         
                     }
                     NavigationLink(destination: FAQView()) {
-                        Text("FAQ")
+                        HStack {
+                            Image("faq")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                            Text("FAQ")
+                        }
+
 
                     }
                     

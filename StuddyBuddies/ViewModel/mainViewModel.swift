@@ -74,10 +74,8 @@ extension MainViewModel {
                 self.usersList = list ?? []
                 
             }
-            
         }
     }
-    
 }
 
 
@@ -165,8 +163,7 @@ extension MainViewModel {
         }
     }
 }
-    
-    
+
     extension MainViewModel {
         
         private func isWithinKmRange(lat1: Float?, lon1: Float?, lat2: Float?, lon2: Float?, range: Double) -> Bool {

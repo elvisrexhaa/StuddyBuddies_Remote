@@ -25,11 +25,6 @@ class createNewMessageViewModel: ObservableObject {
                 }
                 
                 documents.forEach({ snapshot in
-//                    if let user = try? snapshot.data(as: messageListUsers.self),
-//                       let uid = FirebaseManager.shared.auth.currentUser?.uid,
-//                       user.uid != uid {
-//                        self.users.append(user)
-//                    }
                     let user = messageListUsers(data: snapshot.data())//try snapshot.data(as: messageListUsers.self)
                     if let uid = Auth.auth().currentUser?.uid,
                        user.uid != uid {

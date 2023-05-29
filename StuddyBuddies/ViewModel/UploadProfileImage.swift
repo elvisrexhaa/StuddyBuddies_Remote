@@ -1,11 +1,9 @@
-
 import Foundation
 import UIKit
 import FirebaseStorage
 
 struct UploadProfileImage {
-    
-    
+
     static func uploadImage(image: UIImage, completion: @escaping(String) -> Void) {
         
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {return} //grabs the image, compresses the image size by a half and assings to "imageData"
@@ -28,6 +26,5 @@ struct UploadProfileImage {
                 completion(imageUrl)
             }
         }
-        
     }
 }

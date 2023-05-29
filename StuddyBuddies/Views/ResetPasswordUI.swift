@@ -3,11 +3,13 @@ import Firebase
 
 struct ResetPasswordUI: View {
     
+    
     @State private var email: String = ""
     @Binding var showAlert: Bool
     
     @Environment (\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: AuthManager
+    
     
     var body: some View {
    
@@ -64,17 +66,19 @@ struct ResetPasswordUI: View {
                 }
                 
             }
+            
         }
         .navigationBarTitle("Reset Password Below")
         .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.large)
         
         
     }
 }
 
-//struct ResetPasswordUI_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ResetPasswordUI()
-//    }
-//}
+struct ResetPasswordUI_Previews: PreviewProvider {
+    static var previews: some View {
+        ResetPasswordUI(showAlert: .constant(true))
+    }
+}
 
